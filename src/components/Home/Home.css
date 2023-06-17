@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@300&family=Quattrocento&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@500;600&family=Hind:wght@300&family=Quattrocento&display=swap');
+
+.mision{
+    background-color: #FFFDE9;
+    height: 70vh;
+    color: black;
+    padding: 10vh;
+    
+}
+
+.titulos{
+    font-family: 'Quattrocento', serif;
+    font-weight: bold;
+    font-size: 7vh;
+
+}
+
+.parrafos{
+    font-family: 'Darker Grotesque', sans-serif;
+    padding-right: 20vh;
+    font-size: 3vh;
+   margin-bottom: 10vh;
+
+}
+
+.portada{
+    height: 70vh;
+    background-color: #F2E346;
+}
