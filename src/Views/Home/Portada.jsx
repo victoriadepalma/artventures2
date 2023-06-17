@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import esucltura from "../imagenes/escultura.png"
+import esucltura from "../../assets/imagenes/escultura.png"
+
 export const Portada = () => {
   return (
     <div className='portada'>
