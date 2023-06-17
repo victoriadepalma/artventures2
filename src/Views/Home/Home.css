@@ -26,13 +26,13 @@
 }
 
 .portada{
-    height: 70vh;
+    height: 78vh;
     background-color: #F2E346;
 }
 
 .localidades{
     background-color: #FFFDE9;
-    height: 70vh;
+    height: 72vh;
     color: black;
     padding: 10vh;
     position: relative;
@@ -77,4 +77,48 @@
     right: 62vh;
     top: 30vh;
     font-size: 2vh;
+}
+
+.escultura{
+
+    height: 85vh;
+    margin-left: 12vh;
+    margin-top: -7vh;
+}
+
+.aventuras{
+    position: absolute;
+    font-family: 'Quattrocento', serif;
+    top: 45vh;
+    left: 12vh;
+    color: black;
+    font-size: 7vh;
+    font-weight: bold;
+
+
+}
+
+.aventuras-info{
+    position: absolute;
+    font-family: 'Darker Grotesque', sans-serif;
+    top: 56vh;
+    left: 12vh;
+    color: black;
+    font-size: 2.5vh;
+    
+}
+
+button{
+    position: absolute;
+    background-color: black;
+    color:#FFFDE9;
+    height: 5vh;
+    width: 23vh;
+    border-color: black;
+    top: 68vh;
+    right: 141vh;
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 2vh;
+    border:none;
+    cursor: pointer;
 }

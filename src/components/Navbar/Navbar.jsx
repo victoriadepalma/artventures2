@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import logo from "../imagenes/logo2.png";
+import logo from "../../assets/imagenes/logo2.png";
 import "./Navbar.css"
 
 export const Navbar = () => {
@@ -16,7 +16,7 @@ export const Navbar = () => {
       <div className= "logo-container">
       <NavLink to = "/" > 
         <img src = {logo}></img>
-      ArtVentures </NavLink>
+      h1ArtVentures </NavLink>
        
       </div>
       <>

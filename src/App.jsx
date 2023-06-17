@@ -1,7 +1,7 @@
 import {  Routes, Route } from "react-router-dom"
 
 import React from "react"
-import { Router } from "./components/Routes/Router"
+import { Router } from "./Views/Routes/Router"
 
 
 function App() {

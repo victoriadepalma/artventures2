@@ -13,12 +13,15 @@
 .navbar-middle{
     text-align: center;
     font-size: 9vh;
+    margin-top: -8vh;
+ 
     
 
 }
 
 .navbar-middle a{
     margin-left: 0vh;
+    
 }
 
 .navbar-right {
@@ -39,6 +42,7 @@ nav a{
     color: black;
     font-family: 'Hind', sans-serif;
     font-family: 'Quattrocento', serif;
+  
     
     
 }
@@ -47,9 +51,3 @@ nav {
     padding: 3vh;
 }
 
-*{
-  
-
-    
-   
-}
