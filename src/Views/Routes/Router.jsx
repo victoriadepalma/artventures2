@@ -9,7 +9,7 @@ import { Signup } from "../Signup/Signup"
 import { Tours } from '../Tours/Tours'
 import { Home } from '../Home/Home'
 import { Footer } from '../../components/Footer/Footer'
-
+import { PayPage } from '../../Views/PayPage/PayPage'
 
 export const Router = () => {
   return (
@@ -22,6 +22,7 @@ export const Router = () => {
       <Route path="/book" element={<Book />} />
       <Route path="/login" element={<Login/>} />
       <Route path="/signup" element={<Signup/>} />
+      <Route path="/pay" element = {<PayPage/>}/>
     
     </Routes>
     <Footer/>
