@@ -6,6 +6,7 @@
     height: 70vh;
     color: black;
     padding: 10vh;
+   
     
 }
 
@@ -27,4 +28,53 @@
 .portada{
     height: 70vh;
     background-color: #F2E346;
+}
+
+.localidades{
+    background-color: #FFFDE9;
+    height: 70vh;
+    color: black;
+    padding: 10vh;
+    position: relative;
+    right: 0;
+    font-family: 'Quattrocento', serif;
+    font-size: 6vh;
+}
+
+.titulo-localidades{
+    position: absolute;
+    top: 4vh;
+    right: 45vh;
+    text-align: end;
+}
+
+.square{
+    position: absolute;
+    width: 40vh;
+    height: 50vh;
+    background-color: #F2E346;
+    right: 100vh;
+    border-top-left-radius: 20vh;
+    border-top-right-radius: 20vh;
+  
+}
+
+.imagen{
+    position: absolute;
+    width: 35vh;
+    height: 45vh;
+    right: 2.5vh;
+    top: 2vh;
+    border-top-left-radius: 20vh;
+    border-top-right-radius: 20vh;
+    object-fit: cover;
+}
+
+.info-l{
+    position: absolute;
+    width: 35vh;
+    height: 45vh;
+    right: 62vh;
+    top: 30vh;
+    font-size: 2vh;
 }
