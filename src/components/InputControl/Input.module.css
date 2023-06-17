@@ -1,0 +1,36 @@
+.container {
+  width: 402px;
+  height: 66px;
+  left: 663px;
+  top: 408px;
+  font-family: 'Darker Grotesque';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 43px;
+  line-height: 58px;
+  text-align: center;
+  color: #000000;
+  }
+  
+  .container label {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #313131;
+  }
+
+  .container input {
+    border-radius: 5px;
+    border: 1px solid #dddddd;
+    outline: none;
+    padding: 10px 15px;
+    color: #000;
+    
+  }
+
+  .container input:hover {
+    border-color: #ccc;
+  } 
+
+  .container input:focus {
+    border-color: #000;
+  }
