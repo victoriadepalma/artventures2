@@ -8,7 +8,7 @@ export const Portada = () => {
     <h1 className='aventuras'>Aventuras Unimet</h1>
     <p className='aventuras-info'>Una nueva forma de vivir el arte <br></br>
     universitario y divertirse</p>
-    <Link to = "/tours"><button>Empieza tu Viaje</button></Link>
+    <Link to = "/tours"><button className='b'>Empieza tu Viaje</button></Link>
     
     </div>
   )

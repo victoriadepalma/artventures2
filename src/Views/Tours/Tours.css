@@ -1,0 +1,44 @@
+.tour{
+    height: 100vh;
+    background-color: #FFFDE9;
+}
+
+.square-tour {
+    position: absolute;
+    margin-top: 25vh;
+    width: 40vh;
+    height: 50vh;
+    background-color: #F2E346;
+    right: 70vh;
+    z-index: 10;
+  }
+
+ .ver-mas-button{
+    
+    position: absolute;
+    background-color: black;
+    color:#FFFDE9;
+    height: 5vh;
+    width: 23vh;
+    border-color: black;
+    right: 30vh;
+    margin-top: 50vh;
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 2vh;
+    border:none;
+    cursor: pointer;
+ }
+
+
+ .tour-name{
+    position: absolute;
+    color: black;
+    font-size: 22vh;
+    font-family: 'Quattrocento', serif; 
+    right: 47vh;
+    z-index: 0;
+    margin-top: 62vh;
+ }
+ 
+
+ 

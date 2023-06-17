@@ -13,6 +13,7 @@ export const Footer = () => {
             <Link to="/tours"><p>TOURS</p></Link>
             <Link to="/events"><p>EVENTS</p></Link>
             <Link to="/book"><p>BOOK</p></Link>
+            <p className='contacto'>CONTACTO <br></br>+58 414-117-2157<br></br>ARTVENTURES@GMAIL.COM</p>
            
           
        

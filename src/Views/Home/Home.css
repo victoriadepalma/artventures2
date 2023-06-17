@@ -108,14 +108,14 @@
     
 }
 
-button{
+.b{
    
     background-color: black;
     color:#FFFDE9;
     height: 5vh;
     width: 23vh;
     border-color: black;
-    margin-left: 12vh; 
+    margin-left: 11vh; 
     font-family: 'Darker Grotesque', sans-serif;
     font-size: 2vh;
     border:none;
