@@ -16,7 +16,7 @@ export const Navbar = () => {
       <div className= "logo-container">
       <NavLink to = "/" > 
         <img src = {logo}></img>
-      h1ArtVentures </NavLink>
+      ArtVentures </NavLink>
        
       </div>
       <>
