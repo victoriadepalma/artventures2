@@ -27,8 +27,13 @@
     font-size: 2vh;
     border:none;
     cursor: pointer;
+    transition: 0.5s;
  }
 
+ .ver-mas-button:hover{
+    background-color: #F2E346;
+    color: black;
+ }
 
  .tour-name{
     position: absolute;

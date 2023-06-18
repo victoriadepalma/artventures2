@@ -10,6 +10,7 @@ export const Portada = () => {
     <p className='aventuras-info'>Una nueva forma de vivir el arte <br></br>
     universitario y divertirse</p>
     <Link to = "/tours"><button className='b'>Empieza tu Viaje</button></Link>
+    <div className='nuevo-container'>
     <p className='nuevo-evento-title'>Nuevo Evento</p>
     <p className='nuevo-evento'>Una sinfonia pictorica para <br></br> celebrar el Cincuentanario<br></br>  de la Unimet</p>
     <Aprende/>
@@ -18,7 +19,7 @@ export const Portada = () => {
     <Aprende/>
     <h1 className='plus'>+</h1>
     <h1 className='minus'>_</h1>
-    
+    </div>
     </div>
   )
 }

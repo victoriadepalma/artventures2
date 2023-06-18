@@ -141,6 +141,7 @@
     text-align: justify;
     font-family: 'FONTSPRING DEMO - The Seasons';
     font-weight: 700;
+   
 }
 
 .nuevo-evento-title{
@@ -208,4 +209,138 @@
     margin-left: 2vh;
     background-color: aqua;
     height: 0;
+}
+
+
+
+@media screen and (max-width:390px){
+    .escultura{
+
+        height: 25vh;
+        margin-left: 3vh;
+        margin-top: 15vh;
+    }
+
+    .portada{
+        height: 40vh;
+        background-color: #F2E346;
+    }
+    
+
+    .aventuras{
+    position: absolute;
+    font-family: 'FONTSPRING DEMO - The Seasons';
+    top: 35vh;
+    left: 2vh;
+    color: black;
+    font-size: 2.5vh;
+    font-weight: bold;
+    margin-bottom: 2vh;
+        width: 2vh;
+        line-height: 3vh;
+
+}
+
+ 
+
+    .aventuras-info{
+
+    font-family: 'Darker Grotesque', sans-serif;
+    margin-top: -27vh;
+    margin-left: 1.3vh;
+        width: 18vh;
+    color: black;
+    font-size: 2vh;
+   line-height: 2vh;
+   
+    
+}
+
+.b{
+    height: 4vh;
+    width: 13vh;
+    margin-left: 2vh; 
+    font-size: 1.7vh;
+}
+
+.nuevo-evento{
+    position: relative;
+    color:black;
+    margin-left: 30vh;
+    text-align: justify;
+    font-family: 'FONTSPRING DEMO - The Seasons';
+    font-weight: 700;
+    font-size: 1.5vh;
+    width: 10vh;
+}
+.nuevo-evento-title{
+    position: relative;
+    color:black;
+    margin-top: -26vh;
+    margin-left: 30vh;
+    text-align: justify;
+    font-size: 2vh;
+   
+  
+    margin-bottom: -2vh;
+    font-family: 'Darker Grotesque', sans-serif;
+
+}
+
+.sentimiento{
+    position: relative;
+    color:black;
+    margin-top: 2.5vh;
+    margin-left: 30vh;
+    text-align: justify;
+    font-family: 'FONTSPRING DEMO - The Seasons';
+    width: 13vh;
+    font-weight: 700;
+    font-size: 1.5vh;
+    
+}
+
+.sentimiento-title{
+    position: relative;
+    color:black;
+    margin-top: 2vh;
+    margin-left: 30vh;
+    text-align: justify;
+    font-size: 2vh;
+    line-height: 1.5vh;
+    margin-bottom: -2vh;
+    font-family: 'Darker Grotesque', sans-serif;
+    width: 15vh;
+}
+    
+.aprende-mas{
+    position: relative;
+    color:#5290D1;
+    margin-top: -2vh;
+    margin-left: 30vh;
+    text-align: justify;
+    font-size: 1.7vh;
+    margin-bottom: 0vh;
+    font-family: 'FONTSPRING DEMO - The Seasons';
+    border-bottom: 0.5vh solid white;
+    width: 10vh;
+}
+
+.plus{
+    position: relative;
+    font-weight: bold;
+    font-size: 5vh;
+    margin-top: -36vh;
+    margin-left: 29vh;
+  
+}
+
+.minus{
+    position: relative;
+    font-size: 5vh;
+    margin-top: -10vh;
+    margin-left: 0vh;
+    background-color: aqua;
+    height: 0;
+}
 }
