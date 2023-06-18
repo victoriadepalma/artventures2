@@ -121,6 +121,17 @@
     font-size: 2vh;
     border:none;
     cursor: pointer;
+    transition: 0.5s;
+ 
+  
+}
+
+.b:hover{
+
+    background-color: white;
+    color: black;
+
+  
 }
 
 .nuevo-evento{
@@ -149,6 +160,8 @@
     margin-left: 120vh;
     text-align: justify;
     font-family: 'FONTSPRING DEMO - The Seasons';
+    width: 30vh;
+    
 }
 
 .sentimiento-title{

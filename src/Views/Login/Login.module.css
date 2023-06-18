@@ -26,6 +26,7 @@
     color: black;
     font-family: 'Darker Grotesque', sans-serif;
     font-size: 2.5vh;
+    transition: 0.5s;
 }
 .boton{
     position: absolute;
@@ -37,6 +38,7 @@
     border: none;
     font-family: 'Darker Grotesque', sans-serif;
     font-size: 2.5vh;
+    transition: 0.5s;
    
 }
   .innerBox {
@@ -71,6 +73,7 @@
   
   .footer button:hover {
     background-color: gray;
+    color: black
   }
   
   .footer p {
@@ -85,6 +88,10 @@
     text-decoration: underline;
     color: gray;
   
+  }
+
+  .footer p span a:hover{
+    color: #F2E346;
   }
 
 
