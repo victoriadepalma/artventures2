@@ -44,30 +44,29 @@ export function Login() {
   return (
     <div className={styles.container}>
       <div className={styles.innerBox}>
-        <h1 className={styles.heading}>Iniciar Sesion</h1>
+        <h1 className={styles.heading}>INICIAR SESION</h1>
         <InputControl
-          label="Email"
+          label=""
           onChange={(event) =>
             setValues((prev) => ({ ...prev, email: event.target.value }))
           }
-          placeholder="Ingrese su correo"
+          placeholder="EMAIL"
         />
         <InputControl
-          label="Contraseña"
+          label=""
           onChange={(event) =>
             setValues((prev) => ({ ...prev, pass: event.target.value }))
           }
-          placeholder="Ingrese su contraseña"
+          placeholder="CONTRASEÑA"
         />
 
         <div className={styles.footer}>
         <b className={styles.error}>{errorMsg}</b>
-        <button className={styles.google} onClick={signinWithGoogle}>Iniciar sesion con google</button>
-        <button className={styles.boton} onClick={Iniciar} disabled={submitButtonDisabled}>iniciar Sesion</button>
+        <button className={styles.google} onClick={signinWithGoogle}>Log in with Google</button>
+        <button className={styles.boton} onClick={Iniciar} disabled={submitButtonDisabled}>Iniciar</button>
           <p>
-            Crear cuenta
-            <span>
-              <Link to="/signup"> ir</Link>
+          ¿No te has registrado? Crea una nueva cuenta <span>
+              <Link to="/signup">aqui</Link>
             </span>
           </p>
         </div>

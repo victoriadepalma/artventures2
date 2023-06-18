@@ -45,24 +45,24 @@ const signinWithGoogle = async () =>{
   return (
     <div className={styles.container}>
       <div className={styles.innerBox}>
-        <h1 className={styles.heading}>Registro</h1>
+        <h1 className={styles.heading}>REGISTRO</h1>
         <InputControl
-          label="Nombre"
-          placeholder="Ingrese un nombre"
+          label=""
+          placeholder="NOMBRE"
           onChange={(event) =>
             setvalues((prev) => ({ ...prev, name: event.target.value }))
           }
         />
         <InputControl
-          label="Email"
-          placeholder="Ingrese un correo"
+          label=""
+          placeholder="EMAIL"
           onChange={(event) =>
             setvalues((prev) => ({ ...prev, email: event.target.value }))
           }
         />
         <InputControl
-          label="Contraseña"
-          placeholder="Ingrese una contraseña"
+          label=""
+          placeholder="CONTRASEÑA"
           onChange={(event) =>
             setvalues((prev) => ({ ...prev, pass: event.target.value }))
           }
@@ -70,13 +70,12 @@ const signinWithGoogle = async () =>{
         <div className={styles.footer}>
           <b className={styles.error}>{errorMsg}</b>
           <button onClick={registro} disabled={submitButtonDisabled}>
-            Guardar
+            Registrarme
           </button>
-          <button onClick={signinWithGoogle}>Registrate con google</button>
+          <button onClick={signinWithGoogle}>Registrarme con google</button>
           <p>
-            Si ya tienes una cuenta inicia sesión
-            <span>
-              <Link to="/login"> Login</Link>
+          ¿Ya tienes una cuenta? Inicia sesión <span>
+              <Link to="/login">aqui</Link>
             </span>
           </p>
         </div>
