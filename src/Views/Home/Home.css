@@ -189,4 +189,6 @@
     font-size: 15vh;
     margin-top: -50vh;
     margin-left: 2vh;
+    background-color: aqua;
+    height: 0;
 }

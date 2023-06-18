@@ -38,9 +38,6 @@ export function Login() {
         console.error(error);
     }
  };
-
-
-
   return (
     <div className={styles.container}>
       <div className={styles.innerBox}>

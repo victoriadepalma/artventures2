@@ -2,15 +2,17 @@
 
 .logo-container img{
     width: 10vh;
+ 
 }
 
 .logo-container a{
     font-size: 3.5vh;
- 
-  
 }
 
-
+.logo-container{
+   
+    width: 30vh;
+}
 .navbar-middle{
     text-align: center;
     font-size: 9vh;
@@ -21,7 +23,7 @@
 }
 
 .navbar-middle a{
-    margin-left: 0vh;
+    margin-left: 3vh;
     
 }
 

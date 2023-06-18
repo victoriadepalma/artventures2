@@ -4,12 +4,8 @@ import logo from "../../assets/imagenes/logo2.png";
 import "./Navbar.css"
 
 export const Navbar = () => {
-  const navLinktyles = ({ isActive }) => {
-    return {
-      fontWeight: isActive ? "bold" : "normal",
-      testDecoration: isActive ? "none" : "underline",
-    };
-  };
+ 
+  
   return (
     
     <nav>
@@ -21,15 +17,15 @@ export const Navbar = () => {
       </div>
       <>
       <div className= "navbar-middle">
-        <NavLink style={navLinktyles} to="/tours">  Tours </NavLink>
-        <NavLink style={navLinktyles} to="/events">  Events </NavLink>
-        <NavLink style={navLinktyles} to="/book">  Book </NavLink>
+        <NavLink to="/tours">  Tours </NavLink>
+        <NavLink to="/events">  Events </NavLink>
+        <NavLink  to="/book">  Book </NavLink>
       </div>
       </>
 
       <div className='navbar-right'>
-        <NavLink style={navLinktyles} to="/login">  Iniciar Sesión </NavLink>
-        <NavLink style={navLinktyles} to="/signup">  Registrarse </NavLink>
+        <NavLink  to="/login">  Iniciar Sesión </NavLink>
+        <NavLink  to="/signup">  Registrarse </NavLink>
 
        
        

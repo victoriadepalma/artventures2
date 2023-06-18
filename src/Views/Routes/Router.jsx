@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 
 import { Login } from '../Login/Login'
-import { Navbar } from '../../components/Navbar/Navbar'
+
 import { Events } from "../Events/Events"
 import { Book } from "../Book/Book"
 import { Signup } from "../Signup/Signup"
