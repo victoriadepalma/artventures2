@@ -11,7 +11,7 @@
 }
 
 .titulos{
-    font-family: 'Quattrocento', serif;
+    font-family: 'FONTSPRING DEMO - The Seasons';
     font-weight: bold;
     font-size: 7vh;
 
@@ -37,7 +37,7 @@
     padding: 10vh;
     position: relative;
     right: 0;
-    font-family: 'Quattrocento', serif;
+    font-family: 'FONTSPRING DEMO - The Seasons';
     font-size: 6vh;
 }
 
@@ -88,12 +88,13 @@
 
 .aventuras{
     position: absolute;
-    font-family: 'Quattrocento', serif;
+    font-family: 'FONTSPRING DEMO - The Seasons';
     top: 45vh;
     left: 12vh;
     color: black;
     font-size: 7vh;
     font-weight: bold;
+    margin-bottom: 2vh;
 
 
 }
@@ -101,15 +102,15 @@
 .aventuras-info{
 
     font-family: 'Darker Grotesque', sans-serif;
-    margin-top: -44vh;
+    margin-top: -42vh;
     margin-left: 11.5vh;
     color: black;
     font-size: 2.5vh;
+   
     
 }
 
 .b{
-   
     background-color: black;
     color:#FFFDE9;
     height: 5vh;
@@ -122,3 +123,70 @@
     cursor: pointer;
 }
 
+.nuevo-evento{
+    position: relative;
+    color:black;
+    margin-left: 120vh;
+    text-align: justify;
+    font-family: 'FONTSPRING DEMO - The Seasons';
+}
+
+.nuevo-evento-title{
+    position: relative;
+    color:black;
+    margin-top: -30vh;
+    margin-left: 120vh;
+    text-align: justify;
+    font-size: 3.5vh;
+    margin-bottom: -2vh;
+    font-family: 'Darker Grotesque', sans-serif;
+
+}
+
+.sentimiento{
+    position: relative;
+    color:black;
+    margin-left: 120vh;
+    text-align: justify;
+    font-family: 'FONTSPRING DEMO - The Seasons';
+}
+
+.sentimiento-title{
+    position: relative;
+    color:black;
+    margin-top: 2vh;
+    margin-left: 120vh;
+    text-align: justify;
+    font-size: 3.5vh;
+    margin-bottom: -2vh;
+    font-family: 'Darker Grotesque', sans-serif;
+}
+
+.aprende-mas{
+    position: relative;
+    color:#5290D1;
+    margin-top: -2vh;
+    margin-left: 120vh;
+    text-align: justify;
+    font-size: 3vh;
+    margin-bottom: 0vh;
+    font-family: 'FONTSPRING DEMO - The Seasons';
+    border-bottom: 0.5vh solid white;
+    width: 18vh;
+}
+
+.plus{
+    position: relative;
+    font-weight: bold;
+    font-size: 15vh;
+    margin-top: -54vh;
+    margin-left: 117vh;
+  
+}
+
+.minus{
+    position: relative;
+    font-size: 15vh;
+    margin-top: -50vh;
+    margin-left: 2vh;
+}

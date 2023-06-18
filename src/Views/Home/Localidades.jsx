@@ -1,5 +1,5 @@
 import React from 'react'
-import biblioteca from "../../assets/imagenes/biblioteca.jpg"
+import biblioteca from"../../assets/imagenes/biblioteca.jpg"
 
 export const Localidades = () => {
   return (
