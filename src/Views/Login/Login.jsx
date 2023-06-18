@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { googleProvider } from "../../firebase/config";
 import { signInWithPopup } from "firebase/auth";
+import { LogoN } from "../../components/Navbar/LogoN";
 
 export function Login() {
   const navigate = useNavigate();
@@ -39,8 +40,12 @@ export function Login() {
     }
  };
   return (
+    <>
+    <LogoN/>
     <div className={styles.container}>
+  
       <div className={styles.innerBox}>
+      
         <h1 className={styles.heading}>INICIAR SESION</h1>
         <InputControl
           label=""
@@ -69,5 +74,6 @@ export function Login() {
         </div>
       </div>
     </div>
+    </>
   );
 }

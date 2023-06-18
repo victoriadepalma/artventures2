@@ -11,7 +11,7 @@ export const Portada = () => {
     universitario y divertirse</p>
     <Link to = "/tours"><button className='b'>Empieza tu Viaje</button></Link>
     <p className='nuevo-evento-title'>Nuevo Evento</p>
-    <p className='nuevo-evento'>Una sinfonía pictórica para <br></br> celebrar el Cincuentanario<br></br>  de la Unimet</p>
+    <p className='nuevo-evento'>Una sinfonia pictorica para <br></br> celebrar el Cincuentanario<br></br>  de la Unimet</p>
     <Aprende/>
     <p className='sentimiento-title'>Sentimiento Unimetano</p>
     <p className='sentimiento'>Estatua al fundador Eugenio<br></br>Mendoza </p>

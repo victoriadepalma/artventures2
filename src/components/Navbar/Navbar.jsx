@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import logo from "../../assets/imagenes/logo2.png";
+import { LogoN } from './LogoN';
 import "./Navbar.css"
 
 export const Navbar = () => {
@@ -9,12 +10,14 @@ export const Navbar = () => {
   return (
     
     <nav>
-      <div className= "logo-container">
-      <NavLink to = "/" > 
-        <img src = {logo}></img>
-      ArtVentures </NavLink>
-       
-      </div>
+      {/* <div className= "logo-container">
+      <NavLink to = "/" >  <img src = {logo}></img> </NavLink>
+      <div className="logo-text">  
+         <NavLink to = "/" >  ArtVentures </NavLink> 
+         </div>
+      </div> */}
+     
+      <LogoN/>
       <>
       <div className= "navbar-middle">
         <NavLink to="/tours">  Tours </NavLink>
