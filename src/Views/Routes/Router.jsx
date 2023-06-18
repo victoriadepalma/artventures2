@@ -9,7 +9,7 @@ import { Signup } from "../Signup/Signup"
 import { Tours } from '../Tours/Tours'
 import { Home } from '../Home/Home'
 import { Footer } from '../../components/Footer/Footer'
-import { PayPage } from '../../Views/PayPage/PayPage'
+import PayPage from '../../Views/PayPage/PayPage'
 
 export const Router = () => {
   return (

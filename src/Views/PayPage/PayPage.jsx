@@ -1,31 +1,36 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { PayPalButton, PayPalScriptProvider } from "react-paypal-button-v2";
+import { loadScript } from "@paypal/paypal-js";
+import styles from "./PayPage.css"
+import { findDOMNode } from "react-dom";
 
-const PayPalButton = window.paypal.Buttons.driver("react", {React, ReactDOM});
-
-export default function PayPage(){
-    const createOrder = (data, actions) => {
-        return actions.order.create({
-
-                purchase_units: [
-                    {
-                        amount:{
-                            value:"0.01"
-                        }
-                    }
-                ]
-        });
-
-    };
-    const onApprove= (data, actions) => {
-        return actions.order.capture();
-    };
-    return (
-    <div className = "PayPage">
-        <PayPalButton
-            createOrder = {(data, actions) => createOrder(data,actions)}
-            onApprove = {(data, actions) => onApprove(data, actions)}
-        />  
-    </div>
-    );
+export default function PayPage() {
+    const paypalOptions = {
+        clientId: 'AV11zbDBLN2DMkgKJz8K79UNI1odjmTaTaYM4tmHLx_wYB7_PBLMuWSF86n4pe1wUcDBPr737McZAMVl',
+        currency: 'USD'
+      };
+      
+      const onSuccess = (payment) => {
+        console.log('Pago completado correctamente!', payment);
+      };
+      
+      const onError = (error) => {
+        console.error('Hubo un error al procesar el pago: ', error);
+      };
+      
+      const onCancel = (data) => {
+        console.log('Pago cancelado por el usuario: ', data);
+      };
+      
+      return (
+        <div className= {styles.payContainer} >
+          <PayPalButton
+            amount="10.00"
+            onSuccess={onSuccess}
+            onError={onError}
+            onCancel={onCancel}
+            options={paypalOptions}
+          />
+        </div>
+      );
 }
-
