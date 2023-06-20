@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { googleProvider } from "../../firebase/config";
 import { signInWithPopup } from "firebase/auth";
+import { LogoN } from "../../components/Navbar/LogoN";
 
 export function Signup() {
   const navigate = useNavigate();
@@ -43,6 +44,8 @@ const signinWithGoogle = async () =>{
       });
   };
   return (
+    <>
+    <LogoN/>
     <div className={styles.container}>
       <div className={styles.innerBox}>
         <h1 className={styles.heading}>REGISTRO</h1>
@@ -52,10 +55,24 @@ const signinWithGoogle = async () =>{
           onChange={(event) =>
             setvalues((prev) => ({ ...prev, name: event.target.value }))
           }
+          />
+        <InputControl
+          label=""
+          placeholder="APELLIDO"
+          onChange={(event) =>
+            setvalues((prev) => ({ ...prev, email: event.target.value }))
+          }
         />
         <InputControl
           label=""
           placeholder="EMAIL"
+          onChange={(event) =>
+            setvalues((prev) => ({ ...prev, email: event.target.value }))
+          }
+          />
+        <InputControl
+          label=""
+          placeholder="TELEFONO"
           onChange={(event) =>
             setvalues((prev) => ({ ...prev, email: event.target.value }))
           }
@@ -69,10 +86,10 @@ const signinWithGoogle = async () =>{
         />
         <div className={styles.footer}>
           <b className={styles.error}>{errorMsg}</b>
-          <button onClick={registro} disabled={submitButtonDisabled}>
+          <button className={styles.boton} onClick={registro} disabled={submitButtonDisabled}>
             Registrarme
           </button>
-          <button onClick={signinWithGoogle}>Registrarme con google</button>
+          <button className={styles.google}  onClick={signinWithGoogle}>Registrarme con google</button>
           <p>
           ¿Ya tienes una cuenta? Inicia sesión <span>
               <Link to="/login">aqui</Link>
@@ -81,5 +98,6 @@ const signinWithGoogle = async () =>{
         </div>
       </div>
     </div>
+    </>
   );
 }

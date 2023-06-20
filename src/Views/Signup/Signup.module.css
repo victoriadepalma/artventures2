@@ -1,10 +1,12 @@
 .container {
-  height: 110vh;
+  height: 150vh;
   min-height: 100vh;
+
   width: 100%;
-  display: flex;
+
   justify-content: center;
   align-items: center;
+
   background-color: #FFFDE9;
 }
 .heading{
@@ -13,25 +15,42 @@
   font-style: normal; 
   font-size: 17vh;
   margin-top: 0vh;
-  color: #000000;   
+  color: #000000;  
+  text-align: center;
+  margin-left: 42vh; 
+  margin-bottom: 0;
 }
 .google{
-    position: absolute;
-    width: 345px;
-    height: 73px;
-    left: 691px;
-    top: 654px;
+  position: absolute;
+  width: 40vh;
+  height: 8vh;
+  left: 68vh;
+  top: 115vh;
+  background-color: #F2E346;
+  border: none;
+  color: black;
+  font-family: 'Darker Grotesque', sans-serif;
+  font-size: 2.5vh;
+  transition: 0.5s;
+    
 
 
 
 }
 
 .boton{
-    position: absolute;
-    width: 348px;
-    height: 89px;
-    left: 690px;
-    top: 799px;
+  position: absolute;
+  width: 40vh;
+  height: 8vh;
+  left: 68vh;
+  top: 126vh;
+  background-color: black;
+  color: white;
+  border: none;
+  font-family: 'Darker Grotesque', sans-serif;
+  font-size: 2.5vh;
+  transition: 0.5s;
+    
 
 }
 .innerBox {
@@ -50,6 +69,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
+    font-family: 'Darker Grotesque', sans-serif;
 
   }
   
@@ -71,13 +91,19 @@
   .footer p {
     font-weight: 700;
     color: #000;
+    font-size: 3vh;
+    margin-left: 47vh; 
+    margin-top: -6vh;
+    text-align: center;
     
   }
   
   .footer p span a {
     font-weight: bold;
     letter-spacing: 1px;
-    font-size: 1rem;
+    font-size: 3vh;
     text-decoration: none;
+  
+    
   
 }

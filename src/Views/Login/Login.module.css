@@ -35,6 +35,7 @@
     left: 41vh;
     top: 20vh;
     background-color: black;
+    color: white;
     border: none;
     font-family: 'Darker Grotesque', sans-serif;
     font-size: 2.5vh;
@@ -73,11 +74,12 @@
   
   .footer button:hover {
     background-color: gray;
-    color: black
+    color: white;
   }
   
   .footer p {
     font-weight: 700;
+    
     color: #000;
   }
   
