@@ -13,10 +13,10 @@ export const Portada = () => {
     <div className='nuevo-container'>
     <p className='nuevo-evento-title'>Nuevo Evento</p>
     <p className='nuevo-evento'>Una sinfonia pictorica para <br></br> celebrar el Cincuentanario<br></br>  de la Unimet</p>
-    <Aprende/>
+    <a href="https://www.unimet.edu.ve/una-sinfonia-pictorica-para-celebrar-el-cincuentenario-de-la-unimet/" target={"_black"}><Aprende/> </a>
     <p className='sentimiento-title'>Sentimiento Unimetano</p>
     <p className='sentimiento'>Estatua al fundador Eugenio<br></br>Mendoza </p>
-    <Aprende/>
+    <a href="http://bibliobytes.unimet.edu.ve/numero2/peq-historia.htm"target={"_black"}><Aprende/></a>
     <h1 className='plus'>+</h1>
     <h1 className='minus'>_</h1>
     </div>

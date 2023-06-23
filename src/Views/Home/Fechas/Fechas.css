@@ -1,0 +1,59 @@
+.fechas{
+    background-color: #FFFDE9;
+    height: 70vh;
+    color: black;
+    padding: 15vh 0;
+    position: relative;
+    font-family: 'FONTSPRING DEMO - The Seasons';
+    font-size: 6vh;
+    display: flex;
+    width: 100vw;
+    min-width: 100vw;
+
+}
+
+.titulo-fechas{
+    position: absolute;
+    top: 9vh;
+    right: 70vh;
+    text-align: end;
+}
+
+.square{
+    position: absolute;
+    width: 45vh;
+    height: 60vh;
+    background-color: #F2E346;
+    right: 100vh;
+    border-top-left-radius: 30vh;
+    border-top-right-radius: 30vh;
+  
+}
+
+.imagen{
+    position: absolute;
+    width: 40vh;
+    height: 55vh;
+    right: 3vh;
+    top: 2vh;
+    border-top-left-radius: 30vh;
+    border-top-right-radius: 30vh;
+    object-fit: cover;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top:50%;
+}
+
+.info-f{
+    position: absolute;
+    width: 40vh;
+    height: 45vh;
+    right: 10vh;
+    top: 67vh;
+    font-size: 3vh;
+    line-height: 4.5vh;
+    color: #5290D1;
+    text-decoration: underline;
+    text-decoration-color:  #FBCCFA;
+    
+}
