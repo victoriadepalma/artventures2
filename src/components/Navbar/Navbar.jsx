@@ -29,6 +29,7 @@ export const Navbar = () => {
       <div className='navbar-right'>
         <NavLink  to="/login">  Iniciar Sesión </NavLink>
         <NavLink  to="/signup">  Registrarse </NavLink>
+        <NavLink to="/editar-perfil"> Editar Perfil</NavLink>
 
        
        

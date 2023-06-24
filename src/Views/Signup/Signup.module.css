@@ -25,25 +25,30 @@
   width: 40vh;
   height: 8vh;
   left: 68vh;
-  top: 115vh;
+  top: 122vh;
   background-color: #F2E346;
   border: none;
   color: black;
   font-family: 'Darker Grotesque', sans-serif;
   font-size: 2.5vh;
   transition: 0.5s;
-    
-
-
 
 }
 
+.imggoogle{
+  position: absolute;
+  width: 5vh;
+  height: 5vh;
+  left: 2.8vh;
+  top: 1.5vh;
+  
+}
 .boton{
   position: absolute;
   width: 40vh;
   height: 8vh;
   left: 68vh;
-  top: 126vh;
+  top: 132vh;
   background-color: black;
   color: white;
   border: none;
@@ -102,8 +107,13 @@
     font-weight: bold;
     letter-spacing: 1px;
     font-size: 3vh;
-    text-decoration: none;
-  
+    text-decoration: underline;
+    color: gray;
+
     
   
+}
+
+.footer p span a:hover{
+  color: #F2E346;
 }

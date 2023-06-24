@@ -89,7 +89,7 @@ const signinWithGoogle = async () =>{
           <button className={styles.boton} onClick={registro} disabled={submitButtonDisabled}>
             Registrarme
           </button>
-          <button className={styles.google}  onClick={signinWithGoogle}>Registrarme con google</button>
+          <button className={styles.google}  onClick={signinWithGoogle}><img className = {styles.imggoogle} src="https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-png-logo-noir.png"></img>Registrarme con google</button>
           <p>
           ¿Ya tienes una cuenta? Inicia sesión <span>
               <Link to="/login">aqui</Link>

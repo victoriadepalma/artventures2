@@ -10,12 +10,12 @@
     font-size: 3.5vh;
     font-family: 'FONTSPRING DEMO - The Seasons';
     color: black;
-    
+   
 }
 
 .logo-container{
    
-    width: 30vh;
+    width: 40vh;
 }
 
 .logo-text{
@@ -42,16 +42,17 @@
 .navbar-right {
     position: absolute;
     top: 6vh;
-    right: 10vh;
+    right: 7vh;
     text-align: end;
 
 
   }
 
   .navbar-right a {
-    margin-left: 5vh;
+    margin-left: 3vh;
     font-family: 'Darker Grotesque', sans-serif;
     font-size: 2.2vh;
+
   }
 
 
@@ -114,6 +115,7 @@ nav a:hover{
         top: 5.5vh;
         right: 4.5vh;
         text-align: end;
+        line-height: 2.5vh;
     
     
       }

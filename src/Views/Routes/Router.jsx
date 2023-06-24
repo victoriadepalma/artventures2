@@ -9,6 +9,10 @@ import { Signup } from "../Signup/Signup"
 import { Tours } from '../Tours/Tours'
 import { Home } from '../Home/Home'
 import { Footer } from '../../components/Footer/Footer'
+import { Edit_Profile } from '../Edit_Profile/Edit_Profile'
+import { Pinceladas } from '../Book/Pinceladas/Pinceladas'
+import { Rutas } from '../Book/Rutas/Rutas'
+import { Caminando } from '../Book/Caminando/Caminando'
 
 
 
@@ -23,6 +27,11 @@ export const Router = () => {
       <Route path="/book" element={<Book />} />
       <Route path="/login" element={<Login/>} />
       <Route path="/signup" element={<Signup/>} />
+      <Route path="/editar-perfil" element={<Edit_Profile/>} />
+      <Route path="/book-pinceladas" element={<Pinceladas/>} />
+      <Route path="/book-rutas-esculturas" element={<Rutas/>} />
+      <Route path="/book-caminando-jardines" element={<Caminando/>} />
+      
    
     
     </Routes>

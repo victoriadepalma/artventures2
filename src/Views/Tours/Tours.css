@@ -38,9 +38,10 @@
  .tour-name{
     position: absolute;
     color: black;
-    font-size: 22vh;
+    font-size: 12vh;
+    width: 150vh;
     font-family: 'Quattrocento', serif; 
-    right: 47vh;
+    right: 0vh;
     z-index: 0;
     margin-top: 62vh;
  }
