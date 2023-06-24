@@ -14,42 +14,81 @@
 
 .titulo-localidades{
     position: absolute;
-    top: 9vh;
-    right: 46vh;
+    top: 12vh;
+    left: 35vw;
     text-align: end;
 }
 
 .square{
     position: absolute;
-    width: 45vh;
-    height: 60vh;
+    width: 25vw;
+    height: 40vw;
     background-color: #F2E346;
-    right: 100vh;
-    border-top-left-radius: 30vh;
-    border-top-right-radius: 30vh;
+    left: 15vw;
+    border-top-left-radius: 100vw;
+    border-top-right-radius: 100vw;
+    top:6vh
   
 }
 
 .imagen{
     position: absolute;
-    width: 40vh;
-    height: 55vh;
+    width: 23vw;
+    height: 38vw;
     right: 3vh;
     top: 2vh;
-    border-top-left-radius: 30vh;
-    border-top-right-radius: 30vh;
+    border-top-left-radius: 100vw;
+    border-top-right-radius: 100vw;
     object-fit: cover;
     transform: translate(-50%,-50%);
     left: 50%;
-    top:50%;
+    top: 50%;
 }
 
 .info-l{
     position: absolute;
     width: 35vh;
     height: 45vh;
-    right: 62vh;
+    left: 42vw;
     top: 34vh;
     font-size: 3vh;
     line-height: 4.5vh;
+}
+
+@media only screen and (orientation:portrait) and (max-width:1200px){
+    .square{
+        position: relative !important;
+        width: 60vw !important;
+        height: 60vh !important;
+        left: 0 !important;
+        top: 0 !important;
+        margin-right: 5vw ;
+        margin-bottom: -5vh ;
+    }
+    .localidades{
+        justify-content: flex-end;
+        align-items: flex-end;
+    }
+
+    .imagen{
+        width: 55vw !important;
+        height: 57vh !important;
+    }
+    .titulo-localidades {
+        
+        top: 5vh !important;
+        left: 5vw !important;
+        text-align: center;
+        font-size: 10vw !important;
+    }
+
+    .info-l {
+        position: absolute;
+        width: auto !important;
+        height: auto !important;
+        left: 5vw !important;
+        top: calc(10vh + 10vw) !important;
+        font-size: 3vw;
+        line-height: 1.2;
+    }
 }
