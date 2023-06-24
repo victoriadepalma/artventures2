@@ -5,9 +5,12 @@ footer {
     padding: 5vh;
     font-family: 'Darker Grotesque', sans-serif;
     height: 25vh;
+
    
    
 }
+
+
 
 footer a{
     color: black;
@@ -15,10 +18,14 @@ footer a{
     font-weight: bold;
     font-size: 2.2vh;
    transition: 0.2s;
+    
+  
+
 }
 
 footer a:hover{
     color: white;
+  
   
 }
 
@@ -28,4 +35,5 @@ footer a:hover{
     color: black;
     font-weight: bold;
     font-size: 2.2vh;
+  
 }
