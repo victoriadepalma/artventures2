@@ -10,6 +10,8 @@ export const Tours = () => {
   <LogoN/>
     
      <Tour/>
+     <Tour/>
+     <Tour/>
      
     
 

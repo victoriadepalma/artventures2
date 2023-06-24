@@ -57,19 +57,19 @@ display: none;
     background-color: red;
 }
 
-#radio1:checked ~ .first{
+.first{
     margin-left: 0;
 }
 
-#radio2:checked ~ .first{
+.second{
     margin-left: -20%;
 }
 
-#radio3:checked ~ .first{
+.third{
     margin-left: -40%;
 }
 
-#radio4:checked ~ .first{
+.fourth{
     margin-left: -60%;
 }
 

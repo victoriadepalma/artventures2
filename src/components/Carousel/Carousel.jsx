@@ -6,7 +6,7 @@ import img3 from "../../assets/imagenes/gandhi.png";
 import img4 from "../../assets/imagenes/escultura.png";
 
 export const Carousel = () => {
-    const [currentSlide, setCurrentSlide] = useState(1);
+    const [currentSlide, setCurrentSlide] = useState(0);
   
     const autoScroll = true;
     let slideInterval;
@@ -14,6 +14,7 @@ export const Carousel = () => {
     const nextSlide = () => {
       setCurrentSlide(currentSlide === 3 ? 0 : currentSlide + 1);
       console.log("next");
+      console.log('kkkk',count,currentSlide)
     };
   
     const prevSlide = () => {
@@ -63,7 +64,7 @@ export const Carousel = () => {
             checked={currentSlide == 3}
           />
   
-          <div className="slide first">
+          <div className={currentSlide==0 ? "slide first":currentSlide==1 ? "slide second" : currentSlide==2 ? "slide third" : "slide fourth"}>
             <img src={img1} />
           </div>
           <div className="slide">
@@ -80,14 +81,14 @@ export const Carousel = () => {
           </div>
         </div>
   
-        <div className="navigation-auto">
+        {/* <div className="navigation-auto">
           <div className="auto-btn1"></div>
           <div className="auto-btn2"></div>
           <div className="auto-btn3"></div>
           <div className="auto-btn4"></div>
-        </div>
+        </div> */}
   
-        <div className="navigation-manual">
+        {/* <div className="navigation-manual">
           <label
             for="radio1"
             className="manual-btn"
@@ -116,7 +117,7 @@ export const Carousel = () => {
               setCurrentSlide(3);
             }}
           ></label>
-        </div>
+        </div> */}
       </div>
     );
   };
