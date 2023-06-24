@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { googleProvider } from "../../firebase/config";
 import { signInWithPopup } from "firebase/auth";
-import { LogoN } from "../../components/Navbar/LogoN";
+
 
 export function Signup() {
   const navigate = useNavigate();

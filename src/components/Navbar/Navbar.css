@@ -8,6 +8,9 @@
  
 }
 
+.navbar-middle a:first-of-type{
+    margin-left: 0;
+}
 .logo-container a{
     
     font-size: 3.5vh;
@@ -147,9 +150,9 @@
     width: 96vw;
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
-    padding:2vw 2vw;
+    padding:1vw 2vw;
  
 }
 
@@ -170,6 +173,11 @@
    flex-direction: row;
   margin-top: 5vh;
     font-family: 'FONTSPRING DEMO - The Seasons';
+ 
+    width: 96vw;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
 }
 
 .navbar-middle a{
@@ -215,55 +223,147 @@ nav a:hover{
    
 }
 
-@media screen and (max-width:390px){
-    .navbar-middle{
-        text-align: center;
-        font-size: 4.5vh;
-        margin-top: 5vh;
-        font-family: 'FONTSPRING DEMO - The Seasons';
-    }
 
-    .logo-container img{
-        width: 5vh;
-     
+
+  @media only screen and (orientation: portrait) and (max-width:1500px) {
+    .navbar-menu-line1{
+        height: 0.5vw;
+        width: 5vw;
+        margin-bottom: 1.5vw;
+      }
+      .navbar-menu-line2{
+        height: 0.5vw;
+        width: 5vw;
+        margin-bottom: 1.5vw;
+      }
+
+      .navbar-menu:hover > .navbar-menu-line1{
+        width: 5.5vw;
+      }
+      .navbar-menu:hover > .navbar-menu-line2{
+        width: 5.5vw;
+      }
+      .logo-container{
+        padding: 3vw 5vw;
+        width: 90vw;
+      }
+      .logo-container img{
+        width: 8vw;
+        height: 8vw;
+      }
+      .navbar-middle{
+      margin-top: 20vh;     
+        width: 90vw;
     }
-    
     .logo-container a{
-        
-        font-size: 2.2vh;
-        font-family: 'FONTSPRING DEMO - The Seasons';
-        color: black;
-        
+        font-size: 4vw;
     }
-    
-    .logo-container{
-       
-        width: 30vh;
+    .navbar-right a{
+        margin-left:2vw;
     }
-    
-    .logo-text{
-        position: absolute;
-        width: 10vh;
-        left: 10vh;
-        top:5vh;
-        font-size: 3.5vh;
-        font-family: 'FONTSPRING DEMO - The Seasons';
+    .navbar-middle a{
+        font-size: 8vw;
     }
+  }
 
-    .navbar-right {
-        position: absolute;
-        top: 5.5vh;
-        right: 4.5vh;
-        text-align: end;
-    
-    
+  @media only screen and (orientation: landscape) and (max-width:1500px) {
+   
+ 
+      .navbar-middle{
+      margin-top: 20vh;     
+        width: 90vw;
+    }
+    .logo-container a{
+        font-size: 2vw;
+    }
+    .navbar-right a{
+        margin-left:2vw;
+    }
+    .navbar-middle a{
+        font-size: 5vw;
+    }
+  }
+
+  @media only screen and (orientation: portrait) and (max-width:1000px) {
+    .close-menu-icon {
+      font-size: 10vw;
+    }
+    .close-menu {
+        top: 4vw;
+      right: 4vw;
       }
-    
-      .navbar-right a {
-        margin-left: 20vh;
-        font-family: 'Darker Grotesque', sans-serif;
-        font-size: 2.2vh;
+      .menu-item > h1{
+        font-size: 12vw;
       }
-    
+      .navbar-menu-line1{
+        height: 0.6vw;
+        width: 6vw;
+        margin-bottom: 2vw;
+      }
+      .navbar-menu-line2{
+        height: 0.6vw;
+        width: 6vw;
+        margin-bottom: 2vw;
+      }
+
+      .navbar-menu:hover > .navbar-menu-line1{
+        width: 6.5vw;
+      }
+      .navbar-menu:hover > .navbar-menu-line2{
+        width: 6.5vw;
+      }
+      .logo-container{
+        padding: 5vw 5vw;
+        width: 90vw;
+      }
+      .logo-container img{
+        width: 10vw;
+        height: 10vw;
+        margin-right: 3vw;
+      }
+      .logo-container a{
+        font-size: 5vw;
+      }
+
+      .navbar-middle{
+        margin-top: 20vh;     
+          width: 90vw;
+      }
+      .logo-container a{
+          font-size: 4vw;
+      }
+      .navbar-right a{
+          margin-left:2vw;
+      }
+      .navbar-middle a{
+          font-size: 8vw;
+      }
+   
+  }
+
+
+
+
+  @media only screen and (orientation: portrait) and (max-width:500px) {
+   
+ 
+    .navbar-middle{
+    margin-top: 10vh;     
+      width: 90vw;
+  }
+  .logo-container a{
+      font-size: 4vw;
+  }
+  .navbar-right a{
+      margin-left:2vw;
+  }
+  .navbar-middle a{
+      font-size: 5vw;
+  }
 }
 
+@media screen and (min-width:1500px) {
+.navbar-middle{
+    margin-top: 20vh;
+}
+}
