@@ -13,6 +13,7 @@ import { Edit_Profile } from '../Edit_Profile/Edit_Profile'
 import { Pinceladas } from '../Book/Pinceladas/Pinceladas'
 import { Rutas } from '../Book/Rutas/Rutas'
 import { Caminando } from '../Book/Caminando/Caminando'
+import { Events_Pinceladas } from '../Events/Events_Pinceladas'
 
 
 
@@ -31,6 +32,7 @@ export const Router = () => {
       <Route path="/book-pinceladas" element={<Pinceladas/>} />
       <Route path="/book-rutas-esculturas" element={<Rutas/>} />
       <Route path="/book-caminando-jardines" element={<Caminando/>} />
+      <Route path="/events-pinceladas" element={<Events_Pinceladas/>} />
       
    
     
