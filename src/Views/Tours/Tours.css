@@ -1,40 +1,97 @@
 .tour{
-    height: 100vh;
-    background-color: #FFFDE9;
+  height: 100vh;
+  background-color: #FFFDE9;
+  position: relative;
 }
 
 .square-tour {
-    position: absolute;
-    margin-top: 25vh;
-    width: 40vh;
-    height: 50vh;
-    background-color: #F2E346;
-    right: 70vh;
-    z-index: 10;
+  position: absolute;
+  margin-top: 25vh;
+  width: 40vh;
+  height: 50vh;
+  background-color: #F2E346;
+  right: 70vh;
+  z-index: 10;
+}
+
+.ver-mas-button{
+  
+  position: absolute;
+  background-color: black;
+  color:#FFFDE9;
+  height: 5vh;
+  width: 23vh;
+  border-color: black;
+  right: 30vh;
+  margin-top: 50vh;
+  font-family: 'Darker Grotesque', sans-serif;
+  font-size: 2vh;
+  border:none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.ver-mas-button:hover{
+  background-color: #F2E346;
+  color: black;
+}
+
+.tour-name-container{
+
+ width: 100%;
+ height: 100%;
+ position: relative;
+ top:0;
+ left: 0;
+ z-index: 0;
+ overflow: hidden;
+}
+.tour-name{
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  z-index: 2;
+  min-width: 100vw;
+  margin-top: 62vh;
+
+}
+
+.tour-name > span{
+  display: inline-block;
+  color: black;
+  font-size: 22vh;
+  padding-left: 100%;
+  font-family: 'Quattrocento', serif;
+  animation: example 10s linear infinite;
+
+}
+.tour-name2 > span {
+  animation-delay: 5s;
+
+
+}
+
+@keyframes example {
+ 0% {
+    transform: translate(0, 0);
   }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
 
- .ver-mas-button{
-    
-    position: absolute;
-    background-color: black;
-    color:#FFFDE9;
-    height: 5vh;
-    width: 23vh;
-    border-color: black;
-    right: 30vh;
-    margin-top: 50vh;
-    font-family: 'Darker Grotesque', sans-serif;
-    font-size: 2vh;
-    border:none;
-    cursor: pointer;
-    transition: 0.5s;
- }
+@-webkit-keyframes example {
+ 0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
 
- .ver-mas-button:hover{
-    background-color: #F2E346;
-    color: black;
- }
 
+/* 
  .tour-name{
     position: absolute;
     color: black;
@@ -43,7 +100,11 @@
     right: 47vh;
     z-index: 0;
     margin-top: 62vh;
- }
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+
+ } */
  
 
  
