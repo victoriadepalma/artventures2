@@ -9,13 +9,15 @@ import { Signup } from "../Signup/Signup"
 import { Tours } from '../Tours/Tours'
 import { Home } from '../Home/Home'
 import { Footer } from '../../components/Footer/Footer'
+import { Navbar } from '../../components/Navbar/Navbar'
+
 
 
 
 export const Router = () => {
   return (
-    <>
-   
+    <div className='main-container'>
+     <Navbar/>
     <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="/tours" element={<Tours/>} />
@@ -27,6 +29,6 @@ export const Router = () => {
     
     </Routes>
     <Footer/>
-    </>
+    </div>
   )
 }

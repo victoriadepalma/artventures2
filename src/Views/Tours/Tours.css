@@ -21,9 +21,11 @@
   color:#FFFDE9;
   height: 5vh;
   width: 23vh;
+  z-index: 3;
   border-color: black;
   right: 30vh;
-  margin-top: 50vh;
+  top: calc(50vh - 5vh);
+  /* margin-top: 50vh; */
   font-family: 'Darker Grotesque', sans-serif;
   font-size: 2vh;
   border:none;

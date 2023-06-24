@@ -7,7 +7,7 @@ import "./Tours.css"
 export const Tours = () => {
   return (
   <> 
-  <LogoN/>
+    
     
      <Tour/>
      <Tour/>

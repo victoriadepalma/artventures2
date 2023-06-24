@@ -41,7 +41,7 @@ export function Login() {
  };
   return (
     <>
-    <LogoN/>
+
     <div className={styles.container}>
   
       <div className={styles.innerBox}>

@@ -4,7 +4,7 @@ import { LogoN } from '../../components/Navbar/LogoN'
 export const Events = () => {
   return (
     <div>
-      <LogoN/>
+  
     </div>
   )
 }

@@ -12,7 +12,7 @@ import Slider from '../../components/Carrete/Slider'
 export const Home = () => {
   return (
     <>
-    <Navbar />
+
     <Portada/>
     <Slider/>
     <div className='row-container'>

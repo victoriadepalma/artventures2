@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300&family=Quattrocento&display=swap');
 
 .logo-container img{
-    width: 10vh;
+    width: 4vw;
+    height: 4vw;
+    object-fit: contain;
+    margin-right: 1vw;
  
 }
 
@@ -10,12 +13,144 @@
     font-size: 3.5vh;
     font-family: 'FONTSPRING DEMO - The Seasons';
     color: black;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+ 
+    
+}
+.navbar-menu{
+  
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.navbar-menu:hover > .navbar-menu-line1{
+   width:2.3vw ;
+}
+.navbar-menu:hover >.navbar-menu-line2{
+    width:2.3vw ;
+}
+.navbar-menu-line1{
+    height: 0.2vw;
+    width: 2vw;
+    background-color: black;
+    margin-bottom: 0.5vw;
+    border-radius: 100vw;
+    transition: 1s;
+}
+.navbar-menu-line2{
+    height: 0.2vw;
+    width: 2vw;
+    margin-bottom:  0.5vw;
+    margin-left: 30%;
+    background-color: black;
+    border-radius: 100vw;
+    transition: 1s;
+}
+
+.menu{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    height: fit-content;
+    background-color: #F2E346;
+    z-index: 20;
+    top: 0;
+    left: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    transition: 1s;
     
 }
 
+.menu-open{
+    left: 0;
+}
+
+
+
+.menu-container{
+ 
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    overflow: scroll;
+    height: 100vh;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    overflow: -moz-scrollbars-none;
+}
+.close-menu{
+    position: absolute;
+    top: 2vw;
+    right: 2vw;
+    outline: none;
+    background: none;
+    border: none;
+}
+
+.close-menu-icon{
+    font-size: 4vw;
+    transition: 1s;
+    cursor: pointer;
+}
+
+.close-menu:hover > .close-menu-icon{
+    font-size: 4.5vw;
+}
+.menu-container::-webkit-scrollbar{
+    display: none;
+  }
+.menu-item > h1{
+    font-size: 8vw;
+    transition: 1s;
+    margin:0;
+    cursor: pointer;
+    font-family: 'FONTSPRING DEMO - The Seasons';
+}
+
+.menu-item:hover > a{
+    font-size: 9vw;
+}
+.menu-item{
+ 
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    background:none;
+    outline: none;
+    border: none;
+}
+
+.menu-underline{
+    background-color: black;
+    width: 0;
+    height: 1.5vw;
+    transition: 1s;
+
+}
+.menu-item:hover > .menu-underline{
+    width: 100%;
+}
+
+
 .logo-container{
-   
-    width: 30vh;
+    width: 96vw;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding:2vw 2vw;
+ 
 }
 
 .logo-text{
@@ -31,19 +166,25 @@
 .navbar-middle{
     text-align: center;
     font-size: 9vh;
-    margin-top: -6vh;
+   display: flex;
+   flex-direction: row;
+  margin-top: 5vh;
     font-family: 'FONTSPRING DEMO - The Seasons';
 }
 
 .navbar-middle a{
     margin-left: 3vh; 
+    font-size: 5vw;
+    transition: 0.5s;
+}
+.navbar-middle a:hover{
+  color: white;
 }
 
 .navbar-right {
-    position: absolute;
-    top: 6vh;
-    right: 10vh;
     text-align: end;
+    display: flex;
+    flex-direction: row;
 
 
   }

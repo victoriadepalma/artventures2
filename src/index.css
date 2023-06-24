@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #F2E346;
+  background-color: #FFFDE9;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -14,7 +14,9 @@
   -webkit-text-size-adjust: 100%;
 }
 
-
+.main-container{
+  /* padding: 2vw; */
+}
 
 a {
   font-weight: 500;
@@ -22,3 +24,6 @@ a {
   text-decoration: inherit;
 }
 
+body{
+  margin:0;
+}

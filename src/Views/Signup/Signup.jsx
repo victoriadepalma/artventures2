@@ -45,7 +45,7 @@ const signinWithGoogle = async () =>{
   };
   return (
     <>
-    <LogoN/>
+
     <div className={styles.container}>
       <div className={styles.innerBox}>
         <h1 className={styles.heading}>REGISTRO</h1>

@@ -13,10 +13,10 @@ export const Tour = ({item}) => {
     <h1 className='tour-name tour-name2'><span>TITULO</span></h1>
     
     </div>
-    <Link to= "/book"> <button className='ver-mas-button'>Ver más</button> </Link>
+    <button className='ver-mas-button'>Ver más</button>
         
-    <div className='square-tour'>
-    </div>
+    {/* <div className='square-tour'>
+    </div> */}
     
     </div>
   </>
