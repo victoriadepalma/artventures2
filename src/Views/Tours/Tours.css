@@ -2,6 +2,12 @@
   height: 100vh;
   background-color: #FFFDE9;
   position: relative;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
 
 .square-tour {
@@ -23,8 +29,7 @@
   width: 23vh;
   z-index: 3;
   border-color: black;
-  right: 30vh;
-  top: calc(50vh - 5vh);
+  right: 10vw;
   /* margin-top: 50vh; */
   font-family: 'Darker Grotesque', sans-serif;
   font-size: 2vh;
@@ -93,20 +98,24 @@
 }
 
 
-/* 
- .tour-name{
-    position: absolute;
-    color: black;
-    font-size: 22vh;
-    font-family: 'Quattrocento', serif; 
-    right: 47vh;
-    z-index: 0;
-    margin-top: 62vh;
-    margin: 0 auto;
-    white-space: nowrap;
-    overflow: hidden;
 
- } */
+ @media screen and ( max-width:1000px ) {
+
+  .ver-mas-button{
+
+   
+    right: auto;
+    bottom: 10vh;
+    background-color: #F2E346;
+    color: black;
+  }
+
+  .ver-mas-button:hover{
+    background-color: black;
+    color:#FFFDE9;
+  }
+
+ }
  
 
  

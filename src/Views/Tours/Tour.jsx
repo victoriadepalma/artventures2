@@ -8,11 +8,11 @@ export const Tour = ({item}) => {
     
     <div className='tour'>
         <Carousel/>
-        <div className='tour-name-container'>
+    
     <h1 className='tour-name'><span>TITULO</span></h1>
     <h1 className='tour-name tour-name2'><span>TITULO</span></h1>
     
-    </div>
+
     <button className='ver-mas-button'>Ver más</button>
         
     {/* <div className='square-tour'>

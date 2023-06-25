@@ -154,6 +154,7 @@
     justify-content: space-between;
     padding:1vw 2vw;
     position: absolute;
+    z-index: 100;
  
 }
 
