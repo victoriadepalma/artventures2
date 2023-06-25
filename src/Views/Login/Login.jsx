@@ -1,12 +1,13 @@
 import styles from "./Login.module.css";
-import { InputControl} from "../../components/InputControl/InputControl"
+import { InputControl} from "../../components/InputControl/InputControl";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/config";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { useEffect } from "react";
-import { googleProvider } from "../../firebase/config";
-import { signInWithPopup } from "firebase/auth";
+import { googleProvider,FBprovider} from "../../firebase/config";
+import { signInWithPopup,FacebookAuthProvider} from "firebase/auth";
+
 
 export function Login() {
   const navigate = useNavigate();
@@ -38,8 +39,16 @@ export function Login() {
         console.error(error);
     }
  };
+ const signinWithFacebook = ()=>{
+  signInWithPopup(auth, FBprovider)
+  .then((re)=>{
+    console.log(re)
 
-
+  })
+  .catch((err)=>{
+    console.log(err.message);
+  })
+}
 
   return (
     <div className={styles.container}>
@@ -62,7 +71,8 @@ export function Login() {
 
         <div className={styles.footer}>
         <b className={styles.error}>{errorMsg}</b>
-        <button className={styles.google} onClick={signinWithGoogle}>Iniciar sesion con google</button>
+        <button className={styles.google} onClick={signinWithGoogle}>Iniciar sesion con Google</button>
+        <button className={styles.boton} onClick={signinWithFacebook}>Iniciar sesion con Facebook</button>
         <button className={styles.boton} onClick={Iniciar} disabled={submitButtonDisabled}>iniciar Sesion</button>
           <p>
             Crear cuenta
