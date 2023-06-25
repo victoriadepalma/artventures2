@@ -1,21 +1,29 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import { Carousel } from '../../components/Carousel/Carousel'
 import { Tour } from './Tour'
 import "./Tours.css"
+import {useDispatch,useSelector} from 'react-redux'
+import { listArtists, listLocations, listTours } from '../../Redux/actions/actions'
 
 export const Tours = () => {
+  const { tours } = useSelector((state) => ({
+    ...state.tours,
+  }));
+  const dispatch=useDispatch()
+
+
+  useEffect(() => {
+dispatch(listTours())
+  }, []);
+
   return (
   <> 
+    {tours.map((tour)=>{
+      return <Tour tour={tour}/>
+    })}
     
     
-     <Tour/>
-     <Tour/>
-     <Tour/>
- 
-
-     {/* <Tour name_tour="PINCELADAS POR LA UNIVERSIDAD" link_tour={"/book-pinceladas"}/>
-     <Tour name_tour="RUTAS DE ESCULTURAS" link_tour={"/book-rutas-esculturas"}/>
-     <Tour name_tour="CAMINANDO ENTRE JARDINES" link_tour={"/book-caminando-jardines"}/> */}
+  
      
     
 

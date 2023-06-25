@@ -18,7 +18,7 @@ export const Tours = () => {
         <h1 className='titulo-tours'>Tours</h1>
         <p className='info-t'>
         {tours.slice(0, 5).map((tour)=>{
-          return <p className='info-t-item'>{tour.nombre}</p>
+          return <p className='info-t-item'>{tour.name_tour}</p>
         })}
        
         </p>

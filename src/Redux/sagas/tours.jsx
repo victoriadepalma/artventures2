@@ -25,7 +25,7 @@ let locations=[]
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
    
-   locations.push(doc.data())
+    locations.push({...doc.data(),id:doc.id})
   });
  
   return locations
@@ -42,9 +42,10 @@ const listArtistsRequest = async () => {
   const querySnapshot = await getDocs(q);
 let artists=[]
   querySnapshot.forEach((doc) => {
+
     // doc.data() is never undefined for query doc snapshots
    
-    artists.push(doc.data())
+    artists.push({...doc.data(),id:doc.id})
   });
  
   return artists
@@ -54,7 +55,7 @@ let artists=[]
 const listObrasRequest = async () => {
 
   const q = query(
-    collection(db, "location")
+    collection(db, "obras")
   );
   
 
@@ -63,7 +64,7 @@ let obras=[]
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
    
-    obras.push(doc.data())
+    obras.push({...doc.data(),id:doc.id})
   });
  
   return obras
@@ -73,7 +74,7 @@ let obras=[]
 const listToursRequest = async () => {
 
   const q = query(
-    collection(db, "location")
+    collection(db, "tour")
   );
   
 
@@ -81,10 +82,10 @@ const listToursRequest = async () => {
 let tours=[]
   querySnapshot.forEach((doc) => {
     // doc.data() is never undefined for query doc snapshots
-   
-    tours.push(doc.data())
+    
+    tours.push({...doc.data(),id:doc.id})
   });
- 
+
   return tours
 
 };

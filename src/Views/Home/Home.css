@@ -37,10 +37,9 @@
     
 }
 .review-title{
-    background-color: #F88CF5;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
 .mision-active{
@@ -347,6 +346,19 @@ align-items: flex-end;
   
 }
 
+.star-content{
+ display: flex;
+ flex-direction: row;
+ align-items: center;   
+ margin-left: 2vw;
+}
+
+.star{
+    margin-left: 0.1vw;
+    margin-right:0.1vw;
+    font-size: 1.2vw;
+}
+
 .column-right > .nuevo-evento{
         font-family: 'FONTSPRING DEMO - The Seasons';
         margin: 0;
@@ -512,3 +524,4 @@ font-size: 10vw;
         font-size: 2.5vw;
     }
 }
+

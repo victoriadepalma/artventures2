@@ -35,14 +35,11 @@ export const Router = () => {
       <Route path="/" element={<Home/>} />
       <Route path="/tours" element={<Tours/>} />
       <Route path="/events" element={<Events/>} />
-      <Route path="/book" element={<Book />} />
+      <Route path="/book/:id" element={<Book />} />
       <Route path="/login" element={<AuthRoute><Login/></AuthRoute>} />
       <Route path="/signup" element={<AuthRoute><Signup/></AuthRoute>} />
       <Route path="/editar-perfil" element={<ProtectedRoute><Edit_Profile/></ProtectedRoute>} />
-      <Route path="/book-pinceladas" element={<Pinceladas/>} />
-      <Route path="/book-rutas-esculturas" element={<Rutas/>} />
-      <Route path="/book-caminando-jardines" element={<Caminando/>} />
-      <Route path="/events-pinceladas" element={<Events_Pinceladas/>} />
+    
 
    
     
