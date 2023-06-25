@@ -1,36 +1,50 @@
 .container {
-  width: 402px;
-  height: 66px;
-  left: 663px;
-  top: 408px;
+  width: 100%;
+  height: 6vh;
+  left: 0vh;
+  top: 40vh;
   font-family: 'Darker Grotesque';
   font-style: normal;
-  font-weight: 400;
-  font-size: 43px;
-  line-height: 58px;
+  line-height: 7vh;
   text-align: center;
   color: #000000;
+  margin-bottom: 5vh;
+
+ 
   }
   
   .container label {
-    font-weight: 700;
-    font-size: 1rem;
-    color: #313131;
+
+    font-size: 7vh;
+    color: black;
+   
+   
   }
 
   .container input {
-    border-radius: 5px;
-    border: 1px solid #dddddd;
-    outline: none;
-    padding: 10px 15px;
+    border-top: #000;
+    border-left: #000;
+    border-right: #000;
+    background-color: #FFFDE9;
+    width: 100%;
+    left: 2vh;
+    padding: 10px 0;
     color: #000;
+    text-align: center;
+    border-color: black;
+    font-size: 3vh;
+ 
     
   }
 
   .container input:hover {
-    border-color: #ccc;
+ 
+    border-top: #000;
+    border-left: #000;
+    border-right: #000;
+    
   } 
 
   .container input:focus {
-    border-color: #000;
+   outline: none;
   }

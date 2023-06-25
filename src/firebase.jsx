@@ -13,14 +13,10 @@ const firebaseConfig = {
   appId: "1:140758627706:web:c131ebf2ba839fd44d92c3",
   measurementId: "G-DPEK19KSVK"
 };
-const app = initializeApp(firebaseConfig);
-const auth = getAuth();
-const fbStorage= firebase.storage();
-const fbFirestore= firebase.firestore();
-const timeStamp= firebase.firestore.Fielvalue.servertimestamp
-export { app, auth };
-export const db = getFirestore(app);
-export const store = getStorage(app);
-export {fbStorage, fbFirestore, timeStamp }
 
-export const googleProvider = new GoogleAuthProvider();
+
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const googleProvider = new GoogleAuthProvider()
+export const db = getFirestore();
+export const store = getStorage(app);

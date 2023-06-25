@@ -7,71 +7,84 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { googleProvider } from "../../firebase/config";
 import { signInWithPopup } from "firebase/auth";
+import {useDispatch} from 'react-redux';
+import { login } from "../../Redux/actions/actions";
+import { UserAuth } from '../../context/AuthContext';
+
 
 export function Login() {
   const navigate = useNavigate();
   const [values, setValues] = useState({ email: "", pass: "" });
   const [errorMsg, setErrorMsg] = useState([]);
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
-  const Iniciar = () => {
+  const { signIn,createUserWithGoogle } = UserAuth()
+  const Iniciar = async (e)=>{
+    e.preventDefault();
     if (!values.email || !values.pass) {
-      setErrorMsg("Datos incompletos");
-      return;
+          setErrorMsg("Datos incompletos");
+          return;
+        }
+        setErrorMsg("");
+        setSubmitButtonDisabled(true);
+    try {
+      await signIn(values.email, values.pass,(message)=>{setErrorMsg(message)})
+      setSubmitButtonDisabled(false);
+      navigate('/')
+    } catch (e) {
+      setErrorMsg(e.message)
+      setSubmitButtonDisabled(false);
+      console.log(e.message)
     }
-    setErrorMsg("");
-    setSubmitButtonDisabled(true);
-    signInWithEmailAndPassword(auth, values.email, values.pass)
-      .then(async (res) => {
-        setSubmitButtonDisabled(false);
-        navigate("/");
-      })
-      .catch((err) => {
-        setSubmitButtonDisabled(false);
-        setErrorMsg(err.message);
-      });
-  };
-  const signinWithGoogle = async () =>{
-    try{
-        const result = await signInWithPopup(auth, googleProvider);
-        console.log(result);
-    }catch (error){
-        console.error(error);
+
+  }
+
+  const signinWithGoogle=async(e)=>{
+    e.preventDefault();
+    setErrorMsg('');
+    try {
+      await createUserWithGoogle((message)=>{setErrorMsg(message)});
+      navigate('/')
+    } catch (e) {
+      setErrorMsg(e.message);
+      console.log(e.message);
     }
- };
 
-
-
+  }
   return (
+    <>
+
     <div className={styles.container}>
+  
       <div className={styles.innerBox}>
-        <h1 className={styles.heading}>Iniciar Sesion</h1>
+      
+        <h1 className={styles.heading}>INICIAR SESION</h1>
         <InputControl
-          label="Email"
+          label=""
           onChange={(event) =>
             setValues((prev) => ({ ...prev, email: event.target.value }))
           }
-          placeholder="Ingrese su correo"
+          placeholder="EMAIL"
         />
         <InputControl
-          label="Contraseña"
+          label=""
           onChange={(event) =>
             setValues((prev) => ({ ...prev, pass: event.target.value }))
           }
-          placeholder="Ingrese su contraseña"
+          placeholder="CONTRASEÑA"
         />
 
         <div className={styles.footer}>
         <b className={styles.error}>{errorMsg}</b>
-        <button className={styles.google} onClick={signinWithGoogle}>Iniciar sesion con google</button>
-        <button className={styles.boton} onClick={Iniciar} disabled={submitButtonDisabled}>iniciar Sesion</button>
+        <button className={styles.google} onClick={(e)=>{signinWithGoogle(e)}}> <img className = {styles.imggoogle} src="https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-png-logo-noir.png"></img>Iniciar Sesión con Google</button>
+        <button className={styles.boton} onClick={(e)=>{Iniciar(e)}} disabled={submitButtonDisabled}>Iniciar</button>
           <p>
-            Crear cuenta
-            <span>
-              <Link to="/signup"> ir</Link>
+          ¿No te has registrado? Crea una nueva cuenta <span>
+              <Link to="/signup">aqui</Link>
             </span>
           </p>
         </div>
       </div>
     </div>
+    </>
   );
 }
