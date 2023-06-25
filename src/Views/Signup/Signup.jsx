@@ -86,10 +86,11 @@ const signinWithGoogle = async () =>{
         />
         <div className={styles.footer}>
           <b className={styles.error}>{errorMsg}</b>
+      
+          <button className={styles.google}  onClick={signinWithGoogle}>Registrarme con google</button>
           <button className={styles.boton} onClick={registro} disabled={submitButtonDisabled}>
             Registrarme
           </button>
-          <button className={styles.google}  onClick={signinWithGoogle}>Registrarme con google</button>
           <p>
           ¿Ya tienes una cuenta? Inicia sesión <span>
               <Link to="/login">aqui</Link>

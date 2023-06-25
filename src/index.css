@@ -16,6 +16,7 @@
 
 .main-container{
   /* padding: 2vw; */
+  overflow-x: hidden;
 }
 
 a {
