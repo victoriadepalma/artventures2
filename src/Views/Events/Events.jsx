@@ -16,10 +16,10 @@ export const Events = ({title_event}) => {
 
       <div className='events'>
         <div className='title-container'>
-          <h1 className='title-event'>{title_event}</h1>
+          {/* <h1 className='title-event'>{title_event}</h1> */}
           <div className='more'>
-            <button className="btn" onClick={handleButtonClick}>
-              More 
+            <button className=" title-event btn" onClick={handleButtonClick}>
+             {title_event ? title_event : 'More'}
               <i className="fa fa-caret-down"></i>
             </button>
             <div className={`more-menu ${isClicked ? 'show-menu' : ''}`}>
@@ -29,8 +29,9 @@ export const Events = ({title_event}) => {
             </div>
           </div>
         </div>
+        <Calendar/>
       </div>
-      <Calendar/>
+   
     </>
   )
 }

@@ -1,38 +1,52 @@
 .events{
     height: 100vh;
+    width: 100vw;
     background-color: #FFFDE9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+.title-container{
+  width: fit-content;
+  height: fit-content;
+  top: 12vh;
+  left: 2vw;
+  position: absolute;
+}
 .title-event{
-    position: relative;
-    top: 8vh;
+
     font-family: 'FONTSPRING DEMO - The Seasons';
     font-weight: bold;
     font-size: 5vh;
     border-bottom: 0.3vh solid black;
-    width: 67vh;
     color: black;
     margin-left: 3vw;
 
 }
 
 .more {
-    float: left;
+   
     overflow: hidden;
-    margin-left: 2vw;
-    margin-top: -2vh;
+
     font-family: 'FONTSPRING DEMO - The Seasons';
+    text-align: left;
+    width: 40vw;
+    border-bottom: 0.3vh solid black;
 
   }
   .more .btn {
-    font-size: 20px;    
+    font-size: 4vw;    
     border: none;
     outline: none;
     color: black;
-    padding: 14px 16px;
+    padding: 0;
     background-color: inherit;
     font-family: inherit;
-    margin-left: 40vw;
+    margin: 0;
+  
+    
    
     
     

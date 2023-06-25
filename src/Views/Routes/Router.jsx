@@ -16,6 +16,7 @@ import { Pinceladas } from '../Book/Pinceladas/Pinceladas'
 import { Rutas } from '../Book/Rutas/Rutas'
 import { Caminando } from '../Book/Caminando/Caminando'
 import { Events_Pinceladas } from '../Events/Events_Pinceladas'
+import { Message } from '../../components/Message/Message'
 
 
 
@@ -23,6 +24,7 @@ export const Router = () => {
   return (
     <div className='main-container'>
      <Navbar/>
+     {/* <Message/> */}
     <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="/tours" element={<Tours/>} />
