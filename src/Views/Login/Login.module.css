@@ -28,6 +28,20 @@
   transition: 0.5s;
   cursor: pointer;
 }
+
+.google a{
+  position: absolute;
+  margin-right: 0;
+}
+
+.imggoogle{
+  position: absolute;
+  width: 5vh;
+  height: 5vh;
+  left: 2vh;
+  top: 1.5vh;
+  
+}
 .boton{
   width: 40vh;
   height: 8vh;

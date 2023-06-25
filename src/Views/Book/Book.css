@@ -1,0 +1,44 @@
+.book{
+    height: 90vh;
+    background-color: #FFFDE9;
+    color: black;
+    padding: 6vh;
+}
+
+
+.titulos-book{
+    margin-top: 20vh;
+    font-family: 'FONTSPRING DEMO - The Seasons';
+    font-weight: bold;
+    font-size: 8vh;
+    width: 70vh;
+
+}
+
+
+
+.parrafos-book{
+    font-family: 'Darker Grotesque', sans-serif;
+    padding-right: 20vh;
+    font-size: 3vh;
+   margin-bottom: 10vh;
+
+}
+
+.b-book{
+    background-color: black;
+    color:#FFFDE9;
+    height: 5vh;
+    width: 23vh;
+    border-color: black;
+    margin-left: 0.5vw; 
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 2vh;
+    border:none;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.b-book:hover{
+    background-color: #5290D1;
+}

@@ -189,23 +189,7 @@ justify-content: center;
     justify-content: space-between;
 }
 
-/* .localidades{
-    background-color: #FFFDE9;
-    height: 72vh;
-    color: black;
-    padding: 10vh;
-    position: relative;
-    right: 0;
-    font-family: 'FONTSPRING DEMO - The Seasons';
-    font-size: 6vh;
-}
 
-.titulo-localidades{
-    position: absolute;
-    top: 4vh;
-    right: 45vh;
-    text-align: end;
-} */
 
 .square{
     position: absolute;

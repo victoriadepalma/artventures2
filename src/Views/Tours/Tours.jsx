@@ -11,6 +11,11 @@ export const Tours = () => {
      <Tour/>
      <Tour/>
      <Tour/>
+ 
+
+     {/* <Tour name_tour="PINCELADAS POR LA UNIVERSIDAD" link_tour={"/book-pinceladas"}/>
+     <Tour name_tour="RUTAS DE ESCULTURAS" link_tour={"/book-rutas-esculturas"}/>
+     <Tour name_tour="CAMINANDO ENTRE JARDINES" link_tour={"/book-caminando-jardines"}/> */}
      
     
 
