@@ -17,7 +17,7 @@ export const Home = () => {
 
   useEffect(() => {
     
-dispatch(listLocations())
+dispatch(listLocations({}))
 dispatch(listArtists())
 dispatch(listTours())
   }, []);
