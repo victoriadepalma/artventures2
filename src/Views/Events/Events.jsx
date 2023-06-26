@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { Calendar } from './Calendar/Calendar';
+import { Calendar2 } from './Calendar2/Calendar2';
 import './Events.css';
 
 export const Events = ({title_event}) => {
@@ -16,7 +17,7 @@ export const Events = ({title_event}) => {
 
       <div className='events'>
         <div className='title-container'>
-          {/* <h1 className='title-event'>{title_event}</h1> */}
+        
           <div className='more'>
             <button className=" title-event btn" onClick={handleButtonClick}>
              {title_event ? title_event : 'More'}
@@ -29,7 +30,11 @@ export const Events = ({title_event}) => {
             </div>
           </div>
         </div>
-        <Calendar/>
+        {/* <Calendar/> */}
+        <div className='calendar-container'>
+        <Calendar2/>
+        </div>
+       
       </div>
    
     </>

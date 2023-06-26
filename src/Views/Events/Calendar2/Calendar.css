@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 
 .wrapper{
@@ -6,6 +6,7 @@
   width: 450px;
   background: #FFFDE9;
   border-radius: 10px;
+  /* margin-bottom: 20vh; */
   color: #333;
 
 }
@@ -18,6 +19,9 @@
   margin-left: 3vh;
   
   
+}
+.days li.available::before{
+  background-color: #FBCCFA;
 }
 
 
@@ -86,6 +90,12 @@ header .current-date{
   position: relative;
   margin-top: 30px;
 }
+
+.calendar .days li:not(.available){
+
+  cursor:not-allowed
+
+}
 .days li.inactive{
   color: #aaa;
 }
@@ -95,6 +105,27 @@ header .current-date{
 
 .pink{
   background: #FBCCFA;
+}
+
+.hours{
+  width: 60%;
+  padding: 1vw 0;
+  margin-left: 20%;
+  margin-right: -20%;
+  height:fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
+.hours > div{
+  margin-bottom:1vw;
+  margin-top: 1vw;
 }
 .days li::before{
   position: absolute;
@@ -110,14 +141,25 @@ header .current-date{
   transform: translate(-50%, -50%);
 }
 .days li.active::before{
-  background: #FBCCFA;
+  background: #F2E346;
 }
-.days li:not(.active):hover::before{
-  background: black;
+.days li.available:hover::before{
+  background: black ;
+}
+.calendar li.available:hover{
+  color: white;
 }
 
+.calendar li:hover{
+  color: black;
+}
 
-
+.calendar-icon-button{
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
 .square_slider_left-c {
   position: relative;
   z-index: 1;
@@ -146,4 +188,4 @@ header .current-date{
 
   border-color: black
 
-} */
+}
