@@ -43,6 +43,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react-refresh", "virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:0.3.5"],\
             ["express", "npm:4.18.2"],\
             ["firebase", "npm:9.22.2"],\
+            ["moment", "npm:2.29.4"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:18.2.0"],\
             ["react-redux", "virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:8.1.1"],\
@@ -2481,6 +2482,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["eslint-plugin-react-refresh", "virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:0.3.5"],\
             ["express", "npm:4.18.2"],\
             ["firebase", "npm:9.22.2"],\
+            ["moment", "npm:2.29.4"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:18.2.0"],\
             ["react-redux", "virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:8.1.1"],\
@@ -4669,6 +4671,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/mkdirp-npm-1.0.4-37f6ef56b9-a96865108c.zip/node_modules/mkdirp/",\
           "packageDependencies": [\
             ["mkdirp", "npm:1.0.4"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["moment", [\
+        ["npm:2.29.4", {\
+          "packageLocation": "./.yarn/cache/moment-npm-2.29.4-902943305d-0ec3f9c2bc.zip/node_modules/moment/",\
+          "packageDependencies": [\
+            ["moment", "npm:2.29.4"]\
           ],\
           "linkType": "HARD"\
         }]\
