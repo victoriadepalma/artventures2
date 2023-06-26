@@ -4,6 +4,8 @@ import { Calendar } from './Calendar/Calendar';
 import { Calendar2 } from './Calendar2/Calendar2';
 import './Events.css';
 
+
+
 export const Events = ({title_event}) => {
   const [isClicked, setIsClicked] = useState(false);
 

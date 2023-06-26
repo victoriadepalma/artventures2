@@ -27,12 +27,20 @@ export const Book = ({ title, tour_info, link }) => {
   const { id } = useParams();
 
   useEffect(() => {
-    dispatch(getTour(id));
-    dispatch(listObrasTour(id));
-    dispatch(listArtists());
+    if(artists.length ==0 || locations.length==0){
+      dispatch(listArtists());
+     
+
     dispatch(listLocations())
-    dispatch(getRatings(id))
-    dispatch(listUsers())
+    }
+    if(!currentTour || currentObras.length==0 || currentTour?.id !=id){
+      dispatch(getTour(id));
+      dispatch(listObrasTour(id));
+      dispatch(listUsers())
+      dispatch(getRatings(id))
+    }
+  
+
   }, []);
 
   const getArtist = (obraID) => {

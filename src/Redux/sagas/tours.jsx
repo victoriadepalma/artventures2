@@ -19,6 +19,13 @@ const listLocationsRequest = async () => {
     collection(db, "location")
   );
   
+ let count= localStorage.getItem("count");
+  if(count){
+    count=Number(count)+1
+  }else{
+    count=1
+  }
+  localStorage.setItem("count",count.toString());
 
   const querySnapshot = await getDocs(q);
 let locations=[]
@@ -33,7 +40,13 @@ let locations=[]
 };
 
 const getTourRequest = async (uid) => {
-
+ let count= localStorage.getItem("count");
+  if(count){
+    count=Number(count)+1
+  }else{
+    count=1
+  }
+  localStorage.setItem("count",count.toString());
   const docuRef = await doc(db, `tour/${uid}`);
   const data = await getDoc(docuRef);
   const dataFiltered = data.data();
@@ -43,7 +56,13 @@ const getTourRequest = async (uid) => {
 };
 
 const listArtistsRequest = async () => {
-
+ let count= localStorage.getItem("count");
+  if(count){
+    count=Number(count)+1
+  }else{
+    count=1
+  }
+  localStorage.setItem("count",count.toString());
   const q = query(
     collection(db, "artista")
   );
@@ -63,7 +82,13 @@ let artists=[]
 };
 
 const listObrasRequest = async () => {
-
+ let count= localStorage.getItem("count");
+  if(count){
+    count=Number(count)+1
+  }else{
+    count=1
+  }
+  localStorage.setItem("count",count.toString());
   const q = query(
     collection(db, "obras")
   );
@@ -81,7 +106,13 @@ let obras=[]
 };
 
 const listObrasTourRequest = async (payload) => {
-
+ let count= localStorage.getItem("count");
+  if(count){
+    count=Number(count)+1
+  }else{
+    count=1
+  }
+  localStorage.setItem("count",count.toString());
   const q = query(
     collection(db, "obras"),
     where("ID_tour", "==", payload)
@@ -102,7 +133,13 @@ let obras=[]
 };
 
 const getRatingsRequest = async (payload) => {
-
+ let count= localStorage.getItem("count");
+  if(count){
+    count=Number(count)+1
+  }else{
+    count=1
+  }
+  localStorage.setItem("count",count.toString());
   const q = query(
     collection(db, "rating"),
     where("ID_tour", "==", payload)
@@ -123,7 +160,14 @@ let ratings=[]
 };
 
 const listToursRequest = async () => {
-
+ let count= localStorage.getItem("count");
+  console.log(count)
+  if(count){
+    count=Number(count)+1
+  }else{
+    count=1
+  }
+  localStorage.setItem("count",count.toString());
   const q = query(
     collection(db, "tour")
   );
@@ -142,6 +186,7 @@ let tours=[]
 };
 
 function* listTours(payload) {
+  
   try {
     const res = yield call(listToursRequest, payload);
     yield put(listToursSuccess(res))

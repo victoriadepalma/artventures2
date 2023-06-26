@@ -4,10 +4,8 @@ import { Carousel } from '../../components/Carousel/Carousel'
 import {useDispatch,useSelector} from 'react-redux'
 
 
-export const Tour = ({tour}) => {
-  const { tours, obras } = useSelector((state) => ({
-    ...state.tours,
-  }));
+export const Tour = ({tour,obras}) => {
+
   const navigate = useNavigate()
 
 

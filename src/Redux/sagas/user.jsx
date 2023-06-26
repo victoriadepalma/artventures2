@@ -14,6 +14,13 @@ import {
 import { listUsersSuccess } from "../actions/actions";
 
 const listUsersRequest = async (payload) => {
+ let count= localStorage.getItem("count");
+  if(count){
+    count=Number(count)+1
+  }else{
+    count=1
+  }
+  localStorage.setItem("count",count.toString());
   const q = query(
     collection(db, "users")
   );
