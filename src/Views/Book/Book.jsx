@@ -75,7 +75,9 @@ return name + " "+ lastname
                       <h1 className="number">{getNumber(index)}</h1>
                       <div className="obra">
                         <img src={obra.img}/>
+                        <div className="obra-hover"></div>
                       </div>
+                     
                     </div>
                   );
                 })}
