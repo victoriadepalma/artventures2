@@ -9,7 +9,7 @@ export const Tour = ({tour}) => {
     ...state.tours,
   }));
   const navigate = useNavigate()
-  console.log(tour)
+
 
   const goToDetail=()=>{
     navigate(`/book/${tour.id}`)

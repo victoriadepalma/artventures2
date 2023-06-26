@@ -1,5 +1,5 @@
-import { all, call, put, takeEvery, select } from "redux-saga/effects";
-import { GET_TOUR, LIST_ARTISTS, LIST_LOCATIONS, LIST_OBRAS, LIST_OBRAS_TOUR, LIST_TOURS } from "../constants";
+import { all, call, put, takeEvery, select,takeLatest } from "redux-saga/effects";
+import { GET_RATING_TOUR, GET_TOUR, LIST_ARTISTS, LIST_LOCATIONS, LIST_OBRAS, LIST_OBRAS_TOUR, LIST_TOURS } from "../constants";
 import { db, auth, googleProvider } from "../../firebase";
 import {
   doc,
@@ -11,7 +11,7 @@ import {
   where,
   getDocs,
 } from "firebase/firestore";
-import { getTourSuccess, listArtistsSuccess, listLocationsSuccess, listObrasSuccess, listObrasTourSuccess, listToursSuccess } from "../actions/actions";
+import { getRatingsSuccess, getTourSuccess, listArtistsSuccess, listLocationsSuccess, listObrasSuccess, listObrasTourSuccess, listToursSuccess } from "../actions/actions";
 
 const listLocationsRequest = async () => {
 
@@ -101,6 +101,27 @@ let obras=[]
 
 };
 
+const getRatingsRequest = async (payload) => {
+
+  const q = query(
+    collection(db, "rating"),
+    where("ID_tour", "==", payload)
+  );
+  
+
+  const querySnapshot = await getDocs(q);
+let ratings=[]
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+   
+    ratings.push({...doc.data(),id:doc.id})
+  });
+
+
+  return ratings
+
+};
+
 const listToursRequest = async () => {
 
   const q = query(
@@ -164,6 +185,15 @@ function* listObrasTour(payload) {
     
   }
 }
+
+function* getRatings(payload) {
+  try {
+    const res = yield call(getRatingsRequest, payload.data);
+    yield put(getRatingsSuccess(res))
+  } catch (error) {
+    
+  }
+}
 function* listArtists(payload) {
   try {
     const res = yield call(listArtistsRequest, payload);
@@ -182,11 +212,12 @@ function* listArtists(payload) {
 
 export default function* rootSaga() {
   yield all([
-    takeEvery(LIST_LOCATIONS, listLocations),
-    takeEvery(LIST_TOURS, listTours),
-    takeEvery(LIST_OBRAS, listObras),
-    takeEvery(LIST_OBRAS_TOUR, listObrasTour),
-    takeEvery(LIST_ARTISTS, listArtists),
-    takeEvery(GET_TOUR, getTour),
+    takeLatest(LIST_LOCATIONS, listLocations),
+    takeLatest(LIST_TOURS, listTours),
+    takeLatest(LIST_OBRAS, listObras),
+    takeLatest(LIST_OBRAS_TOUR, listObrasTour),
+    takeLatest(LIST_ARTISTS, listArtists),
+    takeLatest(GET_TOUR, getTour),
+    takeLatest(GET_RATING_TOUR, getRatings),
   ]);
 }

@@ -7,15 +7,22 @@ import "./Book.css";
 import Slider from "../../components/Carrete2/Slider";
 import { useDispatch, useSelector } from "react-redux";
 import {
+  getRatings,
   getTour,
   listArtists,
+  listLocations,
   listObrasTour,
+  listUsers,
 } from "../../Redux/actions/actions";
+import {useNavigate} from 'react-router-dom'
+import { UserAuth } from "../../context/AuthContext";
 export const Book = ({ title, tour_info, link }) => {
-  const { currentTour, currentObras, artists } = useSelector((state) => ({
+  const navigate=useNavigate()
+  const { loading, user } = UserAuth()
+  const { currentTour, currentObras, artists,locations,currentRatings } = useSelector((state) => ({
     ...state.tours,
   }));
-  
+
   const dispatch = useDispatch();
   const { id } = useParams();
 
@@ -23,6 +30,9 @@ export const Book = ({ title, tour_info, link }) => {
     dispatch(getTour(id));
     dispatch(listObrasTour(id));
     dispatch(listArtists());
+    dispatch(listLocations())
+    dispatch(getRatings(id))
+    dispatch(listUsers())
   }, []);
 
   const getArtist = (obraID) => {
@@ -34,6 +44,13 @@ const lastname=artist.last_name !=null ? artist.last_name : ""
 return name + " "+ lastname
   };
 
+  const getLocation = (obraID) => {
+    
+    const location=locations.filter((location)=>location.id==obraID)[0]
+
+  
+return location.nombre
+  };
   const getNumber=(number)=>{
     if(number.toString().length==1){
       return '0'+number.toString()
@@ -41,6 +58,20 @@ return name + " "+ lastname
       return number.toString()
     }
 
+  }
+  const getAverage=()=>{
+    console.log('kjuhgvbhnjmk')
+    let average=0;
+    
+    currentRatings.map((rating)=>{
+      console.log(average)
+      average+=rating.rating;
+    })
+    return parseInt(average/currentRatings.length)
+  }
+
+  const reservar=()=>{
+    navigate(`/events/${id}`)
   }
   return (
     <>
@@ -51,18 +82,17 @@ return name + " "+ lastname
           <>
             <div className="book">
               <div className="stars-container">
-                <FontAwesomeIcon icon={faStar} className="big-star" />
-                <FontAwesomeIcon icon={faStar} className="big-star" />
-                <FontAwesomeIcon icon={faStar} className="big-star" />
-                <FontAwesomeIcon icon={faStar} className="big-star" />
-                <FontAwesomeIcon icon={faStar} className="big-star" />
+              {[...Array(getAverage())].map((n)=>{
+            return  <FontAwesomeIcon icon={faStar} className="big-star" />
+          })}
+        
               </div>
 
               <h1 className="titulos-book">{currentTour.name_tour}</h1>
               <p className="parrafos-book">{currentTour.description}</p>
-              <Link to={link}>
-                <button className="b-book">Reservar</button>
-              </Link>
+         {user !=null &&
+                <button className="b-book" onClick={()=>{reservar()}}>Reservar</button>}
+              
             </div>
             <div className="book">
               <div className="black-container"></div>
@@ -75,7 +105,14 @@ return name + " "+ lastname
                       <h1 className="number">{getNumber(index)}</h1>
                       <div className="obra">
                         <img src={obra.img}/>
-                        <div className="obra-hover"></div>
+                        <div className="obra-hover">
+                        <h1>Año: {obra.year}</h1>
+                          <h1>Ubicación: {getLocation(obra.ID_ubicacion)}</h1>
+                          <h1>Tipo: {obra.type}</h1>
+                          <h1>Dimensiones: {obra.dimensiones}</h1>
+                          <h1>Tecnica: {obra.tecnica}</h1>
+                          <h1>Descripción: {obra.description}</h1>
+                        </div>
                       </div>
                      
                     </div>
@@ -83,7 +120,7 @@ return name + " "+ lastname
                 })}
               </div>
             </div>
-            <Slider />
+            <Slider ratings={currentRatings}/>
           </>
         )}
     </>

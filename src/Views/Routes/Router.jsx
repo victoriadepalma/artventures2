@@ -34,6 +34,7 @@ export const Router = () => {
     <Routes>
       <Route path="/" element={<Home/>} />
       <Route path="/tours" element={<Tours/>} />
+      <Route path="/events/:id" element={<ProtectedRoute><Events/></ProtectedRoute>} />
       <Route path="/events" element={<Events/>} />
       <Route path="/book/:id" element={<Book />} />
       <Route path="/login" element={<AuthRoute><Login/></AuthRoute>} />

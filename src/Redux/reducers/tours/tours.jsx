@@ -1,4 +1,4 @@
-import { LIST_LOCATIONS_SUCCESS, LIST_OBRAS, LIST_TOURS_SUCCESS,LIST_ARTISTS_SUCCESS, LIST_OBRAS_SUCCESS, GET_TOUR_SUCCESS,LIST_OBRAS_TOUR_SUCCESS } from '../../constants'
+import { LIST_LOCATIONS_SUCCESS, LIST_OBRAS, LIST_TOURS_SUCCESS,LIST_ARTISTS_SUCCESS, LIST_OBRAS_SUCCESS, GET_TOUR_SUCCESS,LIST_OBRAS_TOUR_SUCCESS, GET_RATING_TOUR_SUCCESS } from '../../constants'
 
   
   const INIT_STATE = {
@@ -7,7 +7,8 @@ import { LIST_LOCATIONS_SUCCESS, LIST_OBRAS, LIST_TOURS_SUCCESS,LIST_ARTISTS_SUC
     artists:[],
     obras:[],
     currentTour: undefined,
-    currentObras: []
+    currentObras: [],
+    currentRatings:[]
   };
   
   export default (state = INIT_STATE, action) => {
@@ -46,6 +47,12 @@ import { LIST_LOCATIONS_SUCCESS, LIST_OBRAS, LIST_TOURS_SUCCESS,LIST_ARTISTS_SUC
         return {
           ...state,
           currentObras:action.data
+        };
+      }
+      case GET_RATING_TOUR_SUCCESS: {
+        return {
+          ...state,
+          currentRatings:action.data
         };
       }
       default: {

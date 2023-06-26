@@ -3,32 +3,34 @@ import '../../Views/Home/Home.css'
 import { Review } from "./Review/Review";
 
 
-function Slider(){
+function Slider({ratings}){
     const [index,setIndex]=useState(0)
 
     const previous = ()=>{
         if(index>0 ){
             setIndex(index-1)
         }else{
-            setIndex(2)
+            setIndex(ratings.length-1)
         }
     }
     const next = ()=>{
-        if(index<3){
+        if(index<ratings.length){
             setIndex(index+1)
         }else{
             setIndex(0)
         }
     }
-    
+    console.log("kjihgyfvcdfgvhbj",ratings)
 
     return(
+        <>
+        {ratings.length >0 &&
         <div className="row-container2">
- <Review previous={previous} next={next} currentIndex={index} index={0} title={'titulo1'}/>
- <Review previous={previous} next={next} currentIndex={index} index={1} title={'titulo2'}/>
- <Review previous={previous} next={next} currentIndex={index} index={2} title={'titulo3'}/>
- <Review previous={previous} next={next} currentIndex={index} index={3} title={'titulo4'}/>
+            {ratings.map((rating,i)=>{
+ return <Review previous={previous} next={next} currentIndex={index} index={i} title={'titulo1'} rating={rating}/>
+            })}
+
   
-        </div>);}
+        </div>}</>);}
 
  export default Slider;

@@ -138,15 +138,29 @@ opacity: 0.4;
     width: 100%;
     height:100%;
     position: absolute;
-    background-color: #F2E346;
+    background-color: #FBCCFA;
     top:0;
     left:0;
     opacity: 0;
     visibility: hidden;
     transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    padding: 1vw;
 }
 
 .obra:hover > .obra-hover{
     opacity: 1;
     visibility: visible; 
+}
+
+.obra-hover > h1 {
+    font-family: 'Darker Grotesque', sans-serif;
+    text-transform: uppercase;
+    font-size: 1vw;
+    text-align: left;
+  
 }
