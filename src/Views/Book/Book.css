@@ -124,3 +124,9 @@ opacity: 0.4;
 .b-book:hover{
     background-color: #5290D1;
 }
+
+.obra > img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

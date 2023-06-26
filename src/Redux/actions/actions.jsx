@@ -1,4 +1,4 @@
-import { LIST_LOCATIONS_SUCCESS, LIST_LOCATIONS,LIST_ARTISTS,LIST_ARTISTS_SUCCESS,LIST_TOURS_SUCCESS,LIST_TOURS, LIST_OBRAS,LIST_OBRAS_SUCCESS, LOGIN } from "../constants"
+import { LIST_LOCATIONS_SUCCESS, LIST_LOCATIONS,LIST_ARTISTS,LIST_ARTISTS_SUCCESS,LIST_TOURS_SUCCESS,LIST_TOURS, LIST_OBRAS,LIST_OBRAS_SUCCESS, LOGIN, LIST_OBRAS_TOUR_SUCCESS, LIST_OBRAS_TOUR, GET_TOUR, GET_TOUR_SUCCESS } from "../constants"
 
 export const login = (data)=>{
     return {
@@ -45,6 +45,23 @@ export const listArtistsSuccess = (data)=>{
     }
 }
 
+export const getTour = (data)=>{
+    return {
+        type: GET_TOUR,
+        data
+        
+    }
+}
+
+export const getTourSuccess = (data)=>{
+
+    return {
+        type: GET_TOUR_SUCCESS,
+        data
+        
+    }
+}
+
 export const listArtists = ()=>{
     return {
         type: LIST_ARTISTS,
@@ -63,6 +80,22 @@ export const listObrasSuccess = (data)=>{
 export const listObras = ()=>{
     return {
         type: LIST_OBRAS,
+        
+    }
+}
+
+export const listObrasTourSuccess = (data)=>{
+    return {
+        type: LIST_OBRAS_TOUR_SUCCESS,
+        data
+        
+    }
+}
+
+export const listObrasTour = (data)=>{
+    return {
+        type: LIST_OBRAS_TOUR,
+        data
         
     }
 }

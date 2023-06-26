@@ -1,5 +1,5 @@
 import { all, call, put, takeEvery, select } from "redux-saga/effects";
-import { LIST_ARTISTS, LIST_LOCATIONS, LIST_OBRAS, LIST_TOURS } from "../constants";
+import { GET_TOUR, LIST_ARTISTS, LIST_LOCATIONS, LIST_OBRAS, LIST_OBRAS_TOUR, LIST_TOURS } from "../constants";
 import { db, auth, googleProvider } from "../../firebase";
 import {
   doc,
@@ -11,7 +11,7 @@ import {
   where,
   getDocs,
 } from "firebase/firestore";
-import { listArtistsSuccess, listLocationsSuccess, listObrasSuccess, listToursSuccess } from "../actions/actions";
+import { getTourSuccess, listArtistsSuccess, listLocationsSuccess, listObrasSuccess, listObrasTourSuccess, listToursSuccess } from "../actions/actions";
 
 const listLocationsRequest = async () => {
 
@@ -29,6 +29,16 @@ let locations=[]
   });
  
   return locations
+
+};
+
+const getTourRequest = async (uid) => {
+
+  const docuRef = await doc(db, `tour/${uid}`);
+  const data = await getDoc(docuRef);
+  const dataFiltered = data.data();
+
+  return dataFiltered
 
 };
 
@@ -66,7 +76,27 @@ let obras=[]
    
     obras.push({...doc.data(),id:doc.id})
   });
- 
+  return obras
+
+};
+
+const listObrasTourRequest = async (payload) => {
+
+  const q = query(
+    collection(db, "obras"),
+    where("ID_tour", "==", payload)
+  );
+  
+
+  const querySnapshot = await getDocs(q);
+let obras=[]
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+   
+    obras.push({...doc.data(),id:doc.id})
+  });
+
+
   return obras
 
 };
@@ -99,6 +129,15 @@ function* listTours(payload) {
   }
 }
 
+function* getTour(payload) {
+  try {
+    const res = yield call(getTourRequest, payload.data);
+    yield put(getTourSuccess(res))
+  } catch (error) {
+    
+  }
+}
+
 function* listLocations(payload) {
   try {
     const res = yield call(listLocationsRequest, payload);
@@ -112,6 +151,15 @@ function* listObras(payload) {
   try {
     const res = yield call(listObrasRequest, payload);
     yield put(listObrasSuccess(res))
+  } catch (error) {
+    
+  }
+}
+
+function* listObrasTour(payload) {
+  try {
+    const res = yield call(listObrasTourRequest, payload.data);
+    yield put(listObrasTourSuccess(res))
   } catch (error) {
     
   }
@@ -137,6 +185,8 @@ export default function* rootSaga() {
     takeEvery(LIST_LOCATIONS, listLocations),
     takeEvery(LIST_TOURS, listTours),
     takeEvery(LIST_OBRAS, listObras),
+    takeEvery(LIST_OBRAS_TOUR, listObrasTour),
     takeEvery(LIST_ARTISTS, listArtists),
+    takeEvery(GET_TOUR, getTour),
   ]);
 }
