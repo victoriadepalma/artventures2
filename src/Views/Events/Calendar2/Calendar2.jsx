@@ -26,7 +26,7 @@ const months = [
 
 const mockHours = [9, 13, 23];
 
-export const Calendar2 = () => {
+export const Calendar2 = ({tour}) => {
   const daysRef = useRef(null);
   const [selectedDate, setSelectedDate] = useState(null);
   const [show, setShow] = useState(false);
@@ -108,16 +108,20 @@ export const Calendar2 = () => {
   }, [currentMonth, currentYear]);
 
   const hola = (i, dateRange) => {
-    if(mockData.includes(
+    if(tour.fecha.includes(
       new Date(currentYear, currentMonth, i)
         .getDay()
         .toString()
     ) && dateRange){
+      if(selectedDate != null){
+        console.log('ddd',new Date(selectedDate))
+      }
+      console.log(moment(new Date(currentYear, currentMonth, i)).format('l'))
       setSelectedDate(moment(new Date(currentYear, currentMonth, i)).format('l'));
       console.log(moment(new Date(currentYear, currentMonth, i)).format('l'));
       console.log(mockData);
       console.log(
-        mockData.includes(
+        tour.fecha.includes(
           new Date(currentYear, currentMonth, i).getDay().toString()
         )
       );
@@ -208,7 +212,20 @@ export const Calendar2 = () => {
               currentMonth == new Date().getMonth() &&
               currentYear == new Date().getFullYear()
             ) {
-              return <li className="active">{index + 1}</li>;
+              return <li     onClick={() => {
+                hola(index + 1,true);
+              }} className={
+                tour.fecha.includes(
+                  new Date(currentYear, currentMonth, index + 1)
+                    .getDay()
+                    .toString()
+                )
+                  ? selectedDate != null ? 
+                new Date(selectedDate).getFullYear()==currentYear && new Date(selectedDate).getMonth()==currentMonth && index + 1 ==new Date(selectedDate).getDate()
+                     
+                   ? 'selectedDay' :'active' :"active"
+                  : ""
+              }>{index + 1}</li>;
             } else {
               return (
                 <li
@@ -217,12 +234,15 @@ export const Calendar2 = () => {
                   }}
                   disabled={true}
                   className={
-                    mockData.includes(
+                    tour.fecha.includes(
                       new Date(currentYear, currentMonth, index + 1)
                         .getDay()
                         .toString()
                     )
-                      ? "available"
+                      ? selectedDate != null ? 
+                    new Date(selectedDate).getFullYear()==currentYear && new Date(selectedDate).getMonth()==currentMonth && index + 1 ==new Date(selectedDate).getDate()
+                         
+                       ? 'selectedDay' :'available' :"available"
                       : ""
                   }
                 >
@@ -241,8 +261,8 @@ export const Calendar2 = () => {
       </div>
       {show &&
       <div className="hours">
-        {mockHours.map((hour, index)=>{
-          return    <div>{getHour(hour)}</div>
+        {tour.horario.map((hour, index)=>{
+          return    <div>{getHour(Number(hour))}</div>
         })}
       </div>}
     </div>
