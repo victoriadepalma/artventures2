@@ -1,0 +1,267 @@
+.tour{
+  height: 100vh;
+  background-color: #FFFDE9;
+  position: relative;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.square-tour {
+  position: absolute;
+  margin-top: 25vh;
+  width: 40vh;
+  height: 50vh;
+  background-color: #F2E346;
+  right: 70vh;
+  z-index: 10;
+}
+
+.filters{
+  background-color: black;
+  width: 60vw;
+  position: fixed;
+  z-index: 20;
+  top:12vh;
+  left:0;
+  right:0;
+padding: 0.6vw 0.6vw;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+}
+
+.filter-container{
+  position: fixed;
+  width: fit-content;
+  height: fit-content;
+  background-color: #F2E346;
+  top:calc(12vh + 0.5vw);
+  left: 0;
+  z-index: 21;
+  margin-left: 26vw;
+  margin-right: auto;
+  left:0;
+  right:0;
+  padding: 1vw;
+  display: flex;
+  flex-direction: column;
+  width: 16vw;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
+
+}
+
+.no-show{
+  visibility: hidden;
+  opacity: 0;
+}
+
+.filter-container > select,input{
+  width:100%;
+  min-width: 100%;
+  display: flex;
+  max-width: 100%;
+  outline: none;
+  border:none;
+  background-color: black;
+  color: white;
+  padding: 0.5vw 0vw;
+  font-size: 1vw;
+  font-family: 'Darker Grotesque', sans-serif;
+  
+}
+
+.filter-container > input{
+margin-top: 1vh;
+visibility: hidden;
+
+transition: 0.5s;
+
+
+  
+}
+
+.filter-container > input.active{
+  margin-top: 1vh;
+  visibility: visible;
+
+  transition: 0.5s;
+  
+  
+    
+  }
+
+.filter-container > select,input::placeholder{
+  color: white;
+  
+}
+.filters::-webkit-scrollbar{
+  display: none;
+}
+.add-filter{
+background-color: #F2E346;
+outline: none;
+border: none;
+padding:0.5vw 1vw;
+font-family: 'Darker Grotesque', sans-serif;
+font-size: 1vw;
+margin: 0;
+line-height: 1.2;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+cursor: pointer;
+color: black;
+margin-right: 1vw;
+
+}
+
+.filter-delete{
+position: absolute;
+top:0.2vw;
+right: 0.2vw;
+visibility: hidden;
+opacity: 0;
+transition: 0.5s;
+}
+.filter-item{
+  position: relative;
+  background-color: #FFFDE9;
+  padding-right: 1vw;
+  transition: 0.5s;
+
+}
+
+.filter-item:hover > .filter-delete {
+  opacity: 1;
+  visibility: visible;
+
+}
+
+.filter-item:hover {
+padding-right: 2vw;
+
+}
+
+.add-filter:first-of-type{
+  margin-right: 2vw;
+}
+
+.add-filter:last-of-type{
+  margin-right: 0;
+}
+.add-filter-icon{
+  font-size: 0.8vw;
+  margin-right: 0.2vw;
+  color: black;
+}
+
+.ver-mas-button{
+  
+  position: absolute;
+  background-color: black;
+  color:#FFFDE9;
+  height: 5vh;
+  width: 23vh;
+  z-index: 3;
+  border-color: black;
+  right: 10vw;
+  /* margin-top: 50vh; */
+  font-family: 'Darker Grotesque', sans-serif;
+  font-size: 2vh;
+  border:none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.ver-mas-button:hover{
+  background-color: #F2E346;
+  color: black;
+}
+
+.tour-name-container{
+
+ width: 100%;
+ height: 100%;
+ position: relative;
+ top:0;
+ left: 0;
+ z-index: 0;
+ overflow: hidden;
+}
+.tour-name{
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  z-index: 2;
+  min-width: 100vw;
+  margin-top: 62vh;
+
+}
+
+.tour-name > span{
+  display: inline-block;
+  color: black;
+  font-size: 22vh;
+  padding-left: 100%;
+  font-family: 'Quattrocento', serif;
+  animation: example 10s linear infinite;
+
+}
+.tour-name2 > span {
+  animation-delay: 5s;
+
+
+}
+
+@keyframes example {
+ 0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+
+@-webkit-keyframes example {
+ 0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+
+
+
+ @media screen and ( max-width:1000px ) {
+
+  .ver-mas-button{
+
+   
+    right: auto;
+    bottom: 10vh;
+    background-color: #F2E346;
+    color: black;
+  }
+
+  .ver-mas-button:hover{
+    background-color: black;
+    color:#FFFDE9;
+  }
+
+ }
+ 
+
+ 
