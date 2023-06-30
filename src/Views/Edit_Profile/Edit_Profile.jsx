@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import { useDispatch, useSelector } from "react-redux";
+import { InputControl } from '../../components/InputControl/InputControl';
 import { UserAuth } from '../../context/AuthContext';
 import { getReservas, listTours } from '../../Redux/actions/actions';
 import './Edit_Profile.css'
@@ -68,10 +69,13 @@ const reservas= [{
 
 export const Edit_Profile = () => {
   const dispatch=useDispatch()
+  const { loading, user } = UserAuth()
   const [active, setActive]=useState(false)
+  const [values, setvalues] = useState({ name: user.name,lastName: user.lastName, email: user.email,telefono:user.telefono });
+  const [errorMsg, setErrorMsg] = useState([]);
   const [showFeedback, setShowFeedback]=useState(false)
   const [selectedReserva,setSelectedReserva]=useState(null)
-  const { loading, user } = UserAuth()
+
   const { tours,misReservas} = useSelector((state) => ({
     ...state.tours,
   }));
@@ -137,8 +141,44 @@ return aux[0].name_tour
   })}
  
 </tbody>
-  </table>:
-  null}
+  </table>:   <div className={"innerBox"}>
+        <InputControl
+          label=""
+          placeholder="NOMBRE"
+          value={values.name}
+          onChange={(event) =>
+            setvalues((prev) => ({ ...prev, name: event.target.value }))
+          }
+          />
+              <InputControl
+          label=""
+          placeholder="APELLIDO"
+          value={values.lastName}
+          onChange={(event) =>
+            setvalues((prev) => ({ ...prev, lastName: event.target.value }))
+          }
+          />
+   
+        <InputControl
+          label=""
+          value={values.telefono}
+          placeholder="TELEFONO"
+          onChange={(event) =>
+            setvalues((prev) => ({ ...prev, telefono: event.target.value }))
+          }
+        />
+             <InputControl
+             disabled
+          label=""
+          value={values.email}
+          placeholder="EMAIL"
+          onChange={(event) =>
+            setvalues((prev) => ({ ...prev, email: event.target.value }))
+          }
+          />
+          <button>Guardar Cambios</button>
+       
+      </div>}
     </div>
   )
 }
