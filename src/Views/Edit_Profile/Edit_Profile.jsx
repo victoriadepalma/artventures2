@@ -1,5 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
+import { useDispatch, useSelector } from "react-redux";
+import { UserAuth } from '../../context/AuthContext';
+import { getReservas, listTours } from '../../Redux/actions/actions';
 import './Edit_Profile.css'
+import { Message } from './Feedback/Message';
 
 const reservas= [{
   ID_tour:'2ssHeCkRnkHISHKBV0Ir',
@@ -63,8 +67,14 @@ const reservas= [{
 },]
 
 export const Edit_Profile = () => {
+  const dispatch=useDispatch()
   const [active, setActive]=useState(false)
-
+  const [showFeedback, setShowFeedback]=useState(false)
+  const [selectedReserva,setSelectedReserva]=useState(null)
+  const { loading, user } = UserAuth()
+  const { tours,misReservas} = useSelector((state) => ({
+    ...state.tours,
+  }));
 
   const getHour = (hour) => {
     if (hour < 12) {
@@ -77,11 +87,24 @@ export const Edit_Profile = () => {
   };
 
   const getTourName=(id)=>{
-
+let aux=tours.filter((tour)=>tour.id==id)
+return aux[0].name_tour
   }
+
+  useEffect(() => {
+
+    if(tours.length ==0 || misReservas.length==0){
+     dispatch(getReservas(user.uid))
+     dispatch(listTours())
+    }
+  
+
+  }, []);
 
   return (
     <div className='perfil'>
+      {selectedReserva != null &&
+      <Message show={showFeedback} setShow={()=>{setShowFeedback(!showFeedback);setSelectedReserva(null)}} reserva={selectedReserva}/>}
       <div className='tabs'>
         <div className={active ?'tab active':'tab'} onClick={()=>{setActive(true)}}>Mis Reservas</div>
         <div className={!active ?'tab active':'tab'} onClick={()=>{setActive(false)}}>Perfil</div>
@@ -100,15 +123,15 @@ export const Edit_Profile = () => {
   </tr>
 </thead>
 <tbody>
-  {reservas.map((reserva)=>{
+  {misReservas.map((reserva)=>{
     return  <tr>
-    <td>Tour</td>
+    <td>{getTourName(reserva.ID_tour)}</td>
        <td>{reserva.fecha}</td>
        <td>{getHour(reserva.horario)}</td>
        <td>{reserva.cantidad_persona}</td>
        <td>Contribución</td>
-       {reserva.feedback ?
-       <td onClick={()=>{console.log("feedback")}} className="feedback-button">Hacer</td>
+       {!reserva.feedback ?
+       <td onClick={()=>{setSelectedReserva(reserva);setShowFeedback(true)}} className="feedback-button">Hacer</td>
        :<td >Realizado</td>}
     </tr>
   })}

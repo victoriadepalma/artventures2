@@ -1,5 +1,5 @@
 import { all, call, put, takeEvery, select,takeLatest } from "redux-saga/effects";
-import { GET_RATING_TOUR, GET_RESERVA, GET_TOUR, LIST_ARTISTS, LIST_LOCATIONS, LIST_OBRAS, LIST_OBRAS_TOUR, LIST_TOURS, RESERVE } from "../constants";
+import { GET_RATING_TOUR, GET_RESERVA, GET_RESERVAS, GET_TOUR, LIST_ARTISTS, LIST_LOCATIONS, LIST_OBRAS, LIST_OBRAS_TOUR, LIST_TOURS, RESERVE, SEND_FEEDBACK } from "../constants";
 import { db, auth, googleProvider } from "../../firebase";
 import {
   doc,
@@ -10,8 +10,9 @@ import {
   query,
   where,
   getDocs,
+  updateDoc
 } from "firebase/firestore";
-import { getRatingsSuccess, getReservaSuccess, getTourSuccess, listArtistsSuccess, listLocationsSuccess, listObrasSuccess, listObrasTourSuccess, listToursSuccess, reserveSuccess } from "../actions/actions";
+import { getRatingsSuccess, getReservas, getReservasSuccess, getReservaSuccess, getTourSuccess, listArtistsSuccess, listLocationsSuccess, listObrasSuccess, listObrasTourSuccess, listToursSuccess, reserveSuccess } from "../actions/actions";
 
 const listLocationsRequest = async () => {
 
@@ -75,6 +76,27 @@ const reserveRequest = async (data) => {
   console.log(data)
     const docRef = await addDoc(collection(db, "reserva"), data.data);
         console.log("Document written with ID: ", docRef.id);
+    return docRef.id
+
+ 
+ };
+
+ const addFeedbackRequest = async (data) => {
+  const data1 = {
+    ID_tour: data.data.ID_tour,
+    ID_user: data.data.ID_user,
+    feedback: data.data.feedback,
+    rating: data.data.rating,
+  };
+
+    const docRef = await addDoc(collection(db, "rating"), data1).then(async(docc)=>{
+
+      const docuRef = await doc(db, `reserva/${data.data.reserva}`)
+updateDoc(docuRef, {feedback: true})
+return docuRef
+    
+    });
+       console.log('kmjnhbgvfvhbjnkml',docRef.id)
     return docRef.id
 
  
@@ -157,6 +179,34 @@ let obras=[]
   return obras
 
 };
+
+const getReservasRequest = async (payload) => {
+  let count= localStorage.getItem("count");
+   if(count){
+     count=Number(count)+1
+   }else{
+     count=1
+   }
+
+   localStorage.setItem("count",count.toString());
+   const q = query(
+     collection(db, "reserva"),
+     where("ID_user", "==", payload.data)
+   );
+   
+ 
+   const querySnapshot = await getDocs(q);
+ let obras=[]
+   querySnapshot.forEach((doc) => {
+     // doc.data() is never undefined for query doc snapshots
+    
+     obras.push({...doc.data(),id:doc.id})
+   });
+ 
+ 
+   return obras
+ 
+ };
 
 const getRatingsRequest = async (payload) => {
  let count= localStorage.getItem("count");
@@ -247,6 +297,15 @@ function* listLocations(payload) {
   }
 }
 
+function* getReservas1(payload) {
+  try {
+    const res = yield call(getReservasRequest, payload);
+    yield put(getReservasSuccess(res))
+  } catch (error) {
+    
+  }
+}
+
 function* listObras(payload) {
   try {
     const res = yield call(listObrasRequest, payload);
@@ -291,6 +350,18 @@ function* reserve(payload) {
   }
 }
 
+function* addFeedback(payload) {
+  try {
+    const res = yield call(addFeedbackRequest, payload);
+    if(res){
+      yield put(getReservas(payload.data.ID_user))
+    }
+
+  } catch (error) {
+    
+  }
+}
+
 
 
 
@@ -309,5 +380,7 @@ export default function* rootSaga() {
     takeLatest(GET_RATING_TOUR, getRatings),
     takeLatest(RESERVE, reserve),
     takeLatest(GET_RESERVA, getReserva),
+    takeLatest(GET_RESERVAS, getReservas1),
+    takeLatest(SEND_FEEDBACK, addFeedback),
   ]);
 }

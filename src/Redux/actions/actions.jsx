@@ -1,4 +1,4 @@
-import { LIST_LOCATIONS_SUCCESS, LIST_LOCATIONS,LIST_ARTISTS,LIST_ARTISTS_SUCCESS,LIST_TOURS_SUCCESS,LIST_TOURS, LIST_OBRAS,LIST_OBRAS_SUCCESS, LOGIN, LIST_OBRAS_TOUR_SUCCESS, LIST_OBRAS_TOUR, GET_TOUR, GET_TOUR_SUCCESS, GET_RATING_TOUR_SUCCESS, GET_RATING_TOUR, LIST_USERS, LIST_USERS_SUCCESS, EDIT_PROFILE, EDIT_PROFILE_SUCCESS, RESERVE, RESERVE_SUCCESS, GET_RESERVA, GET_RESERVA_SUCCESS, RESET_RESERVA, GET_RESERVAS,GET_RESERVAS_SUCCESS } from "../constants"
+import { LIST_LOCATIONS_SUCCESS, LIST_LOCATIONS,LIST_ARTISTS,LIST_ARTISTS_SUCCESS,LIST_TOURS_SUCCESS,LIST_TOURS, LIST_OBRAS,LIST_OBRAS_SUCCESS, LOGIN, LIST_OBRAS_TOUR_SUCCESS, LIST_OBRAS_TOUR, GET_TOUR, GET_TOUR_SUCCESS, GET_RATING_TOUR_SUCCESS, GET_RATING_TOUR, LIST_USERS, LIST_USERS_SUCCESS, EDIT_PROFILE, EDIT_PROFILE_SUCCESS, RESERVE, RESERVE_SUCCESS, GET_RESERVA, GET_RESERVA_SUCCESS, RESET_RESERVA, GET_RESERVAS,GET_RESERVAS_SUCCESS, SEND_FEEDBACK, SEND_FEEDBACK_SUCCESS } from "../constants"
 
 export const login = (data)=>{
     return {
@@ -184,6 +184,7 @@ export const resetReserva = (data)=>{
     }
 }
 export const getReservas = (data)=>{
+    console.log("kmjnbhgvfgvhbjnkm",data)
     return {
         type: GET_RESERVAS,
         data
@@ -193,6 +194,21 @@ export const getReservas = (data)=>{
 export const getReservasSuccess = (data)=>{
     return {
         type: GET_RESERVAS_SUCCESS,
+        data
+        
+    }
+}
+
+export const sendFeedback = (data)=>{
+    return {
+        type: SEND_FEEDBACK,
+        data
+    }
+}
+
+export const sendFeedbackSuccess = (data)=>{
+    return {
+        type: SEND_FEEDBACK_SUCCESS,
         data
         
     }

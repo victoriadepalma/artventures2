@@ -1,4 +1,4 @@
-import { LIST_LOCATIONS_SUCCESS, LIST_OBRAS, LIST_TOURS_SUCCESS,LIST_ARTISTS_SUCCESS, LIST_OBRAS_SUCCESS, GET_TOUR_SUCCESS,LIST_OBRAS_TOUR_SUCCESS, GET_RATING_TOUR_SUCCESS, RESERVE_SUCCESS, GET_RESERVA_SUCCESS, RESET_RESERVA } from '../../constants'
+import { LIST_LOCATIONS_SUCCESS, LIST_OBRAS, LIST_TOURS_SUCCESS,LIST_ARTISTS_SUCCESS, LIST_OBRAS_SUCCESS, GET_TOUR_SUCCESS,LIST_OBRAS_TOUR_SUCCESS, GET_RATING_TOUR_SUCCESS, RESERVE_SUCCESS, GET_RESERVA_SUCCESS, RESET_RESERVA, GET_RESERVAS_SUCCESS } from '../../constants'
 
   
   const INIT_STATE = {
@@ -6,6 +6,7 @@ import { LIST_LOCATIONS_SUCCESS, LIST_OBRAS, LIST_TOURS_SUCCESS,LIST_ARTISTS_SUC
     tours:[],
     artists:[],
     obras:[],
+    misReservas:[],
     currentTour: undefined,
     currentObras: [],
     currentRatings:[],
@@ -68,6 +69,13 @@ import { LIST_LOCATIONS_SUCCESS, LIST_OBRAS, LIST_TOURS_SUCCESS,LIST_ARTISTS_SUC
         return {
           ...state,
           currentReserva:action.data
+        };
+      }
+      case GET_RESERVAS_SUCCESS: {
+        console.log(action.data)
+        return {
+          ...state,
+          misReservas:action.data
         };
       }
       case RESET_RESERVA: {
