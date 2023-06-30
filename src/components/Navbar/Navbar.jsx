@@ -29,6 +29,10 @@ const location=useLocation()
     toggle()
     navigate('/events')
   }
+  const goToPerfil=()=>{
+
+    navigate('/perfil')
+  }
   return (
     <div className= "logo-container" style={{backgroundColor:location?.pathname!='/' ? 'transparent':'#F2E346'}}>
     <NavLink to = "/" >  <img src = {logo}></img> ArtVentures</NavLink>
@@ -59,7 +63,7 @@ const location=useLocation()
      :<div className='navbar-right'>
    
   
-     <NavLink to="/editar-perfil"> Editar Perfil</NavLink>
+     <button className='logOut' onClick={()=>{goToPerfil()}}>Perfil</button>
      <button className='logOut' onClick={()=>{logout()}}>Cerrar Sesión</button>
      </div>}
      </>

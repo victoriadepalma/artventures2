@@ -1,0 +1,61 @@
+.pending-container{
+    background-color: black;
+    width: fit-content;
+    height: fit-content;
+    position: fixed;
+    top: 2vw;
+    right: 2vw;
+    z-index: 100000;
+    padding: 1vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+
+}
+
+.pending-container.visible{
+    visibility: visible;
+    opacity: 1;
+}
+
+.pending-container h1{
+    font-size: 1vw;
+    text-align: left;
+    font-family: 'Darker Grotesque', sans-serif;
+}
+
+.pending-container button{
+    outline: none;
+    border: none;
+    margin-top: 2vh;
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 0.8vw;
+    padding: 0.5vw 1vw;
+    background-color: #FBCCFA;
+    cursor: pointer;
+    transition: 0.5s;
+    color: black;
+}
+.pending-container button:hover{
+background-color: #F88CF5;
+color: white;
+}
+
+.close-menu-icon-pending{
+    color: white;
+    font-size: 1vw;
+    position: absolute;
+    top:0.5vw;
+    right:1vw;
+    cursor: pointer;
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.close-menu-icon-pending:hover{
+    opacity: 0.5;
+}

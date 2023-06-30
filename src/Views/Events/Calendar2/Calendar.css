@@ -24,6 +24,16 @@
   background-color: #FBCCFA;
 }
 
+.days li.selectedDay::before{
+  background-color: black;
+ 
+}
+
+.days li.selectedDay{
+ 
+  color: white;
+}
+
 
 header .icons{
   display: flex;
@@ -91,12 +101,16 @@ header .current-date{
   margin-top: 30px;
 }
 
-.calendar .days li:not(.available){
+.calendar .days li:not(.available):not(.active):not(.selectedDay){
 
   cursor:not-allowed
 
 }
 .days li.inactive{
+  color: #aaa;
+}
+
+.days li.inactive:hover{
   color: #aaa;
 }
 .days li.active{
@@ -106,6 +120,7 @@ header .current-date{
 .pink{
   background: #FBCCFA;
 }
+
 
 .hours{
   width: 60%;

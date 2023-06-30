@@ -1,5 +1,5 @@
 import { all, call, put, takeEvery, select,takeLatest } from "redux-saga/effects";
-import { GET_RATING_TOUR, GET_TOUR, LIST_ARTISTS, LIST_LOCATIONS, LIST_OBRAS, LIST_OBRAS_TOUR, LIST_TOURS } from "../constants";
+import { GET_RATING_TOUR, GET_RESERVA, GET_RESERVAS, GET_TOUR, LIST_ARTISTS, LIST_LOCATIONS, LIST_OBRAS, LIST_OBRAS_TOUR, LIST_TOURS, RESERVE, SEND_FEEDBACK } from "../constants";
 import { db, auth, googleProvider } from "../../firebase";
 import {
   doc,
@@ -10,8 +10,9 @@ import {
   query,
   where,
   getDocs,
+  updateDoc
 } from "firebase/firestore";
-import { getRatingsSuccess, getTourSuccess, listArtistsSuccess, listLocationsSuccess, listObrasSuccess, listObrasTourSuccess, listToursSuccess } from "../actions/actions";
+import { getRatingsSuccess, getReservas, getReservasSuccess, getReservaSuccess, getTourSuccess, listArtistsSuccess, listLocationsSuccess, listObrasSuccess, listObrasTourSuccess, listToursSuccess, reserveSuccess } from "../actions/actions";
 
 const listLocationsRequest = async () => {
 
@@ -19,6 +20,13 @@ const listLocationsRequest = async () => {
     collection(db, "location")
   );
   
+ let count= localStorage.getItem("count");
+  if(count){
+    count=Number(count)+1
+  }else{
+    count=1
+  }
+  localStorage.setItem("count",count.toString());
 
   const querySnapshot = await getDocs(q);
 let locations=[]
@@ -33,7 +41,13 @@ let locations=[]
 };
 
 const getTourRequest = async (uid) => {
-
+ let count= localStorage.getItem("count");
+  if(count){
+    count=Number(count)+1
+  }else{
+    count=1
+  }
+  localStorage.setItem("count",count.toString());
   const docuRef = await doc(db, `tour/${uid}`);
   const data = await getDoc(docuRef);
   const dataFiltered = data.data();
@@ -42,8 +56,61 @@ const getTourRequest = async (uid) => {
 
 };
 
-const listArtistsRequest = async () => {
+const getReservaRequest = async (uid) => {
+  let count= localStorage.getItem("count");
+   if(count){
+     count=Number(count)+1
+   }else{
+     count=1
+   }
+   localStorage.setItem("count",count.toString());
+   const docuRef = await doc(db, `reserva/${uid}`);
+   const data = await getDoc(docuRef);
+   const dataFiltered = data.data();
+ 
+   return dataFiltered
+ 
+ };
 
+const reserveRequest = async (data) => {
+  console.log(data)
+    const docRef = await addDoc(collection(db, "reserva"), data.data);
+        console.log("Document written with ID: ", docRef.id);
+    return docRef.id
+
+ 
+ };
+
+ const addFeedbackRequest = async (data) => {
+  const data1 = {
+    ID_tour: data.data.ID_tour,
+    ID_user: data.data.ID_user,
+    feedback: data.data.feedback,
+    rating: data.data.rating,
+  };
+
+    const docRef = await addDoc(collection(db, "rating"), data1).then(async(docc)=>{
+
+      const docuRef = await doc(db, `reserva/${data.data.reserva}`)
+updateDoc(docuRef, {feedback: true})
+return docuRef
+    
+    });
+       console.log('kmjnhbgvfvhbjnkml',docRef.id)
+    return docRef.id
+
+ 
+ };
+
+
+const listArtistsRequest = async () => {
+ let count= localStorage.getItem("count");
+  if(count){
+    count=Number(count)+1
+  }else{
+    count=1
+  }
+  localStorage.setItem("count",count.toString());
   const q = query(
     collection(db, "artista")
   );
@@ -63,7 +130,13 @@ let artists=[]
 };
 
 const listObrasRequest = async () => {
-
+ let count= localStorage.getItem("count");
+  if(count){
+    count=Number(count)+1
+  }else{
+    count=1
+  }
+  localStorage.setItem("count",count.toString());
   const q = query(
     collection(db, "obras")
   );
@@ -81,7 +154,13 @@ let obras=[]
 };
 
 const listObrasTourRequest = async (payload) => {
-
+ let count= localStorage.getItem("count");
+  if(count){
+    count=Number(count)+1
+  }else{
+    count=1
+  }
+  localStorage.setItem("count",count.toString());
   const q = query(
     collection(db, "obras"),
     where("ID_tour", "==", payload)
@@ -101,8 +180,42 @@ let obras=[]
 
 };
 
-const getRatingsRequest = async (payload) => {
+const getReservasRequest = async (payload) => {
+  let count= localStorage.getItem("count");
+   if(count){
+     count=Number(count)+1
+   }else{
+     count=1
+   }
 
+   localStorage.setItem("count",count.toString());
+   const q = query(
+     collection(db, "reserva"),
+     where("ID_user", "==", payload.data)
+   );
+   
+ 
+   const querySnapshot = await getDocs(q);
+ let obras=[]
+   querySnapshot.forEach((doc) => {
+     // doc.data() is never undefined for query doc snapshots
+    
+     obras.push({...doc.data(),id:doc.id})
+   });
+ 
+ 
+   return obras
+ 
+ };
+
+const getRatingsRequest = async (payload) => {
+ let count= localStorage.getItem("count");
+  if(count){
+    count=Number(count)+1
+  }else{
+    count=1
+  }
+  localStorage.setItem("count",count.toString());
   const q = query(
     collection(db, "rating"),
     where("ID_tour", "==", payload)
@@ -123,7 +236,14 @@ let ratings=[]
 };
 
 const listToursRequest = async () => {
-
+ let count= localStorage.getItem("count");
+  console.log(count)
+  if(count){
+    count=Number(count)+1
+  }else{
+    count=1
+  }
+  localStorage.setItem("count",count.toString());
   const q = query(
     collection(db, "tour")
   );
@@ -142,6 +262,7 @@ let tours=[]
 };
 
 function* listTours(payload) {
+  
   try {
     const res = yield call(listToursRequest, payload);
     yield put(listToursSuccess(res))
@@ -158,11 +279,28 @@ function* getTour(payload) {
     
   }
 }
+function* getReserva(payload) {
+  try {
+    const res = yield call(getReservaRequest, payload.data);
+    yield put(getReservaSuccess(res))
+  } catch (error) {
+    
+  }
+}
 
 function* listLocations(payload) {
   try {
     const res = yield call(listLocationsRequest, payload);
     yield put(listLocationsSuccess(res))
+  } catch (error) {
+    
+  }
+}
+
+function* getReservas1(payload) {
+  try {
+    const res = yield call(getReservasRequest, payload);
+    yield put(getReservasSuccess(res))
   } catch (error) {
     
   }
@@ -203,6 +341,27 @@ function* listArtists(payload) {
   }
 }
 
+function* reserve(payload) {
+  try {
+    const res = yield call(reserveRequest, payload);
+    yield put(reserveSuccess(res))
+  } catch (error) {
+    
+  }
+}
+
+function* addFeedback(payload) {
+  try {
+    const res = yield call(addFeedbackRequest, payload);
+    if(res){
+      yield put(getReservas(payload.data.ID_user))
+    }
+
+  } catch (error) {
+    
+  }
+}
+
 
 
 
@@ -219,5 +378,9 @@ export default function* rootSaga() {
     takeLatest(LIST_ARTISTS, listArtists),
     takeLatest(GET_TOUR, getTour),
     takeLatest(GET_RATING_TOUR, getRatings),
+    takeLatest(RESERVE, reserve),
+    takeLatest(GET_RESERVA, getReserva),
+    takeLatest(GET_RESERVAS, getReservas1),
+    takeLatest(SEND_FEEDBACK, addFeedback),
   ]);
 }

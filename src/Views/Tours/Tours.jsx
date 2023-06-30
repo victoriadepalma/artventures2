@@ -16,55 +16,144 @@ import { faAdd, faMultiply } from "@fortawesome/free-solid-svg-icons";
 export const Tours = () => {
   const [filters, setFilters] = useState([]);
   const [filterOptions, setFilterOptions] = useState([
-    { name: "Nombre", used: false },
-    { name: "Obra", used: false },
-    { name: "Artista", used: false },
-    { name: "Ubicación", used: false },
+    { name: "Nombre", used: false, value: "" },
+    { name: "Artista", used: false, value: "" },
+    { name: "Ubicación", used: false, value: "" },
+    { name: "Obra", used: false, value: "" },
   ]);
   const [show, setShow] = useState(false);
   const [filter, setFilter] = useState("Filtro");
   const [search, setSearch] = useState("");
-  const { tours, obras } = useSelector((state) => ({
+  const { tours, obras, artists, locations } = useSelector((state) => ({
     ...state.tours,
   }));
   const [filteredTours, setFilteredTours] = useState([]);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(listTours());
-    dispatch(listObras());
+    console.log("hola");
+    if (
+      tours.length == 0 ||
+      obras.length ||
+      0 ||
+      artists.length == 0 ||
+      locations.length == 0
+    ) {
+      dispatch(listTours());
+      dispatch(listObras());
+      dispatch(listArtists());
+      dispatch(listLocations());
+    }
   }, []);
 
   useEffect(() => {
     setFilteredTours(tours);
   }, [tours]);
 
-
-
   const filtrar = () => {
     let aux = filteredTours;
-    console.log("kjhnbgvbhjnkm", filters);
-    for (let i = 0; i < filters.length; i++) {
-      if (filters[i] == "Nombre") {
-        console.log(
-          tour.name_tour.toLowerCase().includes(search.toLowerCase())
-        );
-        aux.filter((tour) =>
-          tour.name_tour.toLowerCase().includes(search.toLowerCase())
-        );
-      }
+    let obrasAux = obras;
+    let artistasAux = artists;
+    let locationsAux=locations;
+    let filtered = [];
+
+
+    if (filters.includes("Nombre")) {
+      filtered = aux.filter((tour) =>
+        tour.name_tour
+          .toLowerCase()
+          .includes(filterOptions[0].value.toLowerCase())
+      );
     }
-    setFilteredTours(aux);
+
+    if (filters.includes("Artista")) {
+      artistasAux = artistasAux.filter((artista) =>
+        (artista.name + " " + artista.last_name)
+          .toLowerCase()
+          .includes(filterOptions[1].value.toLowerCase())
+      );
+      console.log("auuuuuux", artistasAux);
+      artistasAux = artistasAux.map((artista) => {
+        return artista.id;
+      });
+      obrasAux = obrasAux.filter((obra) =>
+        artistasAux.includes(obra.ID_artista)
+      );
+      console.log("21", obrasAux);
+      obrasAux = obrasAux.map((obra) => {
+        return obra.ID_tour;
+      });
+      console.log("22", obrasAux);
+      filtered = aux.filter((tour) => obrasAux.includes(tour.id));
+      console.log("23", filtered);
+    }
+
+
+    if (filters.includes("Ubicación")) {
+      locationsAux = locationsAux.filter((l) =>
+      l.nombre?.toLowerCase()
+          .includes(filterOptions[2].value.toLowerCase())
+      );
+      console.log("auuuuuux", locationsAux);
+      locationsAux = locationsAux.map((location) => {
+        return location.id;
+      });
+      obrasAux = obrasAux.filter((obra) =>
+      locationsAux.includes(obra.ID_ubicacion)
+      );
+      console.log("21", obrasAux);
+      obrasAux = obrasAux.map((obra) => {
+        return obra.ID_tour;
+      });
+      console.log("22", obrasAux);
+      filtered = aux.filter((tour) => obrasAux.includes(tour.id));
+      console.log("23", filtered);
+    }
+    if (filters.includes("Obra")) {
+      if (artistasAux.length != artists.length || locationsAux.length != locations.length) {
+        if(artistasAux.length != artists.length && locationsAux.length == locations.length){
+          obrasAux = obras.filter((obra) =>
+          artistasAux.includes(obra.ID_artista)
+        );
+        }
+        if(artistasAux.length == artists.length && locationsAux.length != locations.length ){
+          obrasAux = obras.filter((obra) =>
+          locationsAux.includes(obra.ID_ubicacion)
+        );
+        }
+        if(artistasAux.length != artists.length && locationsAux.length != locations.length ){
+          obrasAux = obras.filter((obra) =>
+          artistasAux.includes(obra.ID_artista) && locationsAux.includes(obra.ID_ubicacion)
+        );
+        }
+     
+      } else {
+        obrasAux = obras;
+      }
+
+      obrasAux = obrasAux.filter((obra) =>
+        obra.tittle.toLowerCase().includes(filterOptions[3].value.toLowerCase())
+      );
+      console.log("24", obrasAux);
+      obrasAux = obrasAux.map((obra) => {
+        return obra.ID_tour;
+      });
+      console.log("24", obrasAux);
+
+      filtered = aux.filter((tour) => obrasAux.includes(tour.id));
+    }
+
+    setFilteredTours(filtered);
   };
 
   const agregarFiltro = () => {
-   
     let auxFilterOptions = filterOptions;
     setFilterOptions(
       auxFilterOptions.map((element) => {
         if (element.name == filter) {
           let aux = element;
           aux.used = true;
+          aux.value = search;
           element = aux;
           return element;
         } else {
@@ -75,8 +164,35 @@ export const Tours = () => {
 
     let aux = filters;
     aux.push(filter);
-    console.log(aux)
-    filtrar(aux)
+    console.log(aux);
+    setShow(false)
+    filtrar(aux);
+    setFilter('Filtro')
+    setSearch('')
+  };
+
+  const removeFilter = (index) => {
+    let aux = filters;
+    let removed = [];
+    if (index > -1) {
+      removed = aux.splice(index, 1);
+    }
+    let auxFilterOptions = filterOptions;
+    setFilterOptions(
+      auxFilterOptions.map((element,i) => {
+        if (i == index) {
+          let aux = element;
+          aux.used = false;
+          aux.value = '';
+          element = aux;
+          return element;
+        } else {
+          return element;
+        }
+      })
+    );
+
+    setFilters(removed);
   };
 
   return (
@@ -91,13 +207,19 @@ export const Tours = () => {
           <FontAwesomeIcon icon={faAdd} className="add-filter-icon" />
           Filtros
         </button>
-        {filters.map((filter) => {
+        {filterOptions.map((filter, index) => {
+          if(filter.used){
           return (
-            <button className="add-filter filter-item">
-              Escultura{" "}
+            <button
+              className="add-filter filter-item"
+              onClick={() => {
+                removeFilter(index);
+              }}
+            >
+              {filter.value}
               <FontAwesomeIcon icon={faMultiply} className="filter-delete" />
             </button>
-          );
+          );}
         })}
       </div>
       <div className={show ? "filter-container" : "filter-container no-show"}>
@@ -122,18 +244,20 @@ export const Tours = () => {
           }}
           className={filter != "Filtro" ? "active" : ""}
         ></input>
+        {search != "" && filter != "Filtro" &&
         <button
+        className="add-filter-button"
           onClick={() => {
             agregarFiltro();
           }}
         >
           Agregar
-        </button>
+        </button>}
       </div>
       {filteredTours
         .filter((tour) => tour.disponibilidad)
         .map((tour) => {
-          return <Tour tour={tour} />;
+          return <Tour tour={tour} obras={obras} />;
         })}
     </>
   );

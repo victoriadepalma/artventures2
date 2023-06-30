@@ -26,12 +26,10 @@ const months = [
 
 const mockHours = [9, 13, 23];
 
-export const Calendar2 = () => {
+export const Calendar2 = ({tour,reserve}) => {
   const daysRef = useRef(null);
-  const currentDateRef = useRef(null);
-  const prevIconRef = useRef(null);
-  const nextIconRef = useRef(null);
   const [selectedDate, setSelectedDate] = useState(null);
+  const [show, setShow] = useState(false);
   const [currentDay, setCurrentDay] = useState(new Date().getDate());
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -108,15 +106,22 @@ export const Calendar2 = () => {
       ).getDate()
     );
   }, [currentMonth, currentYear]);
-  const hola = (i) => {
-    setSelectedDate(moment(new Date(currentYear, currentMonth, i)).format('l'));
-    console.log(moment(new Date(currentYear, currentMonth, i)).format('l'));
-    console.log(mockData);
-    console.log(
-      mockData.includes(
-        new Date(currentYear, currentMonth, i).getDay().toString()
-      )
-    );
+
+  const hola = (i, dateRange) => {
+    if(tour.fecha.includes(
+      new Date(currentYear, currentMonth, i)
+        .getDay()
+        .toString()
+    ) && dateRange){
+      if(selectedDate != null){
+        console.log('ddd',new Date(selectedDate))
+      }
+      setSelectedDate(moment(new Date(currentYear, currentMonth, i)).format('l'));
+      setShow(true)
+    }else{
+      setShow(false)
+    }
+   
   };
 
   const getHour = (hour) => {
@@ -153,6 +158,7 @@ export const Calendar2 = () => {
           {months[currentMonth]} {currentYear}
         </p>
         <div className="icons">
+          {((currentMonth > new Date().getMonth() && currentYear<=new Date().getFullYear()) || currentYear>new Date().getFullYear())  &&
           <button
             className="calendar-icon-button"
             onClick={() => {
@@ -160,7 +166,7 @@ export const Calendar2 = () => {
             }}
           >
             <FontAwesomeIcon icon={faChevronLeft} className="calendar-icon" />
-          </button>
+          </button>}
           <button
             className="calendar-icon-button"
             onClick={() => {
@@ -184,7 +190,9 @@ export const Calendar2 = () => {
         <ul className="days" ref={daysRef}>
           {[...Array(firstDayofMonth)].map((element, index) => {
             return (
-              <li className="inactive">
+              <li className="inactive"  onClick={() => {
+                hola(lastDateofLastMonth - firstDayofMonth + index + 1,false);
+              }}>
                 {lastDateofLastMonth - firstDayofMonth + index + 1}
               </li>
             );
@@ -196,22 +204,38 @@ export const Calendar2 = () => {
               currentMonth == new Date().getMonth() &&
               currentYear == new Date().getFullYear()
             ) {
-              return <li className="active">{index + 1}</li>;
+              return <li     onClick={() => {
+                hola(index + 1,true);
+              }} className={
+                tour.fecha.includes(
+                  new Date(currentYear, currentMonth, index + 1)
+                    .getDay()
+                    .toString()
+                )
+                  ? selectedDate != null ? 
+                new Date(selectedDate).getFullYear()==currentYear && new Date(selectedDate).getMonth()==currentMonth && index + 1 ==new Date(selectedDate).getDate()
+                     
+                   ? 'selectedDay' :'active' :"active"
+                  : ""
+              }>{index + 1}</li>;
             } else {
               return (
                 <li
                   onClick={() => {
-                    hola(index + 1);
+                    hola(index + 1,true);
                   }}
                   disabled={true}
                   className={
-                    mockData.includes(
+                    tour.fecha.includes(
                       new Date(currentYear, currentMonth, index + 1)
                         .getDay()
                         .toString()
                     )
-                      ? "available"
-                      : ""
+                      ? selectedDate != null ? 
+                    new Date(selectedDate).getFullYear()==currentYear && new Date(selectedDate).getMonth()==currentMonth && index + 1 ==new Date(selectedDate).getDate()
+                         
+                       ? 'selectedDay' :new Date()> new Date(currentYear, currentMonth, index + 1) ? "inactive" :"available" :new Date()> new Date(currentYear, currentMonth, index + 1) ? "inactive" :"available"
+                      : new Date()> new Date(currentYear, currentMonth, index + 1) ? "inactive" :""
                   }
                 >
                   {index + 1}
@@ -221,15 +245,18 @@ export const Calendar2 = () => {
           })}
 
           {[...Array(6 - lastDayofMonth)].map((element, index) => {
-            return <li className="inactive">{lastDayofMonth}</li>;
+            return <li onClick={() => {
+              hola(index + 1,false);
+            }}className="inactive">{index+1}</li>;
           })}
         </ul>
       </div>
+      {show &&
       <div className="hours">
-        <div>10:00 AM</div>
-        <div>10:00 AM</div>
-        <div>10:00 AM</div>
-      </div>
+        {tour.horario.map((hour, index)=>{
+          return    <div onClick={()=>{reserve(selectedDate, hour)}}>{getHour(Number(hour))}</div>
+        })}
+      </div>}
     </div>
   );
 };
