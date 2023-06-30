@@ -31,7 +31,7 @@ export default function PayPage() {
       
       <div className={styles.payContainer}>
         <PayPalButton
-          amount={price}
+          amount="10"
           onSuccess={onSuccess}
           onError={onError}
           onCancel={onCancel}
