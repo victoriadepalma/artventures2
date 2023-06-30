@@ -26,7 +26,11 @@
   font-family: 'Darker Grotesque', sans-serif;
   font-size: 2.5vh;
   transition: 0.5s;
+  display: flex;
+  flex-direction: row;
   cursor: pointer;
+  align-items: center;
+  
 }
 
 .google a{
@@ -35,11 +39,13 @@
 }
 
 .imggoogle{
-  position: absolute;
+
   width: 5vh;
   height: 5vh;
-  left: 2vh;
+  /* left: 5vh; */
   top: 1.5vh;
+  margin-right:1vw;
+  margin-top:0.2vw;
   
 }
 .boton{

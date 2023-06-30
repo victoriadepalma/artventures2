@@ -136,6 +136,7 @@ header .current-date{
   border-right: 1px solid black;
   margin-top: 5vh;
   margin-bottom: 5vh;
+  cursor: pointer;
 }
 
 .hours > div{
