@@ -24,6 +24,7 @@ import { UserAuth } from "../../context/AuthContext";
 import { EventConfirmation } from "../EventConfirmation/Events";
 import { PendingFeedback } from "../../components/PendingFeedback/PedingFeedback";
 import { getReservas } from "../../Redux/actions/actions";
+import PayPage from "../PayPage/PayPage";
 
 export const Router = () => {
   const dispatch = useDispatch();
@@ -114,6 +115,7 @@ export const Router = () => {
                 </ProtectedRoute>
               }
             />
+                        <Route path="/pay" element={<PayPage />} />
           </Routes>
           <Footer />
         </div>
