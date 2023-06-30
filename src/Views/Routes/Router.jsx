@@ -21,6 +21,7 @@ import ProtectedAdminRoute from "../Routes/ProtectedAdminRoute";
 import ProtectedRoute from "../Routes/ProtectedRoute";
 import AuthRoute from "../Routes/AuthRoute";
 import { UserAuth } from '../../context/AuthContext'
+import { EventConfirmation } from '../EventConfirmation/Events'
 
 
 export const Router = () => {
@@ -35,11 +36,12 @@ export const Router = () => {
       <Route path="/" element={<Home/>} />
       <Route path="/tours" element={<Tours/>} />
       <Route path="/events/:id" element={<ProtectedRoute><Events/></ProtectedRoute>} />
+      <Route path="/events/:id/confirmation/:reservaId" element={<ProtectedRoute><EventConfirmation/></ProtectedRoute>} />
       <Route path="/events" element={<Events/>} />
       <Route path="/book/:id" element={<Book />} />
       <Route path="/login" element={<AuthRoute><Login/></AuthRoute>} />
       <Route path="/signup" element={<AuthRoute><Signup/></AuthRoute>} />
-      <Route path="/editar-perfil" element={<ProtectedRoute><Edit_Profile/></ProtectedRoute>} />
+      <Route path="/perfil" element={<ProtectedRoute><Edit_Profile/></ProtectedRoute>} />
     
 
    

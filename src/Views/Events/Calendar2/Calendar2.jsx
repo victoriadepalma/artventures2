@@ -26,7 +26,7 @@ const months = [
 
 const mockHours = [9, 13, 23];
 
-export const Calendar2 = ({tour}) => {
+export const Calendar2 = ({tour,reserve}) => {
   const daysRef = useRef(null);
   const [selectedDate, setSelectedDate] = useState(null);
   const [show, setShow] = useState(false);
@@ -116,15 +116,7 @@ export const Calendar2 = ({tour}) => {
       if(selectedDate != null){
         console.log('ddd',new Date(selectedDate))
       }
-      console.log(moment(new Date(currentYear, currentMonth, i)).format('l'))
       setSelectedDate(moment(new Date(currentYear, currentMonth, i)).format('l'));
-      console.log(moment(new Date(currentYear, currentMonth, i)).format('l'));
-      console.log(mockData);
-      console.log(
-        tour.fecha.includes(
-          new Date(currentYear, currentMonth, i).getDay().toString()
-        )
-      );
       setShow(true)
     }else{
       setShow(false)
@@ -242,8 +234,8 @@ export const Calendar2 = ({tour}) => {
                       ? selectedDate != null ? 
                     new Date(selectedDate).getFullYear()==currentYear && new Date(selectedDate).getMonth()==currentMonth && index + 1 ==new Date(selectedDate).getDate()
                          
-                       ? 'selectedDay' :'available' :"available"
-                      : ""
+                       ? 'selectedDay' :new Date()> new Date(currentYear, currentMonth, index + 1) ? "inactive" :"available" :new Date()> new Date(currentYear, currentMonth, index + 1) ? "inactive" :"available"
+                      : new Date()> new Date(currentYear, currentMonth, index + 1) ? "inactive" :""
                   }
                 >
                   {index + 1}
@@ -262,7 +254,7 @@ export const Calendar2 = ({tour}) => {
       {show &&
       <div className="hours">
         {tour.horario.map((hour, index)=>{
-          return    <div>{getHour(Number(hour))}</div>
+          return    <div onClick={()=>{reserve(selectedDate, hour)}}>{getHour(Number(hour))}</div>
         })}
       </div>}
     </div>

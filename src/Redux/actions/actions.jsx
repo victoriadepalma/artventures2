@@ -1,4 +1,4 @@
-import { LIST_LOCATIONS_SUCCESS, LIST_LOCATIONS,LIST_ARTISTS,LIST_ARTISTS_SUCCESS,LIST_TOURS_SUCCESS,LIST_TOURS, LIST_OBRAS,LIST_OBRAS_SUCCESS, LOGIN, LIST_OBRAS_TOUR_SUCCESS, LIST_OBRAS_TOUR, GET_TOUR, GET_TOUR_SUCCESS, GET_RATING_TOUR_SUCCESS, GET_RATING_TOUR, LIST_USERS, LIST_USERS_SUCCESS, EDIT_PROFILE, EDIT_PROFILE_SUCCESS } from "../constants"
+import { LIST_LOCATIONS_SUCCESS, LIST_LOCATIONS,LIST_ARTISTS,LIST_ARTISTS_SUCCESS,LIST_TOURS_SUCCESS,LIST_TOURS, LIST_OBRAS,LIST_OBRAS_SUCCESS, LOGIN, LIST_OBRAS_TOUR_SUCCESS, LIST_OBRAS_TOUR, GET_TOUR, GET_TOUR_SUCCESS, GET_RATING_TOUR_SUCCESS, GET_RATING_TOUR, LIST_USERS, LIST_USERS_SUCCESS, EDIT_PROFILE, EDIT_PROFILE_SUCCESS, RESERVE, RESERVE_SUCCESS, GET_RESERVA, GET_RESERVA_SUCCESS, RESET_RESERVA, GET_RESERVAS,GET_RESERVAS_SUCCESS } from "../constants"
 
 export const login = (data)=>{
     return {
@@ -141,6 +141,58 @@ export const editProfile = (data)=>{
 export const editProfileSuccess = (data)=>{
     return {
         type: EDIT_PROFILE_SUCCESS,
+        data
+        
+    }
+}
+
+export const reserve = (data)=>{
+    return {
+        type: RESERVE,
+        data
+    }
+}
+
+export const reserveSuccess = (data)=>{
+    return {
+        type: RESERVE_SUCCESS,
+        data
+        
+    }
+}
+
+export const getReserva = (data)=>{
+    return {
+        type: GET_RESERVA,
+        data
+    }
+}
+
+export const getReservaSuccess = (data)=>{
+    return {
+        type: GET_RESERVA_SUCCESS,
+        data
+        
+    }
+}
+
+export const resetReserva = (data)=>{
+    return {
+        type: RESET_RESERVA,
+        data
+        
+    }
+}
+export const getReservas = (data)=>{
+    return {
+        type: GET_RESERVAS,
+        data
+    }
+}
+
+export const getReservasSuccess = (data)=>{
+    return {
+        type: GET_RESERVAS_SUCCESS,
         data
         
     }

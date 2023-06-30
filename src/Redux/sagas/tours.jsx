@@ -1,5 +1,5 @@
 import { all, call, put, takeEvery, select,takeLatest } from "redux-saga/effects";
-import { GET_RATING_TOUR, GET_TOUR, LIST_ARTISTS, LIST_LOCATIONS, LIST_OBRAS, LIST_OBRAS_TOUR, LIST_TOURS } from "../constants";
+import { GET_RATING_TOUR, GET_RESERVA, GET_TOUR, LIST_ARTISTS, LIST_LOCATIONS, LIST_OBRAS, LIST_OBRAS_TOUR, LIST_TOURS, RESERVE } from "../constants";
 import { db, auth, googleProvider } from "../../firebase";
 import {
   doc,
@@ -11,7 +11,7 @@ import {
   where,
   getDocs,
 } from "firebase/firestore";
-import { getRatingsSuccess, getTourSuccess, listArtistsSuccess, listLocationsSuccess, listObrasSuccess, listObrasTourSuccess, listToursSuccess } from "../actions/actions";
+import { getRatingsSuccess, getReservaSuccess, getTourSuccess, listArtistsSuccess, listLocationsSuccess, listObrasSuccess, listObrasTourSuccess, listToursSuccess, reserveSuccess } from "../actions/actions";
 
 const listLocationsRequest = async () => {
 
@@ -54,6 +54,32 @@ const getTourRequest = async (uid) => {
   return dataFiltered
 
 };
+
+const getReservaRequest = async (uid) => {
+  let count= localStorage.getItem("count");
+   if(count){
+     count=Number(count)+1
+   }else{
+     count=1
+   }
+   localStorage.setItem("count",count.toString());
+   const docuRef = await doc(db, `reserva/${uid}`);
+   const data = await getDoc(docuRef);
+   const dataFiltered = data.data();
+ 
+   return dataFiltered
+ 
+ };
+
+const reserveRequest = async (data) => {
+  console.log(data)
+    const docRef = await addDoc(collection(db, "reserva"), data.data);
+        console.log("Document written with ID: ", docRef.id);
+    return docRef.id
+
+ 
+ };
+
 
 const listArtistsRequest = async () => {
  let count= localStorage.getItem("count");
@@ -203,6 +229,14 @@ function* getTour(payload) {
     
   }
 }
+function* getReserva(payload) {
+  try {
+    const res = yield call(getReservaRequest, payload.data);
+    yield put(getReservaSuccess(res))
+  } catch (error) {
+    
+  }
+}
 
 function* listLocations(payload) {
   try {
@@ -248,6 +282,15 @@ function* listArtists(payload) {
   }
 }
 
+function* reserve(payload) {
+  try {
+    const res = yield call(reserveRequest, payload);
+    yield put(reserveSuccess(res))
+  } catch (error) {
+    
+  }
+}
+
 
 
 
@@ -264,5 +307,7 @@ export default function* rootSaga() {
     takeLatest(LIST_ARTISTS, listArtists),
     takeLatest(GET_TOUR, getTour),
     takeLatest(GET_RATING_TOUR, getRatings),
+    takeLatest(RESERVE, reserve),
+    takeLatest(GET_RESERVA, getReserva),
   ]);
 }
