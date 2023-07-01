@@ -25,6 +25,7 @@ import { EventConfirmation } from "../EventConfirmation/Events";
 import { PendingFeedback } from "../../components/PendingFeedback/PedingFeedback";
 import { getReservas } from "../../Redux/actions/actions";
 
+
 export const Router = () => {
   const dispatch = useDispatch();
   const [showFeedback, setShowFeedback] = useState(false);
@@ -88,6 +89,7 @@ export const Router = () => {
                 </ProtectedRoute>
               }
             />
+          
             <Route path="/events" element={<Events />} />
             <Route path="/book/:id" element={<Book />} />
             <Route

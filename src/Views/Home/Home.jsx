@@ -17,21 +17,22 @@ export const Home = () => {
 
   useEffect(() => {
     
-// dispatch(listLocations())
-// dispatch(listArtists())
-// dispatch(listTours())
+dispatch(listLocations())
+dispatch(listArtists())
+dispatch(listTours())
   }, []);
   return (
     <>
 
     <Portada/>
     <Slider/>
-    {/* <div className='row-container'>
+    <div className='row-container'>
       <Localidades/>
       <Tours/>
       <Artistas/>
+      
       <Fechas/>
-    </div> */}
+    </div>
    
     </>
   )

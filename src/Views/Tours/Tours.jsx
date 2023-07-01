@@ -229,7 +229,7 @@ export const Tours = () => {
           }}
           defaultValue={filter}
         >
-          <option value="Filtro">Filtro</option>
+          <option value="Filtro" className="letra">Filtro</option>
           {filterOptions.map((option) => {
             if (!option.used) {
               return <option value={option.name}>{option.name}</option>;
