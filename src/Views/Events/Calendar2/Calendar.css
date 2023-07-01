@@ -38,6 +38,7 @@
 header .icons{
   display: flex;
 
+
 }
 header .icons span{
   height: 38px;
@@ -50,6 +51,7 @@ header .icons span{
   font-size: 1.9rem;
   user-select: none;
   border-radius: 50%;
+
  
 }
 .icons span:last-child{
@@ -175,6 +177,8 @@ header .current-date{
   outline: none;
   border: none;
   cursor: pointer;
+
+  
 }
 .square_slider_left-c {
   position: relative;

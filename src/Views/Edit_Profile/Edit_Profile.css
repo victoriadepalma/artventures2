@@ -141,3 +141,26 @@ text-transform: uppercase;
   .feedback-button:hover{
     opacity: 0.6;
   }
+
+  .pic-container{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 3vh;
+  }
+
+  .pic-container > img{
+    width: 15vw;
+    height: 15vw;
+    object-fit: cover;
+    border-radius: 100vw;
+    border: 1px solid black;
+    margin-bottom:2vh
+  }
+
+  .pic-container > input {
+    background-color: transparent;
+margin-bottom: 2vh;
+  }
