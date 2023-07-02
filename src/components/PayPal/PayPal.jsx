@@ -58,7 +58,7 @@ const data1={
 
   return (
     <div>
-      {paidFor || currentPayment !=undefined ? (
+      {paidFor || (currentPayment !=undefined && currentPayment.length >0) ? (
         <h1 className="success">Gracias por tu colaboracion!</h1>
       ) : (
         <div className="buttons">

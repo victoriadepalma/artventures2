@@ -38,7 +38,12 @@ padding: 0.6vw 0.6vw;
   scrollbar-width: none;
 
 }
-
+.tour-containers{
+  background-color: #FFFDE9;
+  width: 100vw;
+  min-height: 100vh;
+  height: fit-content;
+}
 .filter-container{
   position: absolute;
   width: fit-content;

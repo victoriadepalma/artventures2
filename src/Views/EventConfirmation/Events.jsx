@@ -63,7 +63,7 @@ if(currentReserva && !currentReserva?.contribucion){
      
    
      }, [currentReserva]);
-
+console.log(currentReserva)
   return (
     <>
     {currentReserva &&

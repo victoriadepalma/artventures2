@@ -50,7 +50,7 @@ export const Tours = () => {
   }, [tours]);
 
   const filtrar = () => {
-    let aux = filteredTours;
+    let aux = tours;
     let obrasAux = obras;
     let artistasAux = artists;
     let locationsAux=locations;
@@ -70,20 +70,20 @@ export const Tours = () => {
           .toLowerCase()
           .includes(filterOptions[1].value.toLowerCase())
       );
-      console.log("auuuuuux", artistasAux);
+   
       artistasAux = artistasAux.map((artista) => {
         return artista.id;
       });
       obrasAux = obrasAux.filter((obra) =>
         artistasAux.includes(obra.ID_artista)
       );
-      console.log("21", obrasAux);
+ 
       obrasAux = obrasAux.map((obra) => {
         return obra.ID_tour;
       });
-      console.log("22", obrasAux);
+  
       filtered = aux.filter((tour) => obrasAux.includes(tour.id));
-      console.log("23", filtered);
+   
     }
 
 
@@ -92,20 +92,19 @@ export const Tours = () => {
       l.nombre?.toLowerCase()
           .includes(filterOptions[2].value.toLowerCase())
       );
-      console.log("auuuuuux", locationsAux);
+   
       locationsAux = locationsAux.map((location) => {
         return location.id;
       });
       obrasAux = obrasAux.filter((obra) =>
       locationsAux.includes(obra.ID_ubicacion)
       );
-      console.log("21", obrasAux);
+
       obrasAux = obrasAux.map((obra) => {
         return obra.ID_tour;
       });
-      console.log("22", obrasAux);
       filtered = aux.filter((tour) => obrasAux.includes(tour.id));
-      console.log("23", filtered);
+
     }
     if (filters.includes("Obra")) {
       if (artistasAux.length != artists.length || locationsAux.length != locations.length) {
@@ -132,11 +131,11 @@ export const Tours = () => {
       obrasAux = obrasAux.filter((obra) =>
         obra.tittle.toLowerCase().includes(filterOptions[3].value.toLowerCase())
       );
-      console.log("24", obrasAux);
+
       obrasAux = obrasAux.map((obra) => {
         return obra.ID_tour;
       });
-      console.log("24", obrasAux);
+ 
 
       filtered = aux.filter((tour) => obrasAux.includes(tour.id));
     }
@@ -165,6 +164,7 @@ export const Tours = () => {
         }
       })
     );
+    
 
     let aux = filters;
     aux.push(filter);
@@ -181,7 +181,9 @@ export const Tours = () => {
     if (index > -1) {
       removed = aux.splice(index, 1);
     }
+
     let auxFilterOptions = filterOptions;
+    console.log('filteeers',)
     setFilterOptions(
       auxFilterOptions.map((element,i) => {
         if (i == index) {
@@ -206,7 +208,8 @@ auxFilterOptions=auxFilterOptions.map((element,i) => {
     return element;
   }
 })
-    setFilters(removed);
+console.log('mmm',removed)
+    setFilters(aux);
     filtrar(auxFilterOptions);
   };
 
@@ -269,11 +272,13 @@ auxFilterOptions=auxFilterOptions.map((element,i) => {
           Agregar
         </button>}
       </div>
+      <div className="tour-containers">
       {filteredTours
         .filter((tour) => tour.disponibilidad)
         .map((tour) => {
           return <Tour tour={tour} obras={obras} />;
         })}
+        </div>
     </>
   );
 };

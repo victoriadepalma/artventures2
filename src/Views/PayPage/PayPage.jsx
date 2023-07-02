@@ -20,13 +20,13 @@ const dispatch=useDispatch()
      
    
      }, []);
-console.log(currentTour, currentReserva)
+console.log(currentPayment)
   return(
 
     <div className="generalContanier"> 
     {currentTour != undefined && currentReserva !=undefined &&
     <>
-    {currentPayment ==undefined &&
+    {(currentPayment ==undefined || currentPayment.length ==0) &&
 
       <div className="mountContainer">
         <input id="input" type="number" value = {price} onChange={ev => setPrice(ev.target.value)}/>
