@@ -26,20 +26,40 @@
   font-family: 'Darker Grotesque', sans-serif;
   font-size: 2.5vh;
   transition: 0.5s;
+  display: flex;
+  flex-direction: row;
   cursor: pointer;
+  align-items: center;
+  margin-top: 3vh;
+  
+}
+.google:hover{
+  background-color: black;
+  color: white;
 }
 
+.facebook:hover{
+  background-color: black;
+  color: white;
+}
+
+.boton:hover{
+  background-color: #F2E346;
+  color: black;
+}
 .google a{
   position: absolute;
   margin-right: 0;
 }
 
 .imggoogle{
-  position: absolute;
+
   width: 5vh;
   height: 5vh;
-  left: 2vh;
+  /* left: 5vh; */
   top: 1.5vh;
+  margin-right:1vw;
+  margin-top:0.2vw;
   
 }
 .boton{
@@ -53,6 +73,21 @@
   transition: 0.5s;
   margin-top: 3vh;
   cursor: pointer;
+ 
+}
+
+.facebook{
+  width: 40vh;
+  height: 8vh;
+  background-color: #F2E346;
+  color: black;
+  border: none;
+  font-family: 'Darker Grotesque', sans-serif;
+  font-size: 2.5vh;
+  transition: 0.5s;
+  margin-top: 3vh;
+  cursor: pointer;
+ 
  
 }
 .innerBox {
@@ -90,10 +125,7 @@ width: 100%;
   background-color: gray !important;
 }
 
-.footer button:hover {
-  background-color: gray;
-  color: white;
-}
+
 
 .footer p {
   font-weight: 700;

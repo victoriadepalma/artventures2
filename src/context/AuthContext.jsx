@@ -23,7 +23,7 @@ export const AuthContextProvider = ({ children }) => {
                 console.log(info)
                 const docuRef = await doc(db, `users/${info.user.uid}`)
                 console.log(docuRef)
-                setDoc(docuRef,{name:name,lastName,telefono,email,codigo:'124681020'})
+                setDoc(docuRef,{name:name,lastName,telefono,email,codigo:'124681020',avatar:null})
              }catch(err){
                  console.log(err)
                  setErrorMsg(err.message)
@@ -32,7 +32,7 @@ export const AuthContextProvider = ({ children }) => {
      
         };
         const createUserWithFacebook = async(setErrorMsg) =>{
-          console.log("kjhbgvfcfvghjk")
+         
           try{
               const info =  await signInWithPopup(auth, FBprovider).then((usuarioFirebase)=>{return usuarioFirebase})
               const docuRef = await doc(db, `users/${info.user.uid}`)
@@ -44,11 +44,11 @@ export const AuthContextProvider = ({ children }) => {
         }
 
         const createUserWithGoogle = async(setErrorMsg) =>{
-            console.log("kjhbgvfcfvghjk")
+      
             try{
                 const info =  await signInWithPopup(auth, googleProvider).then((usuarioFirebase)=>{return usuarioFirebase})
                 const docuRef = await doc(db, `users/${info.user.uid}`)
-                setDoc(docuRef,{name:info.user.displayName,email:info.user.email,role:'user'})
+                setDoc(docuRef,{name:info.user.displayName,email:info.user.email,codigo:'124681020',avatar:null})
             }catch(err){
                 console.log(err)
                 setErrorMsg(err.message)
@@ -88,6 +88,7 @@ export const AuthContextProvider = ({ children }) => {
                     lastName:data.lastName,
                     telefono:data.telefono,
                     codigo: data.codigo,
+                    avatar:data.avatar
                   };
                   console.log('user',userData)
                  return userData;
@@ -110,6 +111,7 @@ export const AuthContextProvider = ({ children }) => {
             lastName:data.lastName,
             telefono:data.telefono,
             codigo: data.codigo,
+            avatar:data.avatar
           };
           console.log('usuariooo',userData)
           setUser(userData);
