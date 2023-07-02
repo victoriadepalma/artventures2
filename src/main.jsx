@@ -5,6 +5,8 @@ import App from './App.jsx'
 import { Provider } from 'react-redux';
 import './index.css'
 import store from './redux/store.jsx';
+import './assets/fonts/Fontspring-DEMO-theseasons-bd.otf'
+
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

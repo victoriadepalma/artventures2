@@ -1,0 +1,36 @@
+#paypal-button-container{
+    width: 30vw;
+    color: aqua;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    
+  }
+
+#mount{
+    color: black;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    font-family: 'Darker Grotesque', sans-serif;
+
+    
+}
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-message{
+    font-family: 'Darker Grotesque', sans-serif;
+    color: black;
+}
+
+.success{
+    font-family: 'Darker Grotesque', sans-serif;
+    color: black;  
+    font-size: 3vw;
+}

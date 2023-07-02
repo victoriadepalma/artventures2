@@ -9,6 +9,7 @@
 }
 
 
+
 .titulos-book{
     margin-top: 20vh;
     font-family: 'FONTSPRING DEMO - The Seasons';
@@ -18,8 +19,14 @@
 
 }
 
+.input{
+    width: 100%;
+    margin-top: 2vh;
+}
 
-
+.input > input{
+    font-size: 1.2vw;
+}
 .parrafos-book{
     font-family: 'Darker Grotesque', sans-serif;
     padding-right: 20vh;
@@ -165,7 +172,7 @@ opacity: 0.4;
   
 }
 
-@media screen and (max-width:1000px){
+@media screen and (max-width:1200px){
     .titulos-book{
         width: 75vw;
         font-size: 6vh;
@@ -227,7 +234,32 @@ opacity: 0.4;
         overflow-x: scroll;
     }
 
-    .obra-container{
-       
+    .obra-hover{
+        width: 300%;
+        height:300%;
+        position: absolute;
+        background-color: #FBCCFA;
+        top:0;
+        left:0;
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.5s;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        padding: 1vw;
     }
+
+    .obra-hover > h1 {
+        font-family: 'Darker Grotesque', sans-serif;
+        text-transform: uppercase;
+        font-size: 3.5vw;
+        text-align: left;
+        max-width: 300%;
+      
+    }
+
+ 
 }

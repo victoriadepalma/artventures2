@@ -15,7 +15,7 @@ export function Signup() {
   const [values, setvalues] = useState({ name: "",lastName:"", email: "",telefono:"", pass: "" });
   const [errorMsg, setErrorMsg] = useState([]);
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false); 
-  const { createUser,createUserWithGoogle } = UserAuth();
+  const { createUser,createUserWithGoogle,createUserWithFacebook } = UserAuth();
 const signinWithGoogle = async (e) =>{
   e.preventDefault();
   setErrorMsg('');
@@ -27,9 +27,13 @@ const signinWithGoogle = async (e) =>{
     console.log(e.message);
   }
  };
+
+ const isValidEmail=(email)=>{
+
+ }
   const registro = async(e) => {
     e.preventDefault();
-       if (!values.name || !values.email || !values.pass || !values.lastName || !values.telefono) {
+       if (!values.name || !values.email || !values.pass || !values.lastName || !values.telefono || !isValidEmail(values.email)) {
       setErrorMsg("Llene todos los campos");
       return;
     }
@@ -45,6 +49,18 @@ const signinWithGoogle = async (e) =>{
       console.log(e.message);
     }
   };
+
+  const signinWithFacebook = async(e) =>{
+    e.preventDefault();
+    setErrorMsg('');
+    try {
+      await createUserWithFacebook((message)=>{setErrorMsg(message)});
+      navigate('/')
+    } catch (e) {
+      setErrorMsg(e.message);
+      console.log(e.message);
+    }
+  }
   return (
     <>
 
@@ -81,6 +97,7 @@ const signinWithGoogle = async (e) =>{
         />
         <InputControl
           label=""
+          type="password"
           placeholder="CONTRASEÑA"
           onChange={(event) =>
             setvalues((prev) => ({ ...prev, pass: event.target.value }))
@@ -89,10 +106,12 @@ const signinWithGoogle = async (e) =>{
         <div className={styles.footer}>
           <b className={styles.error}>{errorMsg}</b>
       
-          <button className={styles.google}  onClick={(e)=>{signinWithGoogle(e)}}>Registrarme con google</button>
+         
           <button className={styles.boton} onClick={(e)=>{registro(e)}} disabled={submitButtonDisabled}>
             Registrarme
           </button>
+          <button className={styles.facebook} onClick={(e)=> {signinWithFacebook(e)}}>Iniciar sesion con Facebook</button>
+          <button className={styles.google}  onClick={(e)=>{signinWithGoogle(e)}}>Registrarme con google</button>
           <p>
           ¿Ya tienes una cuenta? Inicia sesión <span>
               <Link to="/login">aqui</Link>

@@ -6,7 +6,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { useEffect } from "react";
 import { googleProvider,FBprovider} from "../../firebase/config";
-import { signInWithPopup,FacebookAuthProvider} from "firebase/auth";
+import { signInWithPopup} from "firebase/auth";
 import {useDispatch} from 'react-redux';
 import { login } from "../../Redux/actions/actions";
 import { UserAuth } from '../../context/AuthContext';
@@ -17,7 +17,7 @@ export function Login() {
   const [values, setValues] = useState({ email: "", pass: "" });
   const [errorMsg, setErrorMsg] = useState([]);
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
-  const { signIn,createUserWithGoogle } = UserAuth()
+  const { signIn,createUserWithGoogle,createUserWithFacebook } = UserAuth()
   const Iniciar = async (e)=>{
     e.preventDefault();
     if (!values.email || !values.pass) {
@@ -49,15 +49,16 @@ export function Login() {
       console.log(e.message);
     }
  };
- const signinWithFacebook = ()=>{
-  signInWithPopup(auth, FBprovider)
-  .then((re)=>{
-    console.log(re)
-
-  })
-  .catch((err)=>{
-    console.log(err.message);
-  })
+ const signinWithFacebook = async(e) =>{
+  e.preventDefault();
+  setErrorMsg('');
+  try {
+    await createUserWithFacebook((message)=>{setErrorMsg(message)});
+    navigate('/')
+  } catch (e) {
+    setErrorMsg(e.message);
+    console.log(e.message);
+  }
 }
 
   
@@ -67,7 +68,6 @@ export function Login() {
     <div className={styles.container}>
   
       <div className={styles.innerBox}>
-      
         <h1 className={styles.heading}>INICIAR SESION</h1>
         <InputControl
           label=""
@@ -78,6 +78,7 @@ export function Login() {
         />
         <InputControl
           label=""
+          type="password"
           onChange={(event) =>
             setValues((prev) => ({ ...prev, pass: event.target.value }))
           }
@@ -86,9 +87,10 @@ export function Login() {
 
         <div className={styles.footer}>
         <b className={styles.error}>{errorMsg}</b>
-        <button className={styles.boton} onClick={signinWithFacebook}>Iniciar sesion con Facebook</button>
-        <button className={styles.google} onClick={(e)=>{signinWithGoogle(e)}}> <img className = {styles.imggoogle} src="https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-png-logo-noir.png"></img>Iniciar Sesión con Google</button>
+
         <button className={styles.boton} onClick={(e)=>{Iniciar(e)}} disabled={submitButtonDisabled}>Iniciar</button>
+        <button className={styles.facebook} onClick={(e)=> {signinWithFacebook(e)}}>Iniciar sesion con Facebook</button>
+        <button className={styles.google} onClick={(e)=>{signinWithGoogle(e)}}> <img className = {styles.imggoogle} src="https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-png-logo-noir.png"></img>Iniciar Sesión con Google</button>
           <p>
           ¿No te has registrado? Crea una nueva cuenta <span>
               <Link to="/signup">aqui</Link>

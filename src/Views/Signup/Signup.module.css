@@ -26,6 +26,7 @@
   font-family: 'Darker Grotesque', sans-serif;
   font-size: 2.5vh;
   transition: 0.5s;
+  margin-top: 3vh;
   cursor: pointer;
 }
 .boton{
@@ -75,10 +76,51 @@ width: 100%;
 .footer button:disabled {
   background-color: gray !important;
 }
-
-.footer button:hover {
-  background-color: gray;
+.boton{
+  width: 40vh;
+  height: 8vh;
+  background-color: black;
   color: white;
+  border: none;
+  font-family: 'Darker Grotesque', sans-serif;
+  font-size: 2.5vh;
+  transition: 0.5s;
+  margin-top: 3vh;
+  cursor: pointer;
+ 
+}
+
+.facebook{
+  width: 40vh;
+  height: 8vh;
+  background-color: #F2E346;
+  color: black;
+  border: none;
+  font-family: 'Darker Grotesque', sans-serif;
+  font-size: 2.5vh;
+  transition: 0.5s;
+  margin-top: 3vh;
+  cursor: pointer;
+ 
+ 
+}
+.google:hover{
+  background-color: black;
+  color: white;
+}
+
+.facebook:hover{
+  background-color: black;
+  color: white;
+}
+
+.boton:hover{
+  background-color: #F2E346;
+  color: black;
+}
+.google a{
+  position: absolute;
+  margin-right: 0;
 }
 
 .footer p {

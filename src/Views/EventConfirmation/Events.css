@@ -5,9 +5,10 @@
     background-color: #FFFDE9;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     padding: 0 2vw;
+    margin-top: 10vh;
 }
 
 .title-container{
@@ -79,7 +80,7 @@
 
     font-family: 'FONTSPRING DEMO - The Seasons';
     text-align: left;
-    width: 40vw;
+    width: fit-content;
     border-bottom: 0.3vh solid black;
 
   }
@@ -91,12 +92,7 @@
     padding: 0;
     background-color: inherit;
     font-family: inherit;
-    margin: 0;
-  
-    
-   
-    
-    
+    margin: 0; 
   }
   .more-menu {
     display: none;
@@ -119,7 +115,7 @@
     width: 80vh;
   }
   .navbar a:hover, .more:hover .btn {
- color: yellow;
+ color: #F2E346;
 
   }
 
@@ -137,4 +133,5 @@
     margin-left: 0;
     margin-top: 1vh;
   }
+
 

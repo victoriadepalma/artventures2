@@ -9,7 +9,7 @@ import './Events.css';
 import { UserAuth } from '../../context/AuthContext';
 import { useDispatch, useSelector } from "react-redux";
 import { db } from '../../firebase';
-import { reserve,  getTour, } from '../../Redux/actions/actions';
+import { reserve,  getTour, listTours, } from '../../Redux/actions/actions';
 import { Link, useNavigate } from "react-router-dom";
 // const currentTour = {
 //   description:"Ruta de Escultura es un tour que te lleva a explorar las esculturas públicas más destacadas de la ciudad, con una guía experta que te ayudará a entender el significado y la historia detrás de cada obra",
@@ -28,7 +28,7 @@ export const Events = ({title_event}) => {
   const [selectedHour, setSelectedHour] = useState(null);
   const {id}=useParams()
   const [showMessage, setShowMessage] = useState(false);
-  const { currentTour,currentReserva} = useSelector((state) => ({
+  const { currentTour,currentReserva,tours} = useSelector((state) => ({
     ...state.tours,
   }));
   const { loading, user } = UserAuth()
@@ -44,11 +44,11 @@ console.log('jmjcdjnj',user)
 
   }
 
-  const makeReservation=()=>{
+  const makeReservation=(cant)=>{
     const data={
        ID_tour:id,
        ID_user:user.uid,
-       cantidad_persona:1,
+       cantidad_persona:cant,
        contribucion:false,
        fecha:selectedDate,
        horario:selectedHour,
@@ -59,8 +59,17 @@ console.log('jmjcdjnj',user)
 
   useEffect(() => {
 
-    if(!currentTour){
+    if(!currentTour && id){
       dispatch(getTour(id));
+    }
+  
+
+  }, []);
+
+  useEffect(() => {
+
+    if(tours.length==0){
+      dispatch(listTours());
     }
   
 
@@ -79,22 +88,25 @@ navigate(`/events/${id}/confirmation/${currentReserva.id}`)
   
   return (
     <>
-       <Message currentTour={currentTour} selectedDate={selectedDate} selectedHour={selectedHour} currentReserva={currentReserva} show={showMessage} setShow={()=>{setShowMessage(!showMessage)}} makeReservation={()=>{makeReservation()}}/>
+    {
+      currentTour &&        <Message currentTour={currentTour} selectedDate={selectedDate} selectedHour={selectedHour} currentReserva={currentReserva} show={showMessage} setShow={()=>{setShowMessage(!showMessage)}} makeReservation={(cant)=>{makeReservation(cant)}}/>
+    }
+
 
       <div className='events'>
         <div className='title-container'>
         
           <div className='more'>
             <button className=" title-event btn" onClick={handleButtonClick}>
-             {currentTour ? currentTour.name_tour : 'More'}
+             {currentTour ? currentTour.name_tour : 'Escoge un Tour Para ver el Calendario'}
               <i className="fa fa-caret-down"></i>
             </button>
-            {id ==undefined &&
+            
             <div className={`more-menu ${isClicked ? 'show-menu' : ''}`}>
-              <a href="#">Pinceladas por la Universidad</a>
-              <a href="#">Rutas de Esculturas</a>
-              <a href="#">Caminando entre Jardines</a>
-            </div>}
+              {tours.map((tour)=>{
+      return <a href={`/events/${tour.id}`}>{tour.name_tour}</a>
+              })}
+            </div>
           </div>
         </div>
         {/* <Calendar/> */}

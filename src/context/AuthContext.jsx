@@ -6,7 +6,7 @@ import {
   onAuthStateChanged,
   signInWithPopup
 } from 'firebase/auth';
-import { db,auth,googleProvider } from "../firebase";
+import { db,auth,googleProvider,FBprovider } from "../firebase";
 import {doc,setDoc,getDoc} from 'firebase/firestore';
 
 
@@ -31,9 +31,20 @@ export const AuthContextProvider = ({ children }) => {
      
      
         };
+        const createUserWithFacebook = async(setErrorMsg) =>{
+         
+          try{
+              const info =  await signInWithPopup(auth, FBprovider).then((usuarioFirebase)=>{return usuarioFirebase})
+              const docuRef = await doc(db, `users/${info.user.uid}`)
+              setDoc(docuRef,{name:info.user.displayName,email:info.user.email,role:'user'})
+          }catch(err){
+              console.log(err)
+              setErrorMsg(err.message)
+          }
+        }
 
         const createUserWithGoogle = async(setErrorMsg) =>{
-            console.log("kjhbgvfcfvghjk")
+      
             try{
                 const info =  await signInWithPopup(auth, googleProvider).then((usuarioFirebase)=>{return usuarioFirebase})
                 const docuRef = await doc(db, `users/${info.user.uid}`)
@@ -105,7 +116,7 @@ export const AuthContextProvider = ({ children }) => {
           console.log('usuariooo',userData)
           setUser(userData);
          setLoading(false)
-        });
+        }); 
       }
     } else {
       setUser(null);
@@ -116,7 +127,7 @@ export const AuthContextProvider = ({ children }) => {
 
 
   return (
-    <UserContext.Provider value={{ createUser, user, loading, logout, signIn,createUserWithGoogle,setLoading }}>
+    <UserContext.Provider value={{ createUser, createUserWithFacebook, user, loading, logout, signIn,createUserWithGoogle,setLoading }}>
       {children}
     </UserContext.Provider>
   );

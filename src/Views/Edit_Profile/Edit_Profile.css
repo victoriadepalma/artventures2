@@ -165,7 +165,7 @@ text-transform: uppercase;
 margin-bottom: 2vh;
   }
 
-  @media screen and (max-width: 1000px){
+  @media screen and (max-width: 1200px){
     .pic-container > img{
       width: 30vw;
       height: 30vw;
@@ -219,12 +219,25 @@ margin-bottom: 2vh;
 
   th,td{
 
-    font-size: 2vh;
+    font-size: 1.5vh !important;
 
   }
 
   .review-title{
     font-size: 1vh;
+  }
+
+  table{
+    margin-top:5vh;
+    border-width: 1px;
+    border-spacing: 0px;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+   
+
+  
+
   }
  
   }
