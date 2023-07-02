@@ -13,7 +13,7 @@ console.log('kjnbhgvhbjn',rating)
   console.log(user)
 
   
-    return user.name+" "+ user.lastName
+    return user.lastName != undefined ? user.name+" "+ user.lastName : user.name
   }
 
   return (

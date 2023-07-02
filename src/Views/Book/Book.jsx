@@ -89,12 +89,14 @@ return location.nombre
         currentTour?.disponibilidad && (
           <>
             <div className="book">
+            {getAverage()>0 &&
               <div className="stars-container">
+              
               {[...Array(getAverage())].map((n)=>{
             return  <FontAwesomeIcon icon={faStar} className="big-star" />
           })}
         
-              </div>
+              </div>}
 
               <h1 className="titulos-book">{currentTour.name_tour}</h1>
               <p className="parrafos-book">{currentTour.description}</p>
