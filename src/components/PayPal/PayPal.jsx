@@ -1,6 +1,6 @@
 import React from "react";
 import{ useRef, useState, useEffect } from "react";
-
+import styles from "./PayPal.css";
 
 const PayPalButton = ({ amount }) => {
   const [paidFor, setPaidFor] = useState(false);
@@ -50,8 +50,9 @@ const PayPalButton = ({ amount }) => {
       {paidFor ? (
         <h1>Gracias por tu colaboracion!</h1>
       ) : (
-        <div>
-          <h1>Total a pagar: ${amount}</h1>
+        <div className= {styles.buttons}>
+          <h1 id = "mount">Total a pagar: ${amount}</h1>
+          
           <div id="paypal-button-container"></div>
           {error && <div>{error.message}</div>}
         </div>

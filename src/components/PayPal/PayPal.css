@@ -1,0 +1,17 @@
+#paypal-button-container{
+    width: 700px;
+    margin-left: 25vw;
+    color: aqua;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    
+  }
+
+#mount{
+    color: black;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    
+}
