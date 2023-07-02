@@ -30,6 +30,7 @@ dispatch(listTours())
       <Localidades/>
       <Tours/>
       <Artistas/>
+      
       <Fechas/>
     </div>
    

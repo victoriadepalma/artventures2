@@ -131,6 +131,7 @@
     font-size: 4vw;
     transition: 1s;
     cursor: pointer;
+    color: black;
 }
 
 .close-menu:hover > .close-menu-icon{
@@ -145,6 +146,7 @@
     margin:0;
     cursor: pointer;
     font-family: 'FONTSPRING DEMO - The Seasons';
+    color:black;
 }
 
 .menu-item:hover > a{

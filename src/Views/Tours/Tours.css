@@ -267,7 +267,7 @@ padding-right: 2vw;
 
    
     right: auto;
-    bottom: 10vh;
+    bottom: 4vh;
     background-color: #F2E346;
     color: black;
   }
@@ -276,6 +276,115 @@ padding-right: 2vw;
     background-color: black;
     color:#FFFDE9;
   }
+
+  .filter-item{
+    position: relative;
+    background-color: #FFFDE9;
+    padding-right: 1vw;
+    transition: 0.5s;
+  
+  }
+
+
+
+.filter-container{
+  position: fixed;
+  width: fit-content;
+  height: fit-content;
+  background-color: #F2E346;
+  top:calc(12vh + 0.5vw);
+  left: 0;
+  z-index: 21;
+  margin-left: 26vw;
+  margin-right: auto;
+  left:0;
+  right:0;
+  padding: 2vw;
+  display: flex;
+  flex-direction: column;
+  width: 26vw;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
+  font-size: 2vh;
+
+}
+
+.filters{
+  background-color: black;
+  width: 78vw;
+  height: 3vh;
+  position: fixed;
+  z-index: 20;
+  top:12vh;
+  left:0;
+  right:0;
+  padding: 0.6vw 0.6vw;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+
+}
+
+.filter-container .no-show{
+font-size: 4vh;
+
+}
+
+.add-filter{
+  font-size: 2vh;
+}
+
+.add-filter-icon{
+  font-size: 2.5vw;
+  margin-right: 0.2vw;
+  color: black;
+}
+
+.tour{
+  font-size: 3vh;
+}
+
+.letra{
+  font-size: 4vh;
+}
+
+.filters{
+  font-size: 4vh;
+}
+
+.tour-name > span{
+ 
+  font-size: 15vh;
+ 
+
+}
+.tour-name2 > span {
+  animation-delay: 5s;
+
+
+}
+
+.filter-container > select,input{
+  width:100%;
+  min-width: 100%;
+  display: flex;
+  max-width: 100%;
+  outline: none;
+  border:1px solid black;
+  background-color: transparent;
+  color: black;
+  padding: 0.5vw 0vw;
+  font-size: 3.5vw;
+  font-family: 'Darker Grotesque', sans-serif;
+  
+}
+
 
  }
  

@@ -54,7 +54,6 @@
 }
 
 
-
 .button{
     background-color: black;
     outline: none;
@@ -71,4 +70,50 @@
 .button:hover{
     background-color: #F88CF5;
     color: black;
+}
+
+@media screen and (max-width:1200px){
+.message-container{
+    width: 70vw;
+    height: 22vh;
+    
+    
+}
+.message-container h1{
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 1.7vh !important; 
+    color: black;
+    margin-top: 0;
+
+}
+
+.button-dismiss{
+    background-color: transparent;
+    outline: none;
+    border: 1px solid black;
+    width: 20vw !important;
+    height: 8vw !important;
+    font-size: 4vw !important;
+    color: black;
+    font-family: 'Darker Grotesque', sans-serif;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.button{
+    background-color: black;
+    outline: none;
+    border: 1px solid black;
+    width: 20vw !important;
+    height: 8vw !important;
+    font-size: 4vw !important;
+    color: white;
+    font-family: 'Darker Grotesque', sans-serif;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.message-container input{
+    font-size: 1.5vh;
+}
 }

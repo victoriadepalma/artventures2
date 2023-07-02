@@ -164,3 +164,80 @@ text-transform: uppercase;
     background-color: transparent;
 margin-bottom: 2vh;
   }
+
+  @media screen and (max-width: 1200px){
+    .pic-container > img{
+      width: 30vw;
+      height: 30vw;
+      object-fit: cover;
+      border-radius: 100vw;
+      border: 1px solid black;
+      margin-bottom:2vh
+    }
+
+    .pic-container > input {
+      background-color: transparent;
+      margin-bottom: 2vh;
+      height: 10vw;
+      width: 40vw;
+      font-size: 1.5vh;
+    }
+    .innerBox button{
+     font-size: 2vh;
+     height: 5vh;
+     width: 55vw;
+     margin-bottom: 3vh;
+    
+    }
+
+    .tabs{
+      margin-top: 10vh;
+      width: 50vw;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+  
+  }
+  
+  .tab{
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-bottom: 1vh;
+      padding-top: 1vh;
+      border-bottom: 0.2vw solid black;
+      color: black;
+      font-family: 'Darker Grotesque', sans-serif;
+      font-weight: 900;
+      font-size: 2vh;
+      text-transform: uppercase;
+      cursor: pointer;
+      opacity: 0.5;
+      transition: 0.5s;
+  }
+
+  th,td{
+
+    font-size: 1.5vh !important;
+
+  }
+
+  .review-title{
+    font-size: 1vh;
+  }
+
+  table{
+    margin-top:5vh;
+    border-width: 1px;
+    border-spacing: 0px;
+    border-style: solid;
+    border-color: black;
+    border-collapse: collapse;
+   
+
+  
+
+  }
+ 
+  }

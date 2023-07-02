@@ -13,7 +13,7 @@
 .title-container{
   width: fit-content;
   height: fit-content;
-  margin-top: 15vh;
+  margin-top: 17vh;
 
 
 }
@@ -102,3 +102,34 @@
     margin-top: 1vh;
   }
 
+  @media screen and (max-width: 1200px) {
+
+  
+    .events h1{
+        
+        width: 100vw;
+        font-size: 4.5vh !important;
+
+    }
+
+    .events h2{
+        font-size: 3vh !important;
+        margin-top: 10vh;
+    }
+
+    .finalizar{
+        height: 5.5vh;
+        font-size: 2.5vh !important;
+        width: 20vh;
+        margin-right: 25vw;
+    }
+
+    .title-container{
+        width: fit-content;
+        height: fit-content;
+      
+       
+      
+      
+      }
+}
