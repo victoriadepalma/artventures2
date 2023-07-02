@@ -34,3 +34,9 @@
     color: black;  
     font-size: 3vw;
 }
+
+@media screen and (max-width:1200px){
+    .success{
+        font-size: 7vw;
+    }
+}
