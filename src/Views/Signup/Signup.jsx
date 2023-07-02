@@ -28,13 +28,17 @@ const signinWithGoogle = async (e) =>{
   }
  };
 
+ const phoneValidation=(phone)=> {
+  const regex = /^(?:(?:00|\+)58|0)(?:2(?:12|4[0-9]|5[1-9]|6[0-9]|7[0-8]|8[1-35-8]|9[1-5]|3[45789])|4(?:1[246]|2[46]))\d{7}$/mg;
+  return !(!phone || regex.test(phone) === false);
+}
  const isValidEmail=(email)=>{
-
+  return /\S+@\S+\.\S+/.test(email);
  }
   const registro = async(e) => {
     e.preventDefault();
-       if (!values.name || !values.email || !values.pass || !values.lastName || !values.telefono || !isValidEmail(values.email)) {
-      setErrorMsg("Llene todos los campos");
+       if (!values.name || !values.email || !values.pass || !values.lastName || !values.telefono || !isValidEmail(values.email) || phoneValidation(values.telefono)) {
+      setErrorMsg("Revise la información ingresada");
       return;
     }
     setErrorMsg("");
