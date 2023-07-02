@@ -27,12 +27,52 @@ const signinWithGoogle = async (e) =>{
     console.log(e.message);
   }
  };
+ const validateEmail = () => {
+  if (values.email == '') {
+    return setErrorMsg('El correo electrónico es requerido');
+  };
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(values.email)) {
+    setErrorMsg('El correo electrónico no es valido');
+  }
+};
+
+ const validateTelefono = () => {
+  if (values.telefono == '') {
+    setErrorMsg('El telefono es requerido');
+  }
+  const telefonoRegex = /^[0-9]{10}$/;
+  if (!telefonoRegex.test(values.telefono)) {
+    setErrorMsg('El telefono no es valido, debe tener 10 caracteres numericos');
+  };
+};
+ const validatePass = () => {
+  if (values.pass === ''){
+    setErrorMsg('La contraseña es requerida');
+  }
+  const passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,20}$/;
+  if (!passRegex.test(values.pass)) {
+    setErrorMsg('La contraseña no es valida');;
+  };
+};
   const registro = async(e) => {
     e.preventDefault();
        if (!values.name || !values.email || !values.pass || !values.lastName || !values.telefono) {
       setErrorMsg("Llene todos los campos");
       return;
-    }
+    };
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(values.email)) {
+      setErrorMsg('El correo electrónico no es valido');
+    };
+    const telefonoRegex = /^[0-9]{10}$/;
+    if (!telefonoRegex.test(values.telefono)) {
+      setErrorMsg('El telefono no es valido, debe tener 10 caracteres numericos');
+    };
+    const passRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{6,20}$/;
+    if (!passRegex.test(values.pass)) {
+      setErrorMsg('La contraseña no es valida');;
+    };
     setErrorMsg("");
     setSubmitButtonDisabled(true);
     try {
