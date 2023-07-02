@@ -1,4 +1,4 @@
-import { LIST_LOCATIONS_SUCCESS, LIST_OBRAS, LIST_TOURS_SUCCESS,LIST_ARTISTS_SUCCESS, LIST_OBRAS_SUCCESS, GET_TOUR_SUCCESS,LIST_OBRAS_TOUR_SUCCESS, GET_RATING_TOUR_SUCCESS, RESERVE_SUCCESS, GET_RESERVA_SUCCESS, RESET_RESERVA, GET_RESERVAS_SUCCESS } from '../../constants'
+import { LIST_LOCATIONS_SUCCESS, LIST_OBRAS, LIST_TOURS_SUCCESS,LIST_ARTISTS_SUCCESS, LIST_OBRAS_SUCCESS, GET_TOUR_SUCCESS,LIST_OBRAS_TOUR_SUCCESS, GET_RATING_TOUR_SUCCESS, RESERVE_SUCCESS, GET_RESERVA_SUCCESS, RESET_RESERVA, GET_RESERVAS_SUCCESS, LIST_RESERVAS_SUCCESS } from '../../constants'
 
   
   const INIT_STATE = {
@@ -7,6 +7,7 @@ import { LIST_LOCATIONS_SUCCESS, LIST_OBRAS, LIST_TOURS_SUCCESS,LIST_ARTISTS_SUC
     artists:[],
     obras:[],
     misReservas:[],
+    reservas:[],
     currentTour: undefined,
     currentObras: [],
     currentRatings:[],
@@ -80,6 +81,18 @@ import { LIST_LOCATIONS_SUCCESS, LIST_OBRAS, LIST_TOURS_SUCCESS,LIST_ARTISTS_SUC
         return {
           ...state,
           currentReserva:undefined
+        };
+      }
+      case RESET_RESERVA: {
+        return {
+          ...state,
+          currentReserva:undefined
+        };
+      }
+      case LIST_RESERVAS_SUCCESS: {
+        return {
+          ...state,
+          reservas:action.data
         };
       }
       // case RESET_RESERVA: {

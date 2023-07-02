@@ -7,6 +7,10 @@ import {
   takeLatest,
 } from "redux-saga/effects";
 import {
+  ADD_ARTIST,
+  ADD_LOCATION,
+  ADD_OBRA,
+  ADD_TOUR,
   EDIT_PROFILE,
   EDIT_PROFILE_PIC,
   GET_RATING_TOUR,
@@ -17,6 +21,7 @@ import {
   LIST_LOCATIONS,
   LIST_OBRAS,
   LIST_OBRAS_TOUR,
+  LIST_RESERVAS,
   LIST_TOURS,
   RESERVE,
   SEND_FEEDBACK,
@@ -44,6 +49,7 @@ import {
   listLocationsSuccess,
   listObrasSuccess,
   listObrasTourSuccess,
+  listReservasSuccess,
   listToursSuccess,
   reserveSuccess,
 } from "../actions/actions";
@@ -126,8 +132,60 @@ const addFeedbackRequest = async (data) => {
   return docRef.id;
 };
 
+const addArtistRequest = async (data) => {
+  const docRef = await addDoc(collection(db, "artista"), data.data)
+  console.log("kmjnhbgvfvhbjnkml", docRef.id);
+  return docRef.id;
+};
+
+const addLocationRequest = async (data) => {
+  const docRef = await addDoc(collection(db, "location"), data.data)
+  console.log("kmjnhbgvfvhbjnkml", docRef.id);
+  return docRef.id;
+};
+
+const addTourRequest = async (data) => {
+  const docRef = await addDoc(collection(db, "tour"), data.data)
+  console.log("kmjnhbgvfvhbjnkml", docRef.id);
+  return docRef.id;
+};
+
+const addObraRequest = async (data) => {
+  const docRef = await addDoc(collection(db, "obras"), data.data.data).then((doc1)=>{
+    console.log('kjjjjj',doc1.id)
+    const storageRef = ref(store, `/tour/${data.data.data.ID_tour}`);
+    const uploadTask = uploadBytesResumable(storageRef, data.data.file);
+  
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const percent = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+  
+        // // update progress
+        // setPercent(percent);
+      },
+      (err) => console.log(err),
+      async () => {
+        // download url
+        getDownloadURL(uploadTask.snapshot.ref).then(async(url) => {
+          console.log(url,doc1.id);
+          const docuRef1 = await doc(db, `obras/${doc1.id}`);
+          updateDoc(docuRef1, { img: url });
+          return docuRef1;
+        });
+  
+     
+      }
+    );
+    
+  })
+  console.log("kmjnhbgvfvhbjnkml", docRef.id);
+  return docRef.id;
+};
+
 const editProfilePicRequest = async (data) => {
-  console.log("kmkm", data.data);
 
   const storageRef = ref(store, `/profilePics/${data.data.file.name}`);
   const uploadTask = uploadBytesResumable(storageRef, data.data.file);
@@ -252,6 +310,30 @@ const getReservasRequest = async (payload) => {
   return obras;
 };
 
+const listReservasRequest = async (payload) => {
+  let count = localStorage.getItem("count");
+  if (count) {
+    count = Number(count) + 1;
+  } else {
+    count = 1;
+  }
+
+  localStorage.setItem("count", count.toString());
+  const q = query(
+    collection(db, "reserva")
+  );
+
+  const querySnapshot = await getDocs(q);
+  let obras = [];
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+
+    obras.push({ ...doc.data(), id: doc.id });
+  });
+
+  return obras;
+};
+
 const getRatingsRequest = async (payload) => {
   let count = localStorage.getItem("count");
   if (count) {
@@ -329,6 +411,13 @@ function* getReservas1(payload) {
   } catch (error) {}
 }
 
+function* listReservas(payload) {
+  try {
+    const res = yield call(listReservasRequest, payload);
+    yield put(listReservasSuccess(res));
+  } catch (error) {}
+}
+
 function* listObras(payload) {
   try {
     const res = yield call(listObrasRequest, payload);
@@ -384,6 +473,29 @@ function* editProfile(payload) {
   } catch (error) {}
 }
 
+function* addArtist(payload) {
+  try {
+    const res = yield call(addArtistRequest, payload);
+  } catch (error) {}
+}
+
+function* addLocation(payload) {
+  try {
+    const res = yield call(addLocationRequest, payload);
+  } catch (error) {}
+}
+
+function* addObra(payload) {
+  try {
+    const res = yield call(addObraRequest, payload);
+  } catch (error) {}
+}
+function* addTour(payload) {
+  try {
+    const res = yield call(addTourRequest, payload);
+  } catch (error) {}
+}
+
 export default function* rootSaga() {
   yield all([
     takeLatest(LIST_LOCATIONS, listLocations),
@@ -399,5 +511,10 @@ export default function* rootSaga() {
     takeLatest(SEND_FEEDBACK, addFeedback),
     takeLatest(EDIT_PROFILE_PIC, editProfilePic),
     takeLatest(EDIT_PROFILE, editProfile),
+    takeLatest(LIST_RESERVAS, listReservas),
+    takeLatest(ADD_ARTIST, addArtist),
+    takeLatest(ADD_LOCATION, addLocation),
+    takeLatest(ADD_OBRA, addObra),
+    takeLatest(ADD_TOUR, addTour),
   ]);
 }

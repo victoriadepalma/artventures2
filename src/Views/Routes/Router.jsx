@@ -24,6 +24,7 @@ import { UserAuth } from "../../context/AuthContext";
 import { EventConfirmation } from "../EventConfirmation/Events";
 import { PendingFeedback } from "../../components/PendingFeedback/PedingFeedback";
 import { getReservas } from "../../Redux/actions/actions";
+import { Admin } from "../Admin/Admin";
 
 export const Router = () => {
   const dispatch = useDispatch();
@@ -111,6 +112,14 @@ export const Router = () => {
               element={
                 <ProtectedRoute>
                   <Edit_Profile />
+                </ProtectedRoute>
+              }
+            />
+                <Route
+              path="/admin/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Admin />
                 </ProtectedRoute>
               }
             />
