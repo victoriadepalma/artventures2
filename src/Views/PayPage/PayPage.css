@@ -1,12 +1,8 @@
-.payContainer{
-    background-color: red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-}
-.mountContainer{
-    background-color: white;
 
+.generalContainer{
+    justify-content: center;
+    margin-top: auto;
 }
+
+
 
