@@ -43,7 +43,7 @@
 
     font-family: 'FONTSPRING DEMO - The Seasons';
     text-align: left;
-    width: 40vw;
+    width: fit-content;
     border-bottom: 0.3vh solid black;
 
   }
