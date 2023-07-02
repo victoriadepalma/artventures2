@@ -21,6 +21,7 @@ import {
   LIST_LOCATIONS,
   LIST_OBRAS,
   LIST_OBRAS_TOUR,
+  LIST_RATINGS,
   LIST_RESERVAS,
   LIST_TOURS,
   RESERVE,
@@ -53,6 +54,7 @@ import {
   listLocationsSuccess,
   listObrasSuccess,
   listObrasTourSuccess,
+  listRatingsSuccess,
   listReservasSuccess,
   listToursSuccess,
   reserveSuccess,
@@ -308,6 +310,27 @@ const listArtistsRequest = async () => {
   return artists;
 };
 
+const listRatingsRequest = async () => {
+  let count = localStorage.getItem("count");
+  if (count) {
+    count = Number(count) + 1;
+  } else {
+    count = 1;
+  }
+  localStorage.setItem("count", count.toString());
+  const q = query(collection(db, "rating"));
+
+  const querySnapshot = await getDocs(q);
+  let artists = [];
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+
+    artists.push({ ...doc.data(), id: doc.id });
+  });
+
+  return artists;
+};
+
 const listObrasRequest = async () => {
   let count = localStorage.getItem("count");
   if (count) {
@@ -509,6 +532,13 @@ function* listArtists(payload) {
   } catch (error) {}
 }
 
+function* listRatings(payload) {
+  try {
+    const res = yield call(listRatingsRequest, payload);
+    yield put(listRatingsSuccess(res));
+  } catch (error) {}
+}
+
 function* reserve(payload) {
   try {
     const res = yield call(reserveRequest, payload);
@@ -609,5 +639,6 @@ export default function* rootSaga() {
     takeLatest(UPDATE_LOCATION, updateLocalidad),
     takeLatest(UPDATE_OBRA, updateObra),
     takeLatest(UPDATE_TOUR, updateTour),
+    takeLatest(LIST_RATINGS, listRatings),
   ]);
 }

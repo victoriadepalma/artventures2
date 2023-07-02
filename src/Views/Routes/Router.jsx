@@ -25,6 +25,7 @@ import { EventConfirmation } from "../EventConfirmation/Events";
 import { PendingFeedback } from "../../components/PendingFeedback/PedingFeedback";
 import { getReservas } from "../../Redux/actions/actions";
 import { Admin } from "../Admin/Admin";
+import { BookGeneral } from "../Book/BookGeneral";
 
 export const Router = () => {
   const dispatch = useDispatch();
@@ -91,6 +92,7 @@ export const Router = () => {
             />
             <Route path="/events" element={<Events />} />
             <Route path="/book/:id" element={<Book />} />
+            <Route path="/book" element={<BookGeneral />} />
             <Route
               path="/login"
               element={

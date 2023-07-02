@@ -101,12 +101,12 @@ navigate(`/events/${id}/confirmation/${currentReserva.id}`)
              {currentTour ? currentTour.name_tour : 'Escoge un Tour Para ver el Calendario'}
               <i className="fa fa-caret-down"></i>
             </button>
-            {id ==undefined &&
+            
             <div className={`more-menu ${isClicked ? 'show-menu' : ''}`}>
               {tours.map((tour)=>{
       return <a href={`/events/${tour.id}`}>{tour.name_tour}</a>
               })}
-            </div>}
+            </div>
           </div>
         </div>
         {/* <Calendar/> */}

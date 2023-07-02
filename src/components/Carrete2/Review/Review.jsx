@@ -7,16 +7,17 @@ export const Review = ({previous,next,currentIndex,index,title,rating}) => {
   const { users } = useSelector((state) => ({
     ...state.user,
   }));
-
+console.log('kjnbhgvhbjn',rating)
   const getUser =(id)=>{
     const user=users.filter((user)=>user.id==id)[0]
+  console.log(user)
 
   
     return user.name+" "+ user.lastName
   }
 
   return (
-    <div className="mision" style={{marginLeft:currentIndex==index ? (-index*100).toString()+"%":0}}>
+    <div className="mision bookGeneral" style={{marginLeft:currentIndex==index ? (-index*100).toString()+"%":0}}>
       <div className='review-title'>
         <h1 className='titulos'>{getUser(rating.ID_user)}</h1>
         <div className='star-content'>

@@ -177,6 +177,7 @@ header .current-date{
   outline: none;
   border: none;
   cursor: pointer;
+  color: black;
 
   
 }
