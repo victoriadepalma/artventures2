@@ -31,6 +31,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@fortawesome/fontawesome-svg-core", "npm:6.4.0"],\
             ["@fortawesome/free-solid-svg-icons", "npm:6.4.0"],\
             ["@fortawesome/react-fontawesome", "virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:0.2.0"],\
+            ["@paypal/paypal-js", "npm:6.0.0"],\
             ["@reduxjs/toolkit", "virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:1.9.5"],\
             ["@types/react", "npm:18.2.12"],\
             ["@types/react-dom", "npm:18.2.5"],\
@@ -46,6 +47,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["moment", "npm:2.29.4"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:18.2.0"],\
+            ["react-paypal-button-v2", "virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:2.6.3"],\
             ["react-redux", "virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:8.1.1"],\
             ["react-router-dom", "virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:6.13.0"],\
             ["redux", "npm:4.2.1"],\
@@ -3943,6 +3945,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["@paypal/paypal-js", [\
+        ["npm:6.0.0", {\
+          "packageLocation": "./.yarn/cache/@paypal-paypal-js-npm-6.0.0-242ec0057b-997421e992.zip/node_modules/@paypal/paypal-js/",\
+          "packageDependencies": [\
+            ["@paypal/paypal-js", "npm:6.0.0"],\
+            ["promise-polyfill", "npm:8.3.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["@pkgjs/parseargs", [\
         ["npm:0.11.0", {\
           "packageLocation": "./.yarn/cache/@pkgjs-parseargs-npm-0.11.0-cd2a3fe948-6ad6a00fc4.zip/node_modules/@pkgjs/parseargs/",\
@@ -4661,6 +4673,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@fortawesome/fontawesome-svg-core", "npm:6.4.0"],\
             ["@fortawesome/free-solid-svg-icons", "npm:6.4.0"],\
             ["@fortawesome/react-fontawesome", "virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:0.2.0"],\
+            ["@paypal/paypal-js", "npm:6.0.0"],\
             ["@reduxjs/toolkit", "virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:1.9.5"],\
             ["@types/react", "npm:18.2.12"],\
             ["@types/react-dom", "npm:18.2.5"],\
@@ -4676,6 +4689,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["moment", "npm:2.29.4"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:18.2.0"],\
+            ["react-paypal-button-v2", "virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:2.6.3"],\
             ["react-redux", "virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:8.1.1"],\
             ["react-router-dom", "virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:6.13.0"],\
             ["redux", "npm:4.2.1"],\
@@ -7727,6 +7741,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD"\
         }]\
       ]],\
+      ["promise-polyfill", [\
+        ["npm:8.3.0", {\
+          "packageLocation": "./.yarn/cache/promise-polyfill-npm-8.3.0-ba317c123f-2063738020.zip/node_modules/promise-polyfill/",\
+          "packageDependencies": [\
+            ["promise-polyfill", "npm:8.3.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
       ["promise-retry", [\
         ["npm:2.0.1", {\
           "packageLocation": "./.yarn/cache/promise-retry-npm-2.0.1-871f0b01b7-f96a3f6d90.zip/node_modules/promise-retry/",\
@@ -7908,6 +7931,34 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/react-is-npm-18.2.0-0cc5edb910-e72d0ba81b.zip/node_modules/react-is/",\
           "packageDependencies": [\
             ["react-is", "npm:18.2.0"]\
+          ],\
+          "linkType": "HARD"\
+        }]\
+      ]],\
+      ["react-paypal-button-v2", [\
+        ["npm:2.6.3", {\
+          "packageLocation": "./.yarn/cache/react-paypal-button-v2-npm-2.6.3-0ae21a159a-3aaf834a87.zip/node_modules/react-paypal-button-v2/",\
+          "packageDependencies": [\
+            ["react-paypal-button-v2", "npm:2.6.3"]\
+          ],\
+          "linkType": "SOFT"\
+        }],\
+        ["virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:2.6.3", {\
+          "packageLocation": "./.yarn/__virtual__/react-paypal-button-v2-virtual-949018eade/0/cache/react-paypal-button-v2-npm-2.6.3-0ae21a159a-3aaf834a87.zip/node_modules/react-paypal-button-v2/",\
+          "packageDependencies": [\
+            ["react-paypal-button-v2", "virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:2.6.3"],\
+            ["@types/react", "npm:18.2.12"],\
+            ["@types/react-dom", "npm:18.2.5"],\
+            ["prop-types", "npm:15.8.1"],\
+            ["react", "npm:18.2.0"],\
+            ["react-dom", "virtual:f64affa8789f8338714602586d831e86261f00ade624347c1c99a8f7791b4d94bdd5ba7bbdae7cf41141237d3c0624f177997be3834688534d1bc45d677c0d88#npm:18.2.0"],\
+            ["rimraf", "npm:3.0.2"]\
+          ],\
+          "packagePeers": [\
+            "@types/react-dom",\
+            "@types/react",\
+            "react-dom",\
+            "react"\
           ],\
           "linkType": "HARD"\
         }]\
