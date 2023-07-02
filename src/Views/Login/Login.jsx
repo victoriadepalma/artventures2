@@ -78,6 +78,7 @@ export function Login() {
         />
         <InputControl
           label=""
+          type="password"
           onChange={(event) =>
             setValues((prev) => ({ ...prev, pass: event.target.value }))
           }

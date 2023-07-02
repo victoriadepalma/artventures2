@@ -27,9 +27,13 @@ const signinWithGoogle = async (e) =>{
     console.log(e.message);
   }
  };
+
+ const isValidEmail=(email)=>{
+
+ }
   const registro = async(e) => {
     e.preventDefault();
-       if (!values.name || !values.email || !values.pass || !values.lastName || !values.telefono) {
+       if (!values.name || !values.email || !values.pass || !values.lastName || !values.telefono || !isValidEmail(values.email)) {
       setErrorMsg("Llene todos los campos");
       return;
     }
@@ -93,6 +97,7 @@ const signinWithGoogle = async (e) =>{
         />
         <InputControl
           label=""
+          type="password"
           placeholder="CONTRASEÑA"
           onChange={(event) =>
             setvalues((prev) => ({ ...prev, pass: event.target.value }))
