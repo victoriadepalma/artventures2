@@ -1,0 +1,83 @@
+.overlay{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0,0.15);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 1s;
+}
+.active{
+    visibility: visible;
+    opacity: 1;
+}
+.message-container{
+    background-color: #FBCCFA;
+    padding: 2vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 30vw;
+    
+}
+
+.message-container h1{
+    font-family: 'Darker Grotesque', sans-serif;
+    font-size: 1.2vw;
+    color: black;
+    margin-top: 0;
+    margin-bottom: 0 !important;
+}
+.bold{
+    font-weight: bold;
+}
+.button-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    margin-top:5vh;
+}
+
+.button-dismiss{
+    background-color: transparent;
+    outline: none;
+    border: 1px solid black;
+    width: 10vw;
+    height: 3vw;
+    font-size: 1.2vw;
+    color: black;
+    font-family: 'Darker Grotesque', sans-serif;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.button-dismiss:hover{
+    background-color: #F88CF5;  
+    color: black;
+}
+
+
+
+.button{
+    background-color: black;
+    outline: none;
+    border: 1px solid black;
+    width: 10vw;
+    height: 3vw;
+    font-size: 1.2vw;
+    color: white;
+    font-family: 'Darker Grotesque', sans-serif;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.button:hover{
+    background-color: #F88CF5;
+    color: black;
+}

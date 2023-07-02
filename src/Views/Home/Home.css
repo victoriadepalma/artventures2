@@ -1,99 +1,255 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind:wght@300&family=Quattrocento&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@500;600&family=Hind:wght@300&family=Quattrocento&display=swap');
 
+
+
 .mision{
     background-color: #FFFDE9;
     height: 70vh;
+    min-height: 70vh;
+    max-height: 70vh;
     color: black;
-    padding: 10vh;
+    padding: 15vh 10vw;
+    width: 80vw;
+    min-width: 80vw;
+    max-width: 80vw;
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    
+   
+    
+}
+.vision{
+    background-color: #FFFDE9;
+    height: 70vh;
+    min-height: 70vh;
+    max-height: 70vh;
+    color: black;
+    padding: 15vh 10vw;
+    width: 80vw;
+    min-width: 80vw;
+    max-width: 80vw;
+    position:relative;
+    display: flex;
+    flex-direction: column;
+
+    
+}
+.review-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.mision-active{
+    transition: 1s;
+    margin-left: 0;
+}
+.vision-active{
+    transition: 1s;
+    margin-left:-100%;
+}
+
+.objetivos-active{
+    transition: 1s;
+margin-left: -200%;
+}
+.objetivos{
+    background-color: #FFFDE9;
+    height: 70vh;
+    min-height: 70vh;
+    max-height: 70vh;
+    color: black;
+    padding: 15vh 10vw;
+    width: 80vw;
+    min-width: 80vw;
+    max-width: 80vw;
+    position:relative;
+    display: flex;
+    flex-direction: column;
    
     
 }
 
+
+.row-container2{
+
+    display: flex;
+    flex-direction: row;
+    overflow-x: hidden;
+   
+    
+
+}
+
+.square_slider_right{
+    position: absolute;
+    width: 8vh;
+    height:8vh;
+    background-color: #F2E346;
+    right: 9vh;
+    bottom: 14vh;
+    z-index: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+    
+}
+
+.square_slider_right:hover{
+    background-color: black;
+
+}
+.square_slider_left{
+    position: absolute;
+    width: 8vh;
+    height:8vh;
+    background-color: #F2E346;
+    right: 20vh;
+    bottom: 14vh;
+    z-index: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.5s;
+   
+
+    
+}
+
+.square_slider_left:hover{
+    background-color: black;
+
+}
+.arrow {
+    border: solid black;
+    border-width: 0 8.5px 8.5px 0;
+    display: inline-block;
+    padding: 8.5px;
+    line-height: 8vh;
+    border-color: #FFFDE9;
+ 
+  }
+
+  .right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+
+  
+  
+  .left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+
 .titulos{
-    font-family: 'Quattrocento', serif;
+    font-family: 'FONTSPRING DEMO - The Seasons';
     font-weight: bold;
-    font-size: 7vh;
+    font-size: 8vh;
 
 }
 
 .parrafos{
     font-family: 'Darker Grotesque', sans-serif;
     padding-right: 20vh;
-    font-size: 3vh;
+    font-size: 4vh;
    margin-bottom: 10vh;
 
 }
 
+.column-left{
+
+height: 100%;
+
+display: flex;
+flex-direction: column;
+justify-content: center;
+
+
+}
+.column-right{
+   height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right:10vw;
+}
 .portada{
-    height: 78vh;
+    height: 100vh;
+    width: 100vw;
     background-color: #F2E346;
+    overflow-x: hidden;
+    background-image: url(../../assets/imagenes/escultura.png);
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: auto 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.localidades{
-    background-color: #FFFDE9;
-    height: 72vh;
-    color: black;
-    padding: 10vh;
-    position: relative;
-    right: 0;
-    font-family: 'Quattrocento', serif;
-    font-size: 6vh;
-}
 
-.titulo-localidades{
-    position: absolute;
-    top: 4vh;
-    right: 45vh;
-    text-align: end;
-}
 
 .square{
     position: absolute;
-    width: 40vh;
-    height: 50vh;
+    width: 25vw;
+    height: 40vw;
     background-color: #F2E346;
-    right: 100vh;
-    border-top-left-radius: 20vh;
-    border-top-right-radius: 20vh;
+    right: 30vw;
+    border-top-left-radius: 100vw;
+    border-top-right-radius: 100vw;
   
 }
 
 .imagen{
     position: absolute;
-    width: 35vh;
-    height: 45vh;
-    right: 2.5vh;
+    width: 23vw;
+    height: 38vw;
+    right: 3vh;
     top: 2vh;
-    border-top-left-radius: 20vh;
-    border-top-right-radius: 20vh;
+    border-top-left-radius: 100vw;
+    border-top-right-radius: 100vw;
     object-fit: cover;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
 }
 
 .info-l{
     position: absolute;
     width: 35vh;
     height: 45vh;
-    right: 62vh;
+    left: 42vw;
     top: 30vh;
     font-size: 2vh;
 }
 
 .escultura{
-
-    height: 85vh;
-    margin-left: 16vh;
-    margin-top: -7vh;
+position: absolute;
+z-index: 0;
+    height: 100%;
+    width: 100%;
+object-fit: contain;
+display: flex;
+justify-content: flex-end;
+align-items: flex-end;
 }
 
 .aventuras{
-    position: absolute;
-    font-family: 'Quattrocento', serif;
-    top: 45vh;
-    left: 12vh;
+    font-family: 'FONTSPRING DEMO - The Seasons';
+    margin-left: 5vw;
     color: black;
-    font-size: 7vh;
+    font-size: 5vw;
     font-weight: bold;
+    margin-bottom: 0vh;
+    margin-top: 30vh;
 
 
 }
@@ -101,24 +257,271 @@
 .aventuras-info{
 
     font-family: 'Darker Grotesque', sans-serif;
-    margin-top: -44vh;
-    margin-left: 11.5vh;
+    margin-left: 5vw;
     color: black;
-    font-size: 2.5vh;
+    font-size: 2vw;
+    line-height: 1.1;
+    margin-top: 0;
+   
     
 }
 
-button{
-   
+.b{
     background-color: black;
     color:#FFFDE9;
     height: 5vh;
     width: 23vh;
     border-color: black;
-    margin-left: 12vh; 
+    margin-left: 5vw; 
     font-family: 'Darker Grotesque', sans-serif;
     font-size: 2vh;
     border:none;
     cursor: pointer;
+    transition: 0.5s;
+ 
+  
+}
+
+.b:hover{
+
+    background-color: white;
+    color: black;
+
+  
+}
+
+
+
+.nuevo-evento-title{
+    color:black;
+    text-align: justify;
+    font-size: 2vw;
+    font-weight: lighter;
+    font-family: 'Darker Grotesque', sans-serif;
+    margin: 0;
+
+}
+
+.sentimiento{
+    position: relative;
+    color:black;
+
+    text-align: justify;
+    font-family: 'FONTSPRING DEMO - The Seasons';
+
+    font-weight: 700;
+    
+}
+
+.sentimiento-title{
+    position: relative;
+    color:black;
+    text-align: justify;
+    font-size: 3.5vh;
+    font-family: 'Darker Grotesque', sans-serif;
+}
+
+.aprende-mas{
+    position: relative;
+    color: #5290D1;
+    text-align: justify;
+    font-size: 2vw;
+    margin: 0;
+    font-family: 'FONTSPRING DEMO - The Seasons';
+    border-bottom: 0.5vh solid white;
+    width: fit-content;
+}
+
+.plus{
+    position: relative;
+    font-weight: bold;
+    font-size: 15vh;
+    background-color: red;
+    height: 0;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 8vw;
+    margin-left: -0.8vw;
+
+  
+}
+
+.star-content{
+ display: flex;
+ flex-direction: row;
+ align-items: center;   
+ margin-left: 2vw;
+}
+
+.star{
+    margin-left: 0.1vw;
+    margin-right:0.1vw;
+    font-size: 1.2vw;
+}
+
+.column-right > .nuevo-evento{
+        font-family: 'FONTSPRING DEMO - The Seasons';
+        margin: 0;
+        color: black;
+        font-weight: bold;
+       font-size: 1.5vw;
+}
+.minus{
+    position: absolute;
+    font-size: 15vh;
+    top: 0;
+    left: 2.5vw;
+    background-color: aqua;
+    height: 0;
+  
+}
+
+.row-container{
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll;
+    height: 100vh;
+    overflow-y: hidden;
+   
+
+}
+
+
+@media screen and (max-width:1200px){
+  
+  .parrafos{
+      padding-right: 0;
+      font-size: 2vw;
+  }
+  .vision{
+  
+      height: 100vh;
+      min-height: 100vh;
+      padding-top: 0;
+      padding-bottom: 0;
+  }
+  .mision{
+     
+      height: 100vh;
+      min-height: 100vh;
+      padding-top: 0;
+      padding-bottom: 0;
+  }
+  .objetivos{
+  
+      height: 100vh;
+      min-height: 100vh;
+      padding-top: 0;
+      padding-bottom: 0;   
+  }
+  .square_slider_right{
+      right: 5vw;
+      bottom: 5vh;
+  }
+  .square_slider_left{
+      right: calc(10vw + 8vh);
+      bottom: 5vh;
+  }
+  .parrafos{
+      font-size: 4vw;
+  }
+  }
+  
+@media screen and (max-width:500px){
+  .portada{
+    flex-direction: column;
+  }
+    
+.column-left{
+    
+    justify-content: flex-start;
+    width: 100%;
+}
+    .aventuras{
+margin-top: 20vh;
+font-size: 10vw;
+
+}
+.aventuras-info{
+    font-size: 5vw;
+}
+
+.minus{
+    font-size: 10vw;
+}
+
+.column-right{
+    width: 100%;
+    margin-right: 0;
+    margin-left: 5vw;
+    justify-content: flex-start;
+}
+.nuevo-evento-title{
+    font-size: 5vw; 
+    color: white;
+}
+.column-right > .nuevo-evento{
+    font-size: 5vw;  
+    color: white;
+}
+ 
+.aprende-mas{
+    font-size: 5vw;   
+    color: #F88CF5;
+    font-weight: bold;
+}
+
+.parrafos{
+    padding-right: 0;
+}
+.vision{
+
+    height: 100vh;
+    min-height: 100vh;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.mision{
+   
+    height: 100vh;
+    min-height: 100vh;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.objetivos{
+
+    height: 100vh;
+    min-height: 100vh;
+    padding-top: 0;
+    padding-bottom: 0;   
+}
+.square_slider_right{
+    right: 5vw;
+    bottom: 5vh;
+}
+.square_slider_left{
+    right: calc(10vw + 8vh);
+    bottom: 5vh;
+}
+.parrafos{
+    font-size: 6vw;
+}
+}
+
+@media only screen and (orientation: landscape) and (max-width:1000px){
+    .square_slider_right{
+       width: 12vh;
+       height: 12vh;
+       padding: 2vh;
+    }
+    .square_slider_left{
+        width: 12vh;
+        height: 12vh;
+        padding: 2vh;
+        right: calc(8vw + 12vh);
+    }
+    .parrafos{
+        font-size: 2.5vw;
+    }
 }
 

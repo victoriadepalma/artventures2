@@ -9,10 +9,11 @@ export const Footer = () => {
     <footer className="footer">
     
 
-            <Link to="/"><p>HOME</p></Link>
-            <Link to="/tours"><p>TOURS</p></Link>
-            <Link to="/events"><p>EVENTS</p></Link>
-            <Link to="/book"><p>BOOK</p></Link>
+            <Link to="/" className='footer-link'><p className='footer-element'>HOME</p></Link>
+            <Link to="/tours" className='footer-link'><p className='footer-element'>TOURS</p></Link>
+            <Link to="/events" className='footer-link'><p className='footer-element'>EVENTS</p></Link>
+            <Link to="/book" className='footer-link'><p className='footer-element'>BOOK</p></Link>
+            <p className='contacto'>CONTACTO <br></br>+58 414-117-2157<br></br>ARTVENTURES@GMAIL.COM</p>
            
           
        

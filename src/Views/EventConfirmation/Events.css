@@ -1,0 +1,140 @@
+.events{
+    height: fit-content;
+    min-height: 100vh;
+    width: 100vw;
+    background-color: #FFFDE9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 2vw;
+}
+
+.title-container{
+  width: fit-content;
+  height: fit-content;
+  margin-top: 15vh;
+
+
+}
+
+.events h1{
+  color: black;
+  font-family: 'FONTSPRING DEMO - The Seasons';
+  font-size: 5vw;
+  max-width: 70vw;
+  margin: 0;
+}
+
+.finalizar{
+  position: absolute;
+  right:2vw;
+  bottom: 10vh;
+  font-family: 'Darker Grotesque', sans-serif;
+  color: white;
+  background-color: black;
+  outline: none;
+  border: none;
+  font-size: 1.4vw;
+  padding: 0.5vw 2vw;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.finalizar:hover{
+  color: black;
+  background-color: #F2E346;
+}
+
+.events h2{
+  color: black;
+  font-family: 'Darker Grotesque', sans-serif;
+  font-weight: 200;
+  font-size: 2vw;
+  margin: 0;
+}
+
+.calendar-container{
+  width: 96vw;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5vh;
+}
+.title-event{
+
+    font-family: 'FONTSPRING DEMO - The Seasons';
+    font-weight: bold;
+    font-size: 5vh;
+    border-bottom: 0.3vh solid black;
+    color: black;
+    margin-left: 3vw;
+
+}
+
+.more {
+   
+    overflow: hidden;
+
+    font-family: 'FONTSPRING DEMO - The Seasons';
+    text-align: left;
+    width: 40vw;
+    border-bottom: 0.3vh solid black;
+
+  }
+  .more .btn {
+    font-size: 4vw;    
+    border: none;
+    outline: none;
+    color: black;
+    padding: 0;
+    background-color: inherit;
+    font-family: inherit;
+    margin: 0;
+  
+    
+   
+    
+    
+  }
+  .more-menu {
+    display: none;
+    position: absolute;
+    background-color: #FFFDE9;
+    min-width: 200px;
+    margin-left: 40vw;
+    z-index: 20;
+    transition: 1s;
+    font-size: 3vh;
+   
+  }
+  .more-menu a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    width: 80vh;
+  }
+  .navbar a:hover, .more:hover .btn {
+ color: yellow;
+
+  }
+
+  .dropdown-menu {
+    transition: 1s;
+  }
+  .dropdown-menu a:hover {
+    background-color: #cccccc;
+    color: black;
+    
+   
+  }
+  .more:hover .more-menu {
+    display: block;
+    margin-left: 0;
+    margin-top: 1vh;
+  }
+

@@ -1,0 +1,101 @@
+.container {
+  height: fit-content;
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FFFDE9;
+
+}
+.heading{
+  text-align: center;
+  font-family: 'FONTSPRING DEMO - The Seasons';
+  font-style: normal; 
+  font-size: 9vw;
+  margin-top: 5vh;
+  color: #000000;   
+  margin-bottom: 0;
+}
+.google{
+  width: 40vh;
+  height: 8vh;
+  background-color: #F2E346;
+  border: none;
+  color: black;
+  font-family: 'Darker Grotesque', sans-serif;
+  font-size: 2.5vh;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.boton{
+  width: 40vh;
+  height: 8vh;
+  background-color: black;
+  color: white;
+  border: none;
+  font-family: 'Darker Grotesque', sans-serif;
+  font-size: 2.5vh;
+  transition: 0.5s;
+  margin-top: 3vh;
+  cursor: pointer;
+ 
+}
+.innerBox {
+width: 100%;
+  height: fit-content;
+  width: 100%;
+  padding: 30px;
+  padding-left: 0;
+  padding-right: 0;
+  border-radius: 0vh;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.footer {
+  position: relative;
+  font-family: 'Darker Grotesque', sans-serif;
+  font-size: 3vh;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.footer .error {
+  font-weight: bold;
+  font-size: 2vh;
+  color: #ff3300;
+ 
+}
+.footer button:disabled {
+  background-color: gray !important;
+}
+
+.footer button:hover {
+  background-color: gray;
+  color: white;
+}
+
+.footer p {
+  font-weight: 700;
+  
+  color: #000;
+}
+
+.footer p span a {
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 3vh;
+  text-decoration: underline;
+  color: gray;
+
+}
+
+.footer p span a:hover{
+  color: #F2E346;
+}
