@@ -15,6 +15,10 @@ import { AgregarArtista } from "./AgregarArtista";
 import { AgregarLocation } from "./AgregarLocation";
 import { AgregarObra } from "./AgregarObra";
 import { AgregarTour } from "./AgregarTour";
+import { UpdateArtista } from "./UpdateArtista";
+import { UpdateLocalidad } from "./UpdateLocalidad";
+import { UpdateObra } from "./UpdateObra";
+import { UpdateTour } from "./UpdateTour";
 
 const fields = [
   ["Nombre", "Apellido", "Telefono", "Email"],
@@ -37,10 +41,14 @@ const days = [
 
 export const Admin = () => {
   const dispatch = useDispatch();
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(1);
   const [addArtist, setAddArtist] = useState(false);
   const [addLocation, setAddLocation] = useState(false);
   const [addObra, setAddObra] = useState(false);
+  const [selectedArtist, setSelectedArtist] = useState(null);
+  const [selectedLocalidad, setSelectedLocalidad] = useState(null);
+  const [selectedObra, setSelectedObra] = useState(null);
+  const [selectedTour, setSelectedTour] = useState(null);
   const [addTour, setAddTour] = useState(false);
   const navigate = useNavigate();
 
@@ -138,6 +146,10 @@ export const Admin = () => {
     <AgregarLocation setShow={()=>{setAddLocation(!addLocation)}} show={addLocation}/>
     <AgregarObra setShow={()=>{setAddObra(!addObra)}} show={addObra}/>
     <AgregarTour setShow={()=>{setAddTour(!addTour)}} show={addTour}/>
+    <UpdateArtista setShow={()=>{setSelectedArtist(null)}} show={selectedArtist}/>
+    <UpdateLocalidad setShow={()=>{setSelectedLocalidad(null)}} show={selectedLocalidad}/>
+    <UpdateObra setShow={()=>{setSelectedObra(null)}} show={selectedObra}/>
+    <UpdateTour setShow={()=>{setSelectedTour(null)}} show={selectedTour}/>
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.topbar}>
@@ -186,13 +198,13 @@ export const Admin = () => {
                 <>
                   {tours.map((tour) => {
                     return (
-                      <tr>
+                      <tr className={styles.rowHover} onClick={()=>{setSelectedTour(tour)}}>
                         <td>{tour.name_tour}</td>
                         <td>{getHorario(tour.horario)}</td>
                         <td>{getDias(tour.fecha)}</td>
                         <td>{tour.duracion}</td>
                         <td>
-                          {tour.disponibilidad ? "Disponible" : "No Disponible"}
+                          {tour.disponibilidad==true ? "Disponible" : "No Disponible"}
                         </td>
                       </tr>
                     );
@@ -219,7 +231,7 @@ export const Admin = () => {
                 <>
                   {artists.map((artist) => {
                     return (
-                      <tr>
+                      <tr className={styles.rowHover} onClick={()=>{setSelectedArtist(artist)}}>
                         <td>{artist.name}</td>
                         <td>{artist.last_name}</td>
                       </tr>
@@ -231,7 +243,7 @@ export const Admin = () => {
                 <>
                   {locations.map((location) => {
                     return (
-                      <tr>
+                      <tr className={styles.rowHover} onClick={()=>{setSelectedLocalidad(location)}}>
                         <td>{location.nombre}</td>
                       </tr>
                     );
@@ -242,7 +254,7 @@ export const Admin = () => {
                 <>
                   {obras.map((obra) => {
                     return (
-                      <tr>
+                      <tr className={styles.rowHover} onClick={()=>{setSelectedObra(obra)}}>
                         <td>{obra.tittle}</td>
                         <td>{getArtista(obra.ID_artista)}</td>
                         <td>{obra.tecnica}</td>

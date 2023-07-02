@@ -13,11 +13,12 @@ import {
   listReservas,
   listTours,
   listUsers,
+  updateTour,
 } from "../../Redux/actions/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMultiply } from "@fortawesome/free-solid-svg-icons";
 
-export const AgregarTour = ({ show, setShow }) => {
+export const UpdateTour = ({ show, setShow }) => {
   const dispatch = useDispatch();
   const [values, setvalues] = useState({
     name_tour: "",
@@ -72,11 +73,11 @@ export const AgregarTour = ({ show, setShow }) => {
       horario: getHours(),
       fecha: getDays(),
       duracion: values.duracion + " hora(s)",
-      disponibilidad: true,
+      disponibilidad: values.disponibilidad,
       description: values.description,
     };
 
-    dispatch(addTour(data));
+    dispatch(updateTour({data:data,tour:show.id}));
     setDays({
       domingo: false,
       lunes: false,
@@ -104,6 +105,7 @@ export const AgregarTour = ({ show, setShow }) => {
       description: "",
       disponibilidad: true,
     });
+    setShow()
   };
 
   const getHours = () => {
@@ -169,6 +171,108 @@ export const AgregarTour = ({ show, setShow }) => {
     return aux;
   };
 
+
+  const transformHours = (h) => {
+    let aux = {
+      eight: false,
+      nine: false,
+      ten: false,
+      eleven: false,
+      twelve: false,
+      thirteen: false,
+      fourteen: false,
+      fifteen: false,
+      sixteen: false,
+      seventeen: false,
+    };
+    for(let i=0;i<h.length;i++){
+    if (h[i]==8) {
+      aux.eight=true
+    }
+    if (h[i]==9) {
+      aux.nine=true
+    }
+    if (h[i]==10) {
+      aux.ten=true
+    }
+    if (h[i]==11) {
+      aux.eleven=true
+    }
+    if (h[i]==12) {
+      aux.twelve=true
+    }
+    if (h[i]==13) {
+      aux.thirteen=true
+    }
+    if (h[i]==14) {
+      aux.fourteen=true
+    }
+    if (h[i]==15) {
+      aux.fifteen=true
+    }
+    if (h[i]==16) {
+      aux.sixteen=true
+    }
+    if (h[i]==17) {
+      aux.seventeen=true
+    }}
+
+    setTimeSlots(aux)
+  };
+
+  const transformDays = (d) => {
+    let aux = {
+      domingo: false,
+      lunes: false,
+      martes: false,
+      miercoles: false,
+      jueves: false,
+      viernes: false,
+      sabado: false,
+    };
+    for(let i=0;i<d.length;i++){
+    if (d[i]==0) {
+      aux.domingo=true
+    }
+    if (d[i]==1) {
+      aux.lunes=true
+    }
+    if (d[i]==2) {
+      aux.martes=true
+    }
+    if (d[i]==3) {
+      aux.miercoles=true
+    }
+    if (d[i]==4) {
+      aux.jueves=true
+    }
+    if (d[i]==5) {
+      aux.viernes=true
+    }
+    if (d[i]==6) {
+      aux.sabado=true
+    }
+
+  }
+  setDays(aux)
+  };
+
+  const getDuracion=(d)=>{
+let aux=d.split(" ")
+return aux[0]
+  }
+  useEffect(() => {
+    if (show) {
+      setvalues({
+        name_tour: show.name_tour,
+        duracion: getDuracion(show.duracion),
+        description: show.description,
+        disponibilidad: show.disponibilidad,
+      });
+      transformHours(show.horario)
+      transformDays(show.fecha)
+    }
+  }, [show]);
   return (
     <>
       <div className={!show ? styles.modal : styles.modalActive}>
@@ -207,7 +311,7 @@ export const AgregarTour = ({ show, setShow }) => {
           }}
         />
         <div className={styles.modalContent}>
-          <h1>Nuevo Tour</h1>
+          <h1>Actualizar Tour</h1>
           <div className={styles.input}>
             <input
               placeholder="Título"
@@ -216,6 +320,16 @@ export const AgregarTour = ({ show, setShow }) => {
                 setvalues((prev) => ({ ...prev, name_tour: e.target.value }));
               }}
             />
+          </div>
+          <div className={styles.input}>
+        <select value={values.disponibilidad} onChange={(e)=>{ setvalues((prev) => ({ ...prev, disponibilidad: e.target.value }))}}>
+            <option selected disabled>Disponibilidad</option>
+              <option value={true}>Disponible</option>
+              <option value={false}>No Disponible</option>
+         
+           
+   
+          </select>
           </div>
           <div className={styles.input}>
             <h1>Días</h1>
@@ -421,7 +535,7 @@ export const AgregarTour = ({ show, setShow }) => {
               agregar(e);
             }}
           >
-            Agregar
+            Actualizar
           </button>
         </div>
       </div>

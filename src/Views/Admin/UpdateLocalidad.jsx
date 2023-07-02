@@ -12,35 +12,32 @@ import {
   listTours,
   listUsers,
   updateArtist,
+  updateLocalidad,
 } from "../../Redux/actions/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMultiply } from "@fortawesome/free-solid-svg-icons";
 
-export const UpdateArtista = ({ show, setShow }) => {
+export const UpdateLocalidad = ({ show, setShow }) => {
   const dispatch = useDispatch();
-  console.log("mknhbgvgbhnj", show);
-  const [values, setvalues] = useState({
-    name: show?.name ? show.name : "",
-    last_name: show?.last_name ? show.last_name : null,
-  });
+  const [values, setvalues] = useState({ nombre: ""});
   const [errorMsg, setErrorMsg] = useState([]);
 
   const navigate = useNavigate();
   const agregar = async (e) => {
     e.preventDefault();
-    if (!values.name || !values.last_name) {
+    if (!values.nombre) {
       setErrorMsg("Llene todos los campos");
       return;
     }
     setErrorMsg("");
-    dispatch(updateArtist({ data: values, artista: show.id }));
-    setvalues({ name: "", last_name: "" });
+    dispatch(updateLocalidad({ data: values, location: show.id }));
+    setvalues({ nombre: ""});
     setShow();
   };
 
   useEffect(() => {
     if (show) {
-      setvalues({ name: show.name, last_name: show.last_name });
+      setvalues({ nombre: show.nombre});
     }
   }, [show]);
   return (
@@ -54,22 +51,13 @@ export const UpdateArtista = ({ show, setShow }) => {
           }}
         />
         <div className={styles.modalContent}>
-          <h1>Actualizar Artista</h1>
+          <h1>Actualizar Localidad</h1>
           <div className={styles.input}>
             <input
               placeholder="Nombre"
-              value={values.name}
+              value={values.nombre}
               onChange={(e) => {
-                setvalues((prev) => ({ ...prev, name: e.target.value }));
-              }}
-            />
-          </div>
-          <div className={styles.input}>
-            <input
-              placeholder="Apellido"
-              value={values.last_name}
-              onChange={(e) => {
-                setvalues((prev) => ({ ...prev, last_name: e.target.value }));
+                setvalues((prev) => ({ ...prev, nombre: e.target.value }));
               }}
             />
           </div>

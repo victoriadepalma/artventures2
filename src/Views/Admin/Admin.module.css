@@ -277,3 +277,11 @@ table{
     color: white;
     background-color: black;
   }
+
+  .rowHover{
+    transition: 0.5s;
+    cursor: pointer;
+  }
+  .rowHover:hover{
+    background-color: #F2E346;
+  }

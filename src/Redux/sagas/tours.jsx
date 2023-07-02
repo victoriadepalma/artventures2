@@ -25,6 +25,10 @@ import {
   LIST_TOURS,
   RESERVE,
   SEND_FEEDBACK,
+  UPDATE_ARTIST,
+  UPDATE_LOCATION,
+  UPDATE_OBRA,
+  UPDATE_TOUR,
 } from "../constants";
 import { db, auth, googleProvider, store } from "../../firebase";
 import {
@@ -131,6 +135,66 @@ const addFeedbackRequest = async (data) => {
   console.log("kmjnhbgvfvhbjnkml", docRef.id);
   return docRef.id;
 };
+
+const updateArtistRequest = async (data) => {
+
+  const docuRef = await doc(db, `artista/${data.data.artista}`);
+  updateDoc(docuRef, data.data.data);
+  return docuRef;
+};
+
+const updateTourRequest = async (data) => {
+
+  const docuRef = await doc(db, `tour/${data.data.tour}`);
+  updateDoc(docuRef, data.data.data);
+  return docuRef;
+};
+
+const updateLocalidadRequest = async (data) => {
+console.log(data)
+  const docuRef = await doc(db, `location/${data.data.location}`);
+  updateDoc(docuRef, data.data.data);
+  return docuRef;
+};
+
+const updateObraRequest = async (data) => {
+  console.log(data)
+  if(data.data.file){
+      const storageRef = ref(store, `/tour/${data.data.data.ID_tour}`);
+      const uploadTask = uploadBytesResumable(storageRef, data.data.file);
+    
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const percent = Math.round(
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          );
+    
+          // // update progress
+          // setPercent(percent);
+        },
+        (err) => console.log(err),
+        async () => {
+          // download url
+          getDownloadURL(uploadTask.snapshot.ref).then(async(url) => {
+            console.log(url);
+            let data1=data.data.data
+            data1.img=url
+            const docuRef1 = await doc(db, `obras/${data.data.obra}`);
+            updateDoc(docuRef1, data1);
+            return docuRef1;
+          });
+    
+       
+        }
+      );
+  }else{
+    const docuRef = await doc(db, `obras/${data.data.obra}`);
+    updateDoc(docuRef, data.data.data);
+    return docuRef;
+  }
+
+  };
 
 const addArtistRequest = async (data) => {
   const docRef = await addDoc(collection(db, "artista"), data.data)
@@ -490,9 +554,34 @@ function* addObra(payload) {
     const res = yield call(addObraRequest, payload);
   } catch (error) {}
 }
+
 function* addTour(payload) {
   try {
     const res = yield call(addTourRequest, payload);
+  } catch (error) {}
+}
+
+function* updateArtist(payload) {
+  try {
+    const res = yield call(updateArtistRequest, payload);
+  } catch (error) {}
+}
+
+function* updateLocalidad(payload) {
+  try {
+    const res = yield call(updateLocalidadRequest, payload);
+  } catch (error) {}
+}
+
+function* updateObra(payload) {
+  try {
+    const res = yield call(updateObraRequest, payload);
+  } catch (error) {}
+}
+
+function* updateTour(payload) {
+  try {
+    const res = yield call(updateTourRequest, payload);
   } catch (error) {}
 }
 
@@ -516,5 +605,9 @@ export default function* rootSaga() {
     takeLatest(ADD_LOCATION, addLocation),
     takeLatest(ADD_OBRA, addObra),
     takeLatest(ADD_TOUR, addTour),
+    takeLatest(UPDATE_ARTIST, updateArtist),
+    takeLatest(UPDATE_LOCATION, updateLocalidad),
+    takeLatest(UPDATE_OBRA, updateObra),
+    takeLatest(UPDATE_TOUR, updateTour),
   ]);
 }
