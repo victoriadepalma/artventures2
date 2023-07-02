@@ -17,6 +17,7 @@
   color: #000000;   
   margin-bottom: 0;
 }
+
 .google{
   width: 40vh;
   height: 8vh;
@@ -26,7 +27,11 @@
   font-family: 'Darker Grotesque', sans-serif;
   font-size: 2.5vh;
   transition: 0.5s;
+  display: flex;
+  flex-direction: row;
   cursor: pointer;
+  align-items: center;
+  
 }
 
 .google a{
@@ -35,13 +40,15 @@
 }
 
 .imggoogle{
-  position: absolute;
   width: 5vh;
   height: 5vh;
-  left: 2vh;
+  /* left: 5vh; */
   top: 1.5vh;
-  
+  margin-right:1vw;
+  margin-top:0.2vw; 
 }
+
+
 .boton{
   width: 40vh;
   height: 8vh;
@@ -53,10 +60,10 @@
   transition: 0.5s;
   margin-top: 3vh;
   cursor: pointer;
- 
 }
+
 .innerBox {
-width: 100%;
+  width: 100%;
   height: fit-content;
   width: 100%;
   padding: 30px;
@@ -77,15 +84,15 @@ width: 100%;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
 }
+
 
 .footer .error {
   font-weight: bold;
   font-size: 2vh;
   color: #ff3300;
- 
 }
+
 .footer button:disabled {
   background-color: gray !important;
 }
@@ -107,9 +114,13 @@ width: 100%;
   font-size: 3vh;
   text-decoration: underline;
   color: gray;
-
 }
 
 .footer p span a:hover{
   color: #F2E346;
+}
+
+
+@media screen and (max-width: 1000px) {
+
 }

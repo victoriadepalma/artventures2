@@ -75,9 +75,11 @@ navigate(`/events/${id}/confirmation/${currentReserva.id}`)
   
 
   }, [currentReserva]);
+
+  
   return (
     <>
-       <Message currentReserva={currentReserva} show={showMessage} setShow={()=>{setShowMessage(!showMessage)}} makeReservation={()=>{makeReservation()}}/>
+       <Message currentTour={currentTour} selectedDate={selectedDate} selectedHour={selectedHour} currentReserva={currentReserva} show={showMessage} setShow={()=>{setShowMessage(!showMessage)}} makeReservation={()=>{makeReservation()}}/>
 
       <div className='events'>
         <div className='title-container'>

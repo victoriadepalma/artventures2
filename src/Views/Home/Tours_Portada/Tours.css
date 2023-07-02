@@ -27,8 +27,7 @@
     left: 15vw;
     top:6vh;
     border-top-left-radius: 100vw;
-    border-top-right-radius: 100vw;
-  
+    border-top-right-radius: 100vw;  
 }
 
 .imagen{
@@ -102,4 +101,8 @@
         font-size: 3vw;
         line-height: 1.2;
     }
+
+
+   
+
 }

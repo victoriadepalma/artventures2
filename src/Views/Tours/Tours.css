@@ -23,7 +23,7 @@
 .filters{
   background-color: black;
   width: 60vw;
-  position: fixed;
+  position: absolute;
   z-index: 20;
   top:12vh;
   left:0;
@@ -262,7 +262,7 @@ padding-right: 2vw;
 
    
     right: auto;
-    bottom: 10vh;
+    bottom: 4vh;
     background-color: #F2E346;
     color: black;
   }
@@ -351,6 +351,33 @@ font-size: 4vh;
 
 .filters{
   font-size: 4vh;
+}
+
+.tour-name > span{
+ 
+  font-size: 15vh;
+ 
+
+}
+.tour-name2 > span {
+  animation-delay: 5s;
+
+
+}
+
+.filter-container > select,input{
+  width:100%;
+  min-width: 100%;
+  display: flex;
+  max-width: 100%;
+  outline: none;
+  border:1px solid black;
+  background-color: transparent;
+  color: black;
+  padding: 0.5vw 0vw;
+  font-size: 3.5vw;
+  font-family: 'Darker Grotesque', sans-serif;
+  
 }
 
 

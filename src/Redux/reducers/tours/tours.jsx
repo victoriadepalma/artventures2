@@ -58,33 +58,36 @@ import { LIST_LOCATIONS_SUCCESS, LIST_OBRAS, LIST_TOURS_SUCCESS,LIST_ARTISTS_SUC
         };
       }
       case RESERVE_SUCCESS: {
-        console.log(action.data)
         return {
           ...state,
           currentReserva:{id: action.data}
         };
       }
       case GET_RESERVA_SUCCESS: {
-        console.log(action.data)
+
         return {
           ...state,
           currentReserva:action.data
         };
       }
       case GET_RESERVAS_SUCCESS: {
-        console.log(action.data)
         return {
           ...state,
           misReservas:action.data
         };
       }
       case RESET_RESERVA: {
-        console.log(action.data)
         return {
           ...state,
           currentReserva:undefined
         };
       }
+      // case RESET_RESERVA: {
+      //   return {
+      //     ...state,
+      //     currentReserva:undefined
+      //   };
+      // }
       default: {
         return state;
       }
