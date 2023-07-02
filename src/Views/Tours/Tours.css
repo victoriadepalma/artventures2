@@ -23,7 +23,7 @@
 .filters{
   background-color: black;
   width: 60vw;
-  position: fixed;
+  position: absolute;
   z-index: 20;
   top:12vh;
   left:0;
