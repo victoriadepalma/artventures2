@@ -6,6 +6,7 @@ import {
   editProfile,
   editProfilePic,
   getReservas,
+  listContribuciones,
   listTours,
 } from "../../Redux/actions/actions";
 import "./Edit_Profile.css";
@@ -86,7 +87,7 @@ export const Edit_Profile = () => {
   const [file, setFile] = useState("");
   const [percent, setPercent] = useState(0);
   console.log("useeer", user);
-  const { tours, misReservas } = useSelector((state) => ({
+  const { tours, misReservas,contribuciones } = useSelector((state) => ({
     ...state.tours,
   }));
 
@@ -109,6 +110,7 @@ export const Edit_Profile = () => {
     if (tours.length == 0 || misReservas.length == 0) {
       dispatch(getReservas(user.uid));
       dispatch(listTours());
+      dispatch(listContribuciones())
     }
   }, []);
   const handleChange = (event) => {
@@ -128,6 +130,16 @@ export const Edit_Profile = () => {
     dispatch(editProfile({ user: user.uid, data: values }));
   };
 
+  const getContribucion = (id)=>{
+let aux=contribuciones.filter((contribucion)=>id==contribucion.id)
+if(aux.length >0){
+  return aux[0].amount
+}else{
+  return "0.00$" 
+}
+
+  }
+  console.log('conr',contribuciones)
   return (
     <div className="perfil">
       {selectedReserva != null && (
@@ -178,7 +190,7 @@ export const Edit_Profile = () => {
                   <td>{reserva.fecha}</td>
                   <td>{getHour(reserva.horario)}</td>
                   <td>{reserva.cantidad_persona}</td>
-                  <td>Contribución</td>
+                  <td>{reserva.contribucion !=false ? getContribucion(reserva.contribucion)+"$":'0.00$'}</td>
                   {!reserva.feedback ? (
                     <td
                       onClick={() => {

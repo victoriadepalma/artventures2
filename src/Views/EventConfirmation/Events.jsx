@@ -66,7 +66,8 @@ if(currentReserva && !currentReserva?.contribucion){
 
   return (
     <>
-          <Message show={showMessage} setShow={()=>{setShowMessage(!showMessage)}} />
+    {currentReserva &&
+          <Message show={showMessage} setShow={()=>{setShowMessage(!showMessage)}} currentReserva={reservaId} currentTour={id} />}
 
       <div className='events'>
         {currentReserva ?

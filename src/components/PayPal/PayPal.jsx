@@ -1,11 +1,16 @@
 import React from "react";
 import{ useRef, useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { paypal } from "../../Redux/actions/actions";
 import "./PayPal.css";
 
-const PayPalButton = ({ amount }) => {
+const PayPalButton = ({ amount,ID_reserva }) => {
+    const { currentPayment} = useSelector((state) => ({
+        ...state.tours,
+      }));
   const [paidFor, setPaidFor] = useState(false);
   const [error, setError] = useState(null);
-
+const dispatch=useDispatch()
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
@@ -27,6 +32,12 @@ const PayPalButton = ({ amount }) => {
           onApprove: async (data, actions) => {
             const order = await actions.order.capture();
             setPaidFor(true);
+const data1={
+    ID_reserva:ID_reserva,
+    amount:order.purchase_units[0].amount.value,
+    paypal:order.id
+}
+            dispatch(paypal(data1))
             console.log(order);
           },
           onError: (err) => {
@@ -47,8 +58,8 @@ const PayPalButton = ({ amount }) => {
 
   return (
     <div>
-      {paidFor ? (
-        <h1>Gracias por tu colaboracion!</h1>
+      {paidFor || currentPayment !=undefined ? (
+        <h1 className="success">Gracias por tu colaboracion!</h1>
       ) : (
         <div className="buttons">
           <h1 id = "mount">Total a pagar: ${amount}</h1>

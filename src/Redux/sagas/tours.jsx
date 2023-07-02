@@ -13,17 +13,20 @@ import {
   ADD_TOUR,
   EDIT_PROFILE,
   EDIT_PROFILE_PIC,
+  GET_CONTRIBUCION,
   GET_RATING_TOUR,
   GET_RESERVA,
   GET_RESERVAS,
   GET_TOUR,
   LIST_ARTISTS,
+  LIST_CONTRIBUCIONES,
   LIST_LOCATIONS,
   LIST_OBRAS,
   LIST_OBRAS_TOUR,
   LIST_RATINGS,
   LIST_RESERVAS,
   LIST_TOURS,
+  PAY,
   RESERVE,
   SEND_FEEDBACK,
   UPDATE_ARTIST,
@@ -45,12 +48,14 @@ import {
 } from "firebase/firestore";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import {
+  getContribucionSuccess,
   getRatingsSuccess,
   getReservas,
   getReservasSuccess,
   getReservaSuccess,
   getTourSuccess,
   listArtistsSuccess,
+  listContribucionesSuccess,
   listLocationsSuccess,
   listObrasSuccess,
   listObrasTourSuccess,
@@ -115,6 +120,16 @@ const getReservaRequest = async (uid) => {
 const reserveRequest = async (data) => {
   console.log(data);
   const docRef = await addDoc(collection(db, "reserva"), data.data);
+  console.log("Document written with ID: ", docRef.id);
+  return docRef.id;
+};
+
+const payRequest = async (data) => {
+  console.log('hola1',data);
+  const docRef = await addDoc(collection(db, "contribucion"), data.data).then(async(res)=>{
+    const docuRef1 = await doc(db, `reserva/${data.data.ID_reserva}`);
+    updateDoc(docuRef1, {contribucion: res.id});
+  });
   console.log("Document written with ID: ", docRef.id);
   return docRef.id;
 };
@@ -464,6 +479,52 @@ const listToursRequest = async () => {
   return tours;
 };
 
+const getContribucionRequest = async (payload) => {
+  console.log("kjhbjnkml,kjbh",payload)
+  let count = localStorage.getItem("count");
+  console.log(count);
+  if (count) {
+    count = Number(count) + 1;
+  } else {
+    count = 1;
+  }
+  localStorage.setItem("count", count.toString());
+  const q = query(collection(db, "contribucion"), where("ID_reserva", "==", payload.data));
+
+  const querySnapshot = await getDocs(q);
+  let tours = [];
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+
+    tours.push({ ...doc.data(), id: doc.id });
+  });
+console.log('jhbgvfcvhbjknl',tours)
+
+  return tours;
+};
+
+const listContribucionesRequest = async () => {
+  let count = localStorage.getItem("count");
+  console.log(count);
+  if (count) {
+    count = Number(count) + 1;
+  } else {
+    count = 1;
+  }
+  localStorage.setItem("count", count.toString());
+  const q = query(collection(db, "contribucion"));
+
+  const querySnapshot = await getDocs(q);
+  let tours = [];
+  querySnapshot.forEach((doc) => {
+    // doc.data() is never undefined for query doc snapshots
+
+    tours.push({ ...doc.data(), id: doc.id });
+  });
+console.log('jhbgvfcdddvhbjknl',tours)
+  return tours;
+};
+
 function* listTours(payload) {
   try {
     const res = yield call(listToursRequest, payload);
@@ -615,6 +676,27 @@ function* updateTour(payload) {
   } catch (error) {}
 }
 
+function* pay(payload) {
+  try {
+    const res = yield call(payRequest, payload);
+  } catch (error) {}
+}
+
+function* getContribucion(payload) {
+  try {
+    const res = yield call(getContribucionRequest, payload);
+    yield put(getContribucionSuccess(res));
+  } catch (error) {}
+}
+
+function* listContribuciones(payload) {
+  try {
+    const res = yield call(listContribucionesRequest, payload);
+    yield put(listContribucionesSuccess(res));
+  } catch (error) {}
+}
+
+
 export default function* rootSaga() {
   yield all([
     takeLatest(LIST_LOCATIONS, listLocations),
@@ -640,5 +722,8 @@ export default function* rootSaga() {
     takeLatest(UPDATE_OBRA, updateObra),
     takeLatest(UPDATE_TOUR, updateTour),
     takeLatest(LIST_RATINGS, listRatings),
+    takeLatest(PAY, pay),
+    takeLatest(GET_CONTRIBUCION, getContribucion),
+    takeLatest(LIST_CONTRIBUCIONES, listContribuciones),
   ]);
 }

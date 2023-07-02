@@ -44,11 +44,11 @@ console.log('jmjcdjnj',user)
 
   }
 
-  const makeReservation=()=>{
+  const makeReservation=(cant)=>{
     const data={
        ID_tour:id,
        ID_user:user.uid,
-       cantidad_persona:1,
+       cantidad_persona:cant,
        contribucion:false,
        fecha:selectedDate,
        horario:selectedHour,
@@ -89,7 +89,7 @@ navigate(`/events/${id}/confirmation/${currentReserva.id}`)
   return (
     <>
     {
-      currentTour &&        <Message currentTour={currentTour} selectedDate={selectedDate} selectedHour={selectedHour} currentReserva={currentReserva} show={showMessage} setShow={()=>{setShowMessage(!showMessage)}} makeReservation={()=>{makeReservation()}}/>
+      currentTour &&        <Message currentTour={currentTour} selectedDate={selectedDate} selectedHour={selectedHour} currentReserva={currentReserva} show={showMessage} setShow={()=>{setShowMessage(!showMessage)}} makeReservation={(cant)=>{makeReservation(cant)}}/>
     }
 
 

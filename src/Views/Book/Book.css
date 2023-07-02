@@ -19,8 +19,14 @@
 
 }
 
+.input{
+    width: 100%;
+    margin-top: 2vh;
+}
 
-
+.input > input{
+    font-size: 1.2vw;
+}
 .parrafos-book{
     font-family: 'Darker Grotesque', sans-serif;
     padding-right: 20vh;

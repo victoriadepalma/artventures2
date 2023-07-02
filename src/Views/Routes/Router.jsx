@@ -94,7 +94,9 @@ export const Router = () => {
             <Route path="/events" element={<Events />} />
             <Route path="/book/:id" element={<Book />} />
             <Route path="/book" element={<BookGeneral />} />
-            <Route path="/pay" element={<PayPage />} />
+            <Route path="/events/:id/pay/:reservaId" element={ <ProtectedRoute>
+                  <PayPage />
+                </ProtectedRoute>} />
             <Route
               path="/login"
               element={
@@ -122,9 +124,9 @@ export const Router = () => {
                 <Route
               path="/admin/dashboard"
               element={
-                <ProtectedRoute>
+                <ProtectedAdminRoute>
                   <Admin />
-                </ProtectedRoute>
+                </ProtectedAdminRoute>
               }
             />
           </Routes>
