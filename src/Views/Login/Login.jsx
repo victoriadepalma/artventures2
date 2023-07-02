@@ -86,9 +86,10 @@ export function Login() {
 
         <div className={styles.footer}>
         <b className={styles.error}>{errorMsg}</b>
-        <button className={styles.boton} onClick={(e)=> {signinWithFacebook(e)}}>Iniciar sesion con Facebook</button>
-        <button className={styles.google} onClick={(e)=>{signinWithGoogle(e)}}> <img className = {styles.imggoogle} src="https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-png-logo-noir.png"></img>Iniciar Sesión con Google</button>
+
         <button className={styles.boton} onClick={(e)=>{Iniciar(e)}} disabled={submitButtonDisabled}>Iniciar</button>
+        <button className={styles.facebook} onClick={(e)=> {signinWithFacebook(e)}}>Iniciar sesion con Facebook</button>
+        <button className={styles.google} onClick={(e)=>{signinWithGoogle(e)}}> <img className = {styles.imggoogle} src="https://icones.pro/wp-content/uploads/2021/02/google-icone-symbole-png-logo-noir.png"></img>Iniciar Sesión con Google</button>
           <p>
           ¿No te has registrado? Crea una nueva cuenta <span>
               <Link to="/signup">aqui</Link>
