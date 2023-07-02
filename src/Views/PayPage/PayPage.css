@@ -19,3 +19,14 @@ input{
     border-bottom: 2px solid black;
     font-family: 'Darker Grotesque', sans-serif;
 }
+
+@media screen and (max-width: 1200px) {
+    input{
+        border: none;
+        font-size: 6vw;
+        width: fit-content;
+        text-align: center;
+        border-bottom: 2px solid black;
+        font-family: 'Darker Grotesque', sans-serif;
+    }
+}
