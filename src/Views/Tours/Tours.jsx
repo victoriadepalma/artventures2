@@ -31,11 +31,10 @@ export const Tours = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("hola");
+ 
     if (
       tours.length == 0 ||
-      obras.length ||
-      0 ||
+      obras.length ==0 ||
       artists.length == 0 ||
       locations.length == 0
     ) {
@@ -56,7 +55,6 @@ export const Tours = () => {
     let artistasAux = artists;
     let locationsAux=locations;
     let filtered = [];
-
 
     if (filters.includes("Nombre")) {
       filtered = aux.filter((tour) =>
@@ -143,7 +141,13 @@ export const Tours = () => {
       filtered = aux.filter((tour) => obrasAux.includes(tour.id));
     }
 
-    setFilteredTours(filtered);
+    if(filters.length==0){
+      setFilteredTours(tours)
+    }else{
+      setFilteredTours(filtered);
+    }
+
+
   };
 
   const agregarFiltro = () => {
@@ -191,8 +195,19 @@ export const Tours = () => {
         }
       })
     );
-
+auxFilterOptions=auxFilterOptions.map((element,i) => {
+  if (i == index) {
+    let aux = element;
+    aux.used = false;
+    aux.value = '';
+    element = aux;
+    return element;
+  } else {
+    return element;
+  }
+})
     setFilters(removed);
+    filtrar(auxFilterOptions);
   };
 
   return (
