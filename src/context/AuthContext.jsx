@@ -36,7 +36,7 @@ export const AuthContextProvider = ({ children }) => {
           try{
               const info =  await signInWithPopup(auth, FBprovider).then((usuarioFirebase)=>{return usuarioFirebase})
               const docuRef = await doc(db, `users/${info.user.uid}`)
-              setDoc(docuRef,{name:info.user.displayName,email:info.user.email,role:'user'})
+              setDoc(docuRef,{name:info.user.displayName,email:info.user.email,codigo:'124681020',avatar:null})
           }catch(err){
               console.log(err)
               setErrorMsg(err.message)
