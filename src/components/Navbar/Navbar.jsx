@@ -33,6 +33,11 @@ const location=useLocation()
 
     navigate('/perfil')
   }
+
+  const goToAdmin=()=>{
+
+    navigate('/admin/dashboard')
+  }
   return (
     <div className= "logo-container" style={{backgroundColor:location?.pathname!='/' ? 'transparent':'#F2E346'}}>
     <NavLink to = "/" >  <img src = {logo}></img> ArtVentures</NavLink>
@@ -46,7 +51,12 @@ const location=useLocation()
     {location?.pathname!='/' ?
     <div className='navbar-right'>
        {user != null &&
-    <button className='logOut' onClick={()=>{logout()}}>Cerrar Sesión</button>}
+
+       <>
+       {user.codigo==="258654321" &&
+        <button className='logOut' onClick={()=>{goToAdmin()}}>Dashboard</button>}
+     
+    <button className='logOut' onClick={()=>{logout()}}>Cerrar Sesión</button>  </>}
     <button className='navbar-menu' onClick={()=>{toggle()}}>
     <div className='navbar-menu-line1'></div>
     <div className='navbar-menu-line2'></div>
@@ -62,7 +72,8 @@ const location=useLocation()
      </div>
      :<div className='navbar-right'>
    
-  
+   {user.codigo==="258654321" &&
+        <button className='logOut' onClick={()=>{goToAdmin()}}>Dashboard</button>}
      <button className='logOut' onClick={()=>{goToPerfil()}}>Perfil</button>
      <button className='logOut' onClick={()=>{logout()}}>Cerrar Sesión</button>
      </div>}
@@ -75,7 +86,7 @@ const location=useLocation()
  
     <button className='menu-item' onClick={()=>{goToEvents()}}> <h1 to="/events">  Events </h1><div className='menu-underline'></div></button>
     <button className='menu-item' onClick={()=>{goToBook()}}>  <h1  to="/book">  Book </h1><div className='menu-underline'></div></button>
-    
+    <button className='menu-item' onClick={()=>{goToAdmin()}}>  <h1  to="/admin/dashboard">  Dashboard </h1><div className='menu-underline'></div></button>
     <button className='close-menu'  onClick={()=>{toggle()}}>
     <FontAwesomeIcon icon={faMultiply} className='close-menu-icon' />
     </button>
