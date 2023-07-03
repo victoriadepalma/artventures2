@@ -285,3 +285,61 @@ table{
   .rowHover:hover{
     background-color: #F2E346;
   }
+
+  @media screen and (max-width:1200px) {
+    table{
+      margin-top:5vh;
+      border-width: 1px;
+      border-spacing: 0px;
+      border-style: solid;
+      border-color: black;
+      border-collapse: collapse;
+      width: 96%;
+  
+    }
+
+    th,td{
+      border-width: 1px;
+      border-spacing: 0px;
+      border-style: solid;
+      border-color: black;
+      border-collapse: collapse;
+      color: black;
+      padding: 0.5vw 2vw; 
+      padding-left: 0.5vw;
+      font-size: 5vw !important;
+      text-align: left;
+      font-family: 'Darker Grotesque', sans-serif !important;
+    }
+
+    .topbar{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+  }
+  
+  .topbar > button {
+      border: none;
+      background-color: black;
+      color: white;
+      outline: none;
+      padding: 0.5vw 1vw;
+      font-size: 5vw !important ;
+      font-family: 'Darker Grotesque', sans-serif; 
+      margin-right:1vw; 
+      transition: 0.5s;
+      cursor: pointer;
+      margin-bottom: 2vh;
+  }
+
+  .topbar >select{
+    padding: 0.5vw 1vw;
+    font-size: 5vw !important ;
+    margin-bottom: 2vh;
+  }
+
+  }
+
+
